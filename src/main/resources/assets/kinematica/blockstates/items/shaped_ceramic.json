@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "transform": "forge:default-item",
+        "model": "forge:item-layer"
+    },
+    "variants": {
+		"inventory": [{ "textures": { "layer0": "items/brick" }}],
+		"gear": [{ "textures": { "layer0": "kinematica:items/ceramic_gear" }}],
+		"rod": [{ "textures": { "layer0": "kinematica:items/ceramic_rod" }}]
+    }
+}

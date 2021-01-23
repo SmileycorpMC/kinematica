@@ -1,0 +1,95 @@
+itemGroup.kinematica.Materials=Kinematica Materials
+itemGroup.kinematica.Blocks=Kinematica Blocks
+itemGroup.kinematica.Machines=Kinematica Machines
+
+container.kinematica.Kiln=Kiln
+
+jei.category.kinematica.Kiln=Kiln Smelting
+
+localisation.Clay=Clay
+localisation.Ceramic=Ceramic
+
+localisation.Iron=Iron
+localisation.Gold=Gold
+localisation.Tin=Tin
+localisation.Copper=Copper
+localisation.Lead=Lead
+localisation.Silver=Silver
+localisation.Zinc=Zinc
+localisation.Chromium=Chromium
+localisation.Manganese=Manganese
+localisation.Cobalt=Cobalt
+localisation.Nickel=Nickel
+localisation.Palladium=Palladium
+localisation.Platinum=Platinum
+localisation.Osmium=Osmium
+localisation.Iridium=Iridium
+localisation.Lithium=Lithium
+localisation.Magnesium=Magnesium
+localisation.Bismuth=Bismuth
+localisation.Antimony=Antimony
+localisation.Tungsten=Tungsten
+localisation.Aluminium=Aluminum
+localisation.Titanium=Titanium
+
+localisation.Bronze=Bronze
+localisation.Brass=Brass
+localisation.Durallium=Durallium
+localisation.Constantan=Constantan
+localisation.Pewter=Pewter
+localisation.Invar=Invar
+localisation.Electrum=Electrum
+localisation.Argentium=Argentium
+localisation.Nichrome=Nichrome
+localisation.Platinaire=Platinaire
+localisation.Iridosmine=Iridosmine
+localisation.RoseGold=Rose Gold
+localisation.Fathonium=Fathonium
+
+localisation.WroughtIron=Wrought Iron
+localisation.CastIron=Cast Iron
+localisation.Steel=Steel
+
+localisation.GalvanisedSteel=Galvanized Steel
+localisation.Stellite=Stellite
+localisation.WhiteGold=White Gold
+
+localisation.Mithril=Mithril
+localisation.Hepatizion=Hepatizion
+localisation.Orichalcum=Orichalcum
+localisation.DamascusSteel=Damascus Steel
+
+localisation.null=Null
+
+localisation.Ingot=Ingot
+localisation.Dust=Dust
+localisation.Nugget=Nugget
+localisation.Gear=Gear
+localisation.Plate=Plate
+localisation.Rod=Rod
+localisation.Ore=Ore
+localisation.Block=Block
+localisation.Dirty=Dirty
+localisation.Clump=Clump
+localisation.Shard=Shard
+localisation.Slurry=Slurry
+localisation.Coin=Coin
+
+tile.kinematica.Mud.name=Mud
+tile.kinematica.Mudbrick.name=Mudbrick
+tile.kinematica.FiredMudbrick.name=Hardened Mudbrick
+tile.kinematica.Limestone.name=Limestone
+
+tile.kinematica.SharingaLog.name=Sharinga Wood
+tile.kinematica.SharingaPlanks.name=Sharinga Wood Planks
+tile.kinematica.SharingaSlab.name=Sharinga Wood Slab
+tile.kinematica.SharingaStairs.name=Sharinga Wood Stairs
+tile.kinematica.SharingaSapling.name=Sharinga Sapling
+tile.kinematica.SharingaLeaves.name=Sharinga Leaves
+tile.kinematica.SharingaFence.name=Sharinga Fence
+tile.kinematica.SharingaGate.name=Sharinga Fence Gate
+tile.kinematica.SharingaDoor.name=Sharinga Door
+tile.kinematica.SharingaBoat.name=Sharinga Boat
+
+tile.kinematica.KilnBrick.name=Kiln Brick
+tile.kinematica.Kiln.name=Kiln
