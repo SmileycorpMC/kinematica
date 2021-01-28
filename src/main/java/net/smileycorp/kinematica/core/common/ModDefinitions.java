@@ -23,8 +23,4 @@ public class ModDefinitions {
 	public static ResourceLocation getResource(String name) {
 		return new ResourceLocation(modid, name.toLowerCase());
 	}
-
-	public static String getResourcePath(ResourceLocation registryName) {
-		return modid + ":blocks/ores/" + name.toLowerCase();
-	}
 }

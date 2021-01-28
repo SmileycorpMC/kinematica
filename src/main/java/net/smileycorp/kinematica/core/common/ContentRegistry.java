@@ -32,6 +32,7 @@ public class ContentRegistry {
 	}
 	
 	public static void registerRecipes() {
+		System.out.println("[Kinematica] registering recipes");
 		OreDictRegistry.registerOreDicts();
 		//OreDictRecipes.registerRecipes();
 		CraftingMethods.registerRecipes();

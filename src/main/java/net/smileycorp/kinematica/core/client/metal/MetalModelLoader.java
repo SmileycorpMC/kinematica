@@ -39,7 +39,7 @@ public class MetalModelLoader implements ICustomModelLoader, IResourceManagerRel
 
 	@Override
 	public boolean accepts(ResourceLocation resource) {
-		if (resource.getResourcePath().contains("/metal/")&&resource.getResourceDomain().equals(ModDefinitions.modid)) {
+		if (resource.getResourcePath().contains("/metal/")) {
 			return true;
 		}
 		return false;

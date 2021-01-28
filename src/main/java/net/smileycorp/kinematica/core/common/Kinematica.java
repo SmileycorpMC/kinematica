@@ -46,7 +46,6 @@ public class Kinematica {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event){
-		ContentRegistry.registerRecipes();
 		ModIntegration.init();
 		proxy.init(event);
 	}

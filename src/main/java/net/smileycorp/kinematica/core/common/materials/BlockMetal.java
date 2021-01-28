@@ -21,10 +21,14 @@ import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.BlockBase;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityMetalBlock;
 
+@SuppressWarnings("unused")
 public class BlockMetal extends BlockBase {
 	
-	public BlockMetal() {
-		super("Metal_Block", Material.IRON, SoundType.METAL, 3.5f, 7f, 0);
+	public final String metal;
+	
+	public BlockMetal(String modid, String metal) {
+		super(metal+"_Block", modid, Material.IRON, SoundType.METAL, 3.5f, 7f, 0);
+		this.metal=metal;
 	}
 	
 	@Override
@@ -48,6 +52,8 @@ public class BlockMetal extends BlockBase {
 		}
 	}
 	
+	
+	/* old code from when block type was nbt (maybe reuse for rusting later?)
 	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
         return true;
@@ -116,6 +122,6 @@ public class BlockMetal extends BlockBase {
     {
         super.harvestBlock(world, player, pos, state, te, tool);
         world.setBlockToAir(pos);
-    }
+    }*/
 	
 }

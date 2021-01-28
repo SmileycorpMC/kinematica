@@ -52,7 +52,7 @@ public class WorldBlocks {
 	public static Block NETHER_GOLD_ORE = new BlockNetherGoldOre();
 	//public static Block NETHER_SULPHUR_ORE = new BlockSimpleOre("Nether_Sulphur", 1, new ItemStack(COItems.MATERIAL, 6, 7));
 	
-	public static Block[] blocks = {MUD, LIMESTONE, SHARINGA_PLANKS};
+	public static Block[] blocks = {MUD, LIMESTONE};
 		
 	public static Block[] ores = {TIN_ORE, COPPER_ORE, LEAD_ORE, SILVER_ORE, COBALT_ORE, NICKEL_ORE,
 			CHROMIUM_ORE, ZINC_ORE, PALLADIUM_ORE, PLATINUM_ORE, OSMIUM_ORE, IRIDIUM_ORE, ALUMINIUM_ORE, TUNGSTEN_ORE,

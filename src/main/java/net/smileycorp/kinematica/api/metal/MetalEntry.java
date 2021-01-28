@@ -13,13 +13,15 @@ class MetalEntry {
 	final int index;
 	final Color colour;
 	final boolean isShapeable;
+	final String modid;
 	
 	Map<MetalType, ItemStack> items = Maps.<MetalType, ItemStack>newHashMap();
 	
 	Fluid fluid = null;
 	
-	public MetalEntry(int index, Color colour, boolean isShapeable) {
+	public MetalEntry(int index, String modid, Color colour, boolean isShapeable) {
 		this.index=index;
+		this.modid=modid;
 		this.colour=colour;
 		this.isShapeable=isShapeable;
 	}

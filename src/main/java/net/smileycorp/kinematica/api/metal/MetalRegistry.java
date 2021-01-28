@@ -15,24 +15,37 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fml.common.Loader;
+import net.smileycorp.atlas.api.item.DummyItemBlock;
+import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class MetalRegistry {
+	
 
 	private static Map<String, MetalEntry> metals = Maps.<String, MetalEntry>newHashMap();
 	
-	public static void registerMetal(String name, Color colour, boolean isShapeable) {
-		metals.put(name, new MetalEntry(metals.size(), colour, isShapeable));
+	private static boolean fixedDummys;
+	private static boolean mekInstalled = Loader.isModLoaded("mekanism");
+	
+	public static void registerMetal(String name, String modid, Color colour, boolean isShapeable) {
+		metals.put(name, new MetalEntry(metals.size(), modid, colour, isShapeable));
 	}
 	
+	//register an item as the default itemstack for a given metal and shape
 	public static void registerMetalItem(String name, MetalType type, Item item) {
 		registerMetalItem(name, type, new ItemStack(item));
 	}
 	
+	//register a block as the default itemstack for a given metal and shape
 	public static void registerMetalItem(String name, MetalType type, Block block) {
-		registerMetalItem(name, type, new ItemStack(block));
+		registerMetalItem(name, type, new ItemStack(new DummyItemBlock(block)));
+		fixedDummys = false;
 	}
 	
+	/*register an itemstack as the default itemstack for a given metal and shape
+	do not use this to register blocks, if you need to register an itemblock with metadata or nbt use DummyItemBlock instead of the block or itemblock*/
 	public static void registerMetalItem(String name, MetalType type, ItemStack stack) {
+		if (stack.getItem() instanceof DummyItemBlock) fixedDummys = false;
 		metals.get(name).setMetalItem(type, stack);
 	}
 	
@@ -43,6 +56,14 @@ public class MetalRegistry {
 	
 	private static int getIndex(String name) {
 		return metals.get(name).index;
+	}
+	
+	public static String getMod(String name) {
+		if (metals.containsKey(name)) {
+			MetalEntry metal = metals.get(name);
+			return metal.modid;
+		}
+		return ModDefinitions.modid;
 	}
 	
 	public static Color getColour(String name) {
@@ -70,10 +91,8 @@ public class MetalRegistry {
 		Set<Entry<String, MetalEntry>> entries = metals.entrySet();
 		for (Entry<String, MetalEntry> entry : entries) {
 			MetalEntry metal = entry.getValue();
-			if (!metal.hasItem(type)) {
-				if (!isMachineShape(type)||metal.isShapeable) {
-					result.add(entry.getKey());
-				}
+			if (!isMachineShape(type)||metal.isShapeable) {
+				result.add(entry.getKey());
 			}
 		}
 		return sortByIndex(result);
@@ -104,6 +123,7 @@ public class MetalRegistry {
 	}
 	
 	public static ItemStack getItemFor(String name, MetalType type, int amount) {
+		if (!fixedDummys) fixDummys();
 		if (metals.containsKey(name)) {
 			MetalEntry metal = metals.get(name);
 			ItemStack stack;
@@ -116,9 +136,27 @@ public class MetalRegistry {
 			System.out.println("[MetalAPI] tried to get item " + stack + " from {" + name + ", "+type + ", " + amount +"}");
 			return stack;
 		}
+		System.out.println("[MetalAPI] failed to get any item from {" + name + ", "+type + ", " + amount +"}");
 		return null;
 	}
 	
+	private static void fixDummys() {
+		for (MetalEntry entry : metals.values()) {
+			for (MetalType type : MetalType.values()) {
+				ItemStack stack0 = entry.getItem(type);
+				if (stack0 != null) {
+					Item item = entry.getItem(type).getItem();
+					if (item instanceof DummyItemBlock) {
+						ItemStack stack1 = new ItemStack(Item.getItemFromBlock(((DummyItemBlock)item).block), 1, stack0.getItemDamage());
+						stack1.setTagCompound(stack0.getTagCompound());
+						entry.setMetalItem(type, stack1);
+					}
+				}
+			}
+		}
+		fixedDummys = true;
+	}
+
 	public enum MetalType {
 		INGOT("Ingot", true),
 		NUGGET("Nugget", true),
@@ -127,7 +165,10 @@ public class MetalRegistry {
 		PLATE("Plate", true),
 		ROD("Rod", true),
 		BLOCK("Block", false),
-		FLUID("Block", false);
+		DIRTY_DUST("Dirty_Dust", mekInstalled),
+		CLUMP("Clump", mekInstalled),
+		SHARD("Shard", mekInstalled),
+		CRYSTAL("Crystal", mekInstalled);
 		
 		private final String name;
 		private final Boolean isItem;

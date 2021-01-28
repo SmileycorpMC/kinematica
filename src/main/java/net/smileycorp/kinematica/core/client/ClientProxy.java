@@ -1,5 +1,6 @@
 package net.smileycorp.kinematica.core.client;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -52,13 +53,13 @@ public class ClientProxy implements ISidedProxy  {
 	public static void itemColourHandler(ColorHandlerEvent.Item event) {
 		ItemColors registry = event.getItemColors();
 		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_items.toArray(new Item[]{}));
-		registry.registerItemColorHandler(new ItemMetalColour(), Materials.BLOCK_METAL);
+		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
 	}
 	
 	@SubscribeEvent
 	public static void blockColourHandler(ColorHandlerEvent.Block event) {
 		BlockColors registry = event.getBlockColors();
-		registry.registerBlockColorHandler(new BlockMetalColour(), Materials.BLOCK_METAL);
+		registry.registerBlockColorHandler(new BlockMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
 	}
 	
 	@SubscribeEvent

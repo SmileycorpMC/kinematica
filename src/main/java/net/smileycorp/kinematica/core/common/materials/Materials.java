@@ -13,6 +13,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.smileycorp.atlas.api.block.CustomStateMapper;
 import net.smileycorp.atlas.api.interfaces.IMetaItem;
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
@@ -24,18 +25,13 @@ public class Materials {
 	
 	static MetalModelLoader LOADER = new MetalModelLoader();
 	
-	//public static ItemMetal NUGGET = new ItemMetal(MetalType.NUGGET);
-	//public static ItemMetal INGOT = new ItemMetal(MetalType.INGOT);
-	//public static ItemMetal DUST = new ItemMetal(MetalType.DUST);
-	//public static ItemMetal PLATE = new ItemMetal(MetalType.PLATE);
-	//public static ItemMetal GEAR = new ItemMetal(MetalType.GEAR);
-	//public static ItemMetal ROD = new ItemMetal(MetalType.ROD);
 	public static Item MATERIAL_DUST = new ItemMaterialDust();
 	public static Item SHAPED_CLAY = new ItemShapedClay("Clay");
 	public static Item SHAPED_CERAMIC = new ItemShapedClay("Ceramic");
-	public static Block BLOCK_METAL = new BlockMetal();
 
 	public static List<ItemMetal> metal_items = new ArrayList<ItemMetal>();	
+	public static List<BlockMetal> metal_blocks = new ArrayList<BlockMetal>();	
+	
 	public static Item[] items = {SHAPED_CLAY, SHAPED_CERAMIC};
 
 
@@ -43,7 +39,7 @@ public class Materials {
 		for (MetalType type : MetalType.values()) {
 			if (type.isItem()) {
 				for (String metal : MetalRegistry.getMetalsFor(type)) {
-					ItemMetal item = new ItemMetal(type, metal);
+					ItemMetal item = new ItemMetal(MetalRegistry.getMod(metal),type, metal);
 					registry.register(item);
 					MetalRegistry.registerMetalItem(metal, type, item);
 					metal_items.add(item);
@@ -56,9 +52,11 @@ public class Materials {
 			registry.register(item);
 			ITEMS.add(item);
 		}
-		
-		ItemBlockMetal itemblock = new ItemBlockMetal();
-		registry.register(itemblock);
+		for (BlockMetal block : metal_blocks) {
+			ItemBlockMetal itemblock = new ItemBlockMetal(block);
+			registry.register(itemblock);
+			ITEMS.add(itemblock);
+		}
 	}
 
 	public static void registerModels(ModelRegistryEvent event) {
@@ -76,7 +74,11 @@ public class Materials {
 				ModelLoader.setCustomModelResourceLocation(item, 0,new ModelResourceLocation(item.getRegistryName().toString()));
 			}
 		}
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BLOCK_METAL), 0, new ModelResourceLocation(BLOCK_METAL.getRegistryName(), "normal"));
+		for (BlockMetal block : metal_blocks) {
+			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation("kinematica:metal_block", "normal"));
+			ModelLoader.setCustomStateMapper(block, new CustomStateMapper(ModDefinitions.modid, "metal_block"));
+		}
+		
 	}
 	
 	public static void setMetaModel(Item item, int meta) {
@@ -87,6 +89,11 @@ public class Materials {
 	}
 
 	public static void registerBlocks(IForgeRegistry<Block> registry) {
-		registry.register(BLOCK_METAL);
+		for (String metal : MetalRegistry.getMetalsFor(MetalType.BLOCK)) {
+			BlockMetal block = new BlockMetal(MetalRegistry.getMod(metal), metal);
+			registry.register(block);
+			MetalRegistry.registerMetalItem(metal, MetalType.BLOCK, block);
+			metal_blocks.add(block);
+		}
 	}
 }

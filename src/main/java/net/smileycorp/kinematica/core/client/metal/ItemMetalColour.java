@@ -20,7 +20,7 @@ public class ItemMetalColour implements IItemColor {
 		} else if (stack.getItem() instanceof ItemBlock) {
 			Block block = ((ItemBlock) stack.getItem()).getBlock();
 			if (block instanceof BlockMetal) {
-				//colour = MetalRegistry.getColour((BlockMetal)block).metal);
+				colour = MetalRegistry.getColour(((BlockMetal) block).metal);
 			}
 		} 
 		return colour.getRGB();
