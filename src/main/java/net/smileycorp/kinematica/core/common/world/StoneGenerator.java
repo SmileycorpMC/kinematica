@@ -13,6 +13,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
 import net.smileycorp.kinematica.core.common.world.gen.*;
 import net.smileycorp.kinematica.core.integration.ModIntegration;
 
@@ -22,7 +23,7 @@ public class StoneGenerator implements IWorldGenerator {
 	public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
 			IChunkProvider chunkProvider) {
 		mudGen(world, rand, chunkX, chunkZ);
-		
+		bauxiteSoilGen(world, rand, chunkX, chunkZ);
 		if (ModIntegration.ubInstalled) {
 			
 		} else {
@@ -46,20 +47,48 @@ public class StoneGenerator implements IWorldGenerator {
 	}
 	
 	private void mudGen(World world, Random rand, int chunkX, int chunkZ){
-		WorldGenMud generator = new WorldGenMud();
-		int chance = 20;
+		
 		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));
-		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP)) chance=35;
-		for (int i=0; i<chance; i++){
-			int x = chunkX * 16 +rand.nextInt(16);
-			int y = 50 + rand.nextInt(20);
-			int z = chunkZ * 16 + rand.nextInt(16);
-			BlockPos pos = new BlockPos(x, y, z);
-			generator.generate(world, rand, pos);
+		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP)) {
+			int chance = 35;
+			WorldGenSoil generator = new WorldGenSoil(WorldBlocks.MUD, WorldBlocks.BOG_GRASS);
+			for (int i=0; i<chance; i++){
+				int x = chunkX * 16 +rand.nextInt(16);
+				int y = 55 + rand.nextInt(20);
+				int z = chunkZ * 16 + rand.nextInt(16);
+				BlockPos pos = new BlockPos(x, y, z);
+				generator.generate(world, rand, pos);
+			}
+		} else {
+			int chance = 45;
+			WorldGenMud generator = new WorldGenMud();
+			for (int i=0; i<chance; i++){
+				int x = chunkX * 16 +rand.nextInt(16);
+				int y = 55 + rand.nextInt(40);
+				int z = chunkZ * 16 + rand.nextInt(16);
+				BlockPos pos = new BlockPos(x, y, z);
+				generator.generate(world, rand, pos);
+			}
+		}
+	}
+	
+	private void bauxiteSoilGen(World world, Random rand, int chunkX, int chunkZ){
+		
+		int chance = 45;
+		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));
+		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.JUNGLE)) {
+			WorldGenSoil generator = new WorldGenSoil(WorldBlocks.BAUXITE_SOIL, WorldBlocks.BAUXITE_GRASS);
+			for (int i=0; i<chance; i++){
+				int x = chunkX * 16 +rand.nextInt(16);
+				int y = 60 + rand.nextInt(40);
+				int z = chunkZ * 16 + rand.nextInt(16);
+				BlockPos pos = new BlockPos(x, y, z);
+				generator.generate(world, rand, pos);
+			}
 		}
 	}
 
-		private void limeGen(World world, Random rand, int chunkX, int chunkZ){
+	private void limeGen(World world, Random rand, int chunkX, int chunkZ){
 		WorldGenLimestone generator = new WorldGenLimestone();
 		int chance = 3;
 		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));

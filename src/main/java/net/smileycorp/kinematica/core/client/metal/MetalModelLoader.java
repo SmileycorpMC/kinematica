@@ -68,7 +68,7 @@ public class MetalModelLoader implements ICustomModelLoader, IResourceManagerRel
 					      dict.put(metal.toLowerCase(), map.registerSprite(location));
 					      System.out.println("stitched texture for " + type.getName() + "_" + metal.toLowerCase());
 				    } catch(IOException e) {
-				    	System.out.println("failed stitching texture for " + type.getName().toLowerCase() + "_" + metal.toLowerCase() + " using base instead");
+				    	//System.out.println("failed stitching texture for " + type.getName().toLowerCase() + "_" + metal.toLowerCase() + " using base instead");
 				    }
 				}
 			}
@@ -103,7 +103,7 @@ public class MetalModelLoader implements ICustomModelLoader, IResourceManagerRel
 	
 	private static TextureAtlasSprite getTexture(ResourceLocation location) {
 		String[] resource=location.getResourcePath().split("_");
-		System.out.println("TextureAtlas getting for " + location + ", split as " + resource);
+		//System.out.println("TextureAtlas getting for " + location + ", split as " + resource);
 		if (resource!=null&&resource.length>1) {
 			return getTexture(resource[0], resource[1]);
 		} else {

@@ -16,6 +16,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.smileycorp.atlas.api.client.colour.BlockGrassColour;
+import net.smileycorp.atlas.api.client.colour.ItemFoliageColour;
 import net.smileycorp.atlas.api.interfaces.ISidedProxy;
 import net.smileycorp.kinematica.core.client.metal.BlockMetalColour;
 import net.smileycorp.kinematica.core.client.metal.ItemMetalColour;
@@ -52,14 +54,23 @@ public class ClientProxy implements ISidedProxy  {
 	@SubscribeEvent
 	public static void itemColourHandler(ColorHandlerEvent.Item event) {
 		ItemColors registry = event.getItemColors();
+		//Metals
 		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_items.toArray(new Item[]{}));
 		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
+		//Foliage
+		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BOG_GRASS);
+		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BAUXITE_GRASS);
+		//registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent
 	public static void blockColourHandler(ColorHandlerEvent.Block event) {
 		BlockColors registry = event.getBlockColors();
 		registry.registerBlockColorHandler(new BlockMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
+		//Foliage
+		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BOG_GRASS);
+		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BAUXITE_GRASS);
+		//registry.registerBlockColorHandler(new BlockFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent

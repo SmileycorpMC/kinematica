@@ -1,27 +1,22 @@
 package net.smileycorp.kinematica.core.common.world.blocks;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.smileycorp.kinematica.core.common.BlockBase;
 
-public class BlockMud extends BlockBase {
+public class BlockBauxiteSoil extends BlockBase {
 	
-	public BlockMud() {
-		this("Mud", Material.CLAY, SoundType.GROUND);
+	public BlockBauxiteSoil() {
+		this("Bauxite_Soil", Material.CLAY, SoundType.GROUND);
 	}
 	
-	public BlockMud(String name, Material mat, SoundType sound) {
+	public BlockBauxiteSoil(String name, Material mat, SoundType sound) {
 		super(name, mat, sound, 0.5f, 1f,  "shovel", 0);
 	}
 	
@@ -41,24 +36,4 @@ public class BlockMud extends BlockBase {
 
         return false;
     }
-	
-	//copied from BlockSoulSand
-	
-	static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
-	
-	@Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
-        return MUD_AABB;
-    }
-
-    /**
-     * Called When an Entity Collided with the Block
-     */
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
-    {
-        entityIn.motionX *= 0.4D;
-        entityIn.motionZ *= 0.4D;
-    }
-
 }

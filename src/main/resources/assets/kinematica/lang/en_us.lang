@@ -69,13 +69,16 @@ localisation.Plate=Plate
 localisation.Rod=Rod
 localisation.Ore=Ore
 localisation.Block=Block
-localisation.Dirty=Dirty
+localisation.DirtyDust=Dirty Dust
 localisation.Clump=Clump
 localisation.Shard=Shard
 localisation.Slurry=Slurry
 localisation.Coin=Coin
 
 tile.kinematica.Mud.name=Mud
+tile.kinematica.BogGrass.name=Bog Grass
+tile.kinematica.BauxiteSoil.name=Bauxite Soil
+tile.kinematica.BauxiteGrass.name=Bauxite Grass
 tile.kinematica.Mudbrick.name=Mudbrick
 tile.kinematica.FiredMudbrick.name=Hardened Mudbrick
 tile.kinematica.Limestone.name=Limestone

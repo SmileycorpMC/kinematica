@@ -29,7 +29,7 @@ public class MachineBlocks {
 	public static Block KILN_CORE = new BlockKilnCore();
 	public static Block KILN = new BlockKiln();
 	
-	public static Block[] blocks = {MUDBRICK, FIRED_MUDBRICK};
+	public static Block[] blocks = {MUDBRICK, FIRED_MUDBRICK, KILN_CORE, KILN};
 	
 	public static void registerBlocks(IForgeRegistry<Block> registry) {
 		registry.registerAll(blocks);

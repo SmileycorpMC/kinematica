@@ -1,0 +1,1 @@
+{"forge_marker": 1,"defaults": {"model": "atlascore:grassy_cube", "textures": { "particle": "#base", "base": "kinematica:blocks/bauxite_soil","top": "minecraft:blocks/grass_top","side": "minecraft:blocks/grass_side_overlay" } },"variants": {"normal": [{}]}}

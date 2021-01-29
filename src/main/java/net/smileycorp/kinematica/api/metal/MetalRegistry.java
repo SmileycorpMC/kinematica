@@ -26,6 +26,7 @@ public class MetalRegistry {
 	
 	private static boolean fixedDummys;
 	private static boolean mekInstalled = Loader.isModLoaded("mekanism");
+	private static boolean thermalInstalled = Loader.isModLoaded("thermalFoundation");
 	
 	public static void registerMetal(String name, String modid, Color colour, boolean isShapeable) {
 		metals.put(name, new MetalEntry(metals.size(), modid, colour, isShapeable));
@@ -85,14 +86,20 @@ public class MetalRegistry {
 		}
 		return sortByIndex(result);
 	}
-
+	
 	public static List<String> getMetalsFor(MetalType type) {
+		return getMetalsFor(type, false);
+	}
+
+	public static List<String> getMetalsFor(MetalType type, boolean ignoreExisting) {
 		List<String> result = new ArrayList<String>();
 		Set<Entry<String, MetalEntry>> entries = metals.entrySet();
 		for (Entry<String, MetalEntry> entry : entries) {
 			MetalEntry metal = entry.getValue();
 			if (!isMachineShape(type)||metal.isShapeable) {
-				result.add(entry.getKey());
+				if(!(ignoreExisting&&metal.getItem(type)!=null))	{
+					result.add(entry.getKey());
+				}
 			}
 		}
 		return sortByIndex(result);
@@ -168,7 +175,8 @@ public class MetalRegistry {
 		DIRTY_DUST("Dirty_Dust", mekInstalled),
 		CLUMP("Clump", mekInstalled),
 		SHARD("Shard", mekInstalled),
-		CRYSTAL("Crystal", mekInstalled);
+		CRYSTAL("Crystal", mekInstalled),
+		COIN("Coin", thermalInstalled);
 		
 		private final String name;
 		private final Boolean isItem;

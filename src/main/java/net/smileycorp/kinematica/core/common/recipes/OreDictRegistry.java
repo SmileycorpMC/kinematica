@@ -12,6 +12,7 @@ public class OreDictRegistry {
 	
 	public static void registerOreDicts() {
 		OreDictionary.registerOre("mud", new ItemStack(WorldBlocks.MUD));
+		OreDictionary.registerOre("mud", new ItemStack(WorldBlocks.BAUXITE_SOIL));
 		
 		for (ItemMetal item : Materials.metal_items) {
 			OreDictionary.registerOre(item.type.name().toLowerCase()

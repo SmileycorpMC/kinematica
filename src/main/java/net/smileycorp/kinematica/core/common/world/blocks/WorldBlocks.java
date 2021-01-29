@@ -22,6 +22,9 @@ public class WorldBlocks {
 	
 	//main blocks
 	public static Block MUD = new BlockMud();
+	public static Block BOG_GRASS = new BlockBogGrass();
+	public static Block BAUXITE_SOIL = new BlockBauxiteSoil();
+	public static Block BAUXITE_GRASS = new BlockBauxiteGrass();
 	public static Block LIMESTONE = new BlockBase("Limestone", Material.ROCK, SoundType.STONE, 1f, 6f, 0);
 	public static Block SHARINGA_LOG = new BlockSharingaLog();
 	public static Block SHARINGA_LEAVES;
@@ -52,7 +55,7 @@ public class WorldBlocks {
 	public static Block NETHER_GOLD_ORE = new BlockNetherGoldOre();
 	//public static Block NETHER_SULPHUR_ORE = new BlockSimpleOre("Nether_Sulphur", 1, new ItemStack(COItems.MATERIAL, 6, 7));
 	
-	public static Block[] blocks = {MUD, LIMESTONE};
+	public static Block[] blocks = {MUD, BOG_GRASS, BAUXITE_SOIL, BAUXITE_GRASS, LIMESTONE};
 		
 	public static Block[] ores = {TIN_ORE, COPPER_ORE, LEAD_ORE, SILVER_ORE, COBALT_ORE, NICKEL_ORE,
 			CHROMIUM_ORE, ZINC_ORE, PALLADIUM_ORE, PLATINUM_ORE, OSMIUM_ORE, IRIDIUM_ORE, ALUMINIUM_ORE, TUNGSTEN_ORE,

@@ -6,11 +6,11 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
 import net.smileycorp.kinematica.core.common.machine.multiblock.Kiln;
 
 public class EventListener {
@@ -26,8 +26,7 @@ public class EventListener {
 			Block block = event.getPlacedBlock().getBlock();
 			Entity entity = event.getEntity();
 			if (entity instanceof EntityPlayer) {
-				if (block == MachineBlocks.KILN_BRICK) {
-					System.out.println("fire");
+				if (block == Blocks.FIRE) {
 					Kiln.tryToCreate(world, pos);
 				}
 			}

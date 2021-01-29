@@ -38,7 +38,7 @@ public class Materials {
 	public static void registerItems(IForgeRegistry<Item> registry) {
 		for (MetalType type : MetalType.values()) {
 			if (type.isItem()) {
-				for (String metal : MetalRegistry.getMetalsFor(type)) {
+				for (String metal : MetalRegistry.getMetalsFor(type, true)) {
 					ItemMetal item = new ItemMetal(MetalRegistry.getMod(metal),type, metal);
 					registry.register(item);
 					MetalRegistry.registerMetalItem(metal, type, item);
@@ -89,7 +89,7 @@ public class Materials {
 	}
 
 	public static void registerBlocks(IForgeRegistry<Block> registry) {
-		for (String metal : MetalRegistry.getMetalsFor(MetalType.BLOCK)) {
+		for (String metal : MetalRegistry.getMetalsFor(MetalType.BLOCK, true)) {
 			BlockMetal block = new BlockMetal(MetalRegistry.getMod(metal), metal);
 			registry.register(block);
 			MetalRegistry.registerMetalItem(metal, MetalType.BLOCK, block);

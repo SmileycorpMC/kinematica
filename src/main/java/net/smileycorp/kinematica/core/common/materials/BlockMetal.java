@@ -42,23 +42,11 @@ public class BlockMetal extends BlockBase {
     }
 	
 	@Override
-	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for(String name : MetalRegistry.getMetalsFor(MetalType.BLOCK)) {
-			ItemStack stack = new ItemStack(this);
-			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("type", name);
-			stack.setTagCompound(tag);
-			list.add(stack);
-		}
-	}
-	
-	
-	/* old code from when block type was nbt (maybe reuse for rusting later?)
-	@Override
 	public boolean isBeaconBase(IBlockAccess worldObj, BlockPos pos, BlockPos beacon) {
         return true;
     }
 	
+	/* old code from when block type was nbt (maybe reuse for rusting later?)
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
         return true;
