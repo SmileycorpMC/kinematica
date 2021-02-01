@@ -18,11 +18,11 @@ import net.smileycorp.kinematica.core.common.Kinematica;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
 
-public class BlockKilnCore extends Block implements ITileEntityProvider {
+public class BlockKilnFire extends Block implements ITileEntityProvider {
 	
-	public BlockKilnCore() {
+	public BlockKilnFire() {
 		super(Material.FIRE);
-		String name = "Kiln";
+		String name = "Kiln_Fire";
 		setRegistryName(ModDefinitions.getResource(name));
 		setUnlocalizedName(ModDefinitions.getName(name));
 		hasTileEntity=true;

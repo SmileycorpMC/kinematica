@@ -7,7 +7,7 @@ import net.smileycorp.kinematica.core.common.ModDefinitions;
 public class TileEntities {
 	public static void register() {
 		registerTileEntity(TileEntityKiln.class, "Kiln");
-		registerTileEntity(TileEntityMetalBlock.class, "MetalBlock");
+		registerTileEntity(TileEntityLatexLog.class, "LatexLog");
 	}
 	
 	public static void registerTileEntity (Class <? extends TileEntity> te, String name) {

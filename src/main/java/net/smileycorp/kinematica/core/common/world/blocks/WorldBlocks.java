@@ -14,7 +14,10 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.smileycorp.atlas.api.block.CustomStateMapper;
+import net.smileycorp.atlas.api.interfaces.IBlockProperties;
 import net.smileycorp.kinematica.core.common.BlockBase;
+import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class WorldBlocks {
 	public  static Set<Block> BLOCKS = new HashSet<Block>();
@@ -27,8 +30,8 @@ public class WorldBlocks {
 	public static Block BAUXITE_GRASS = new BlockBauxiteGrass();
 	public static Block LIMESTONE = new BlockBase("Limestone", Material.ROCK, SoundType.STONE, 1f, 6f, 0);
 	public static Block SHARINGA_LOG = new BlockSharingaLog();
-	public static Block SHARINGA_LEAVES;
-	public static Block SHARINGA_SAPLING;
+	public static Block SHARINGA_LEAVES = new BlockSharingaLeaves();
+	public static Block SHARINGA_SAPLING = new BlockSharingaSapling();
 	public static Block SHARINGA_PLANKS = new BlockBase("Sharinga_Planks", Material.WOOD, SoundType.WOOD, 1f, 6f, "axe", 0);
 	
 	//ores
@@ -55,7 +58,7 @@ public class WorldBlocks {
 	public static Block NETHER_GOLD_ORE = new BlockNetherGoldOre();
 	//public static Block NETHER_SULPHUR_ORE = new BlockSimpleOre("Nether_Sulphur", 1, new ItemStack(COItems.MATERIAL, 6, 7));
 	
-	public static Block[] blocks = {MUD, BOG_GRASS, BAUXITE_SOIL, BAUXITE_GRASS, LIMESTONE};
+	public static Block[] blocks = {MUD, BOG_GRASS, BAUXITE_SOIL, BAUXITE_GRASS, LIMESTONE, SHARINGA_LOG, SHARINGA_LEAVES, SHARINGA_SAPLING, SHARINGA_PLANKS};
 		
 	public static Block[] ores = {TIN_ORE, COPPER_ORE, LEAD_ORE, SILVER_ORE, COBALT_ORE, NICKEL_ORE,
 			CHROMIUM_ORE, ZINC_ORE, PALLADIUM_ORE, PLATINUM_ORE, OSMIUM_ORE, IRIDIUM_ORE, ALUMINIUM_ORE, TUNGSTEN_ORE,
@@ -86,7 +89,15 @@ public class WorldBlocks {
 	public static void registerModels(ModelRegistryEvent event) {
 		for (Block block : blocks) {
 			final ResourceLocation loc = ForgeRegistries.BLOCKS.getKey(block);
+			if (block instanceof IBlockProperties) {
+				if(((IBlockProperties) block).useInventoryVariant()) {
+					ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(loc, "inventory"));
+					continue;
+				}
+			}
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(loc, "normal"));
 		}
+		ModelLoader.setCustomStateMapper(SHARINGA_LEAVES, new CustomStateMapper(ModDefinitions.modid, "sharinga_leaves", "normal"));
+		ModelLoader.setCustomStateMapper(SHARINGA_SAPLING, new CustomStateMapper(ModDefinitions.modid, "sharinga_sapling", "normal"));
 	}
 }

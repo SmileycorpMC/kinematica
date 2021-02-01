@@ -26,7 +26,7 @@ public class MachineBlocks {
 	public static Block FIRED_MUDBRICK = new BlockBase("Fired_Mudbrick", Material.ROCK, SoundType.STONE, 1f, 6f, 0);
 	
 	public static Block KILN_BRICK = new BlockBase("Kiln_Brick", Material.ROCK, SoundType.STONE, 1f, 6f, 0, KineTabs.MACHINES);
-	public static Block KILN_CORE = new BlockKilnCore();
+	public static Block KILN_CORE = new BlockKilnFire();
 	public static Block KILN = new BlockKiln();
 	
 	public static Block[] blocks = {MUDBRICK, FIRED_MUDBRICK, KILN_CORE, KILN};

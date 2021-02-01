@@ -62,7 +62,7 @@ public class Kiln {
 							if (j==-1) {
 							} else if (j==0) {
 							}
-							//world.setBlockState(pos, MachineBlocks.KILN.getDefaultState(), 3);
+							world.setBlockState(openSide.up(), MachineBlocks.KILN.getDefaultState(), 3);
 						}
 					}
 				}

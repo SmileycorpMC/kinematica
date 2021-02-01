@@ -9,6 +9,7 @@ import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -16,15 +17,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import net.smileycorp.atlas.api.client.colour.BlockFoliageColour;
 import net.smileycorp.atlas.api.client.colour.BlockGrassColour;
 import net.smileycorp.atlas.api.client.colour.ItemFoliageColour;
 import net.smileycorp.atlas.api.interfaces.ISidedProxy;
 import net.smileycorp.kinematica.core.client.metal.BlockMetalColour;
 import net.smileycorp.kinematica.core.client.metal.ItemMetalColour;
 import net.smileycorp.kinematica.core.client.metal.MetalModelLoader;
+import net.smileycorp.kinematica.core.client.tesr.TESRLatexLog;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
 import net.smileycorp.kinematica.core.common.materials.Materials;
+import net.smileycorp.kinematica.core.common.tileentity.TileEntityLatexLog;
 import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
 
 @EventBusSubscriber(value = Side.CLIENT, modid = ModDefinitions.modid)
@@ -37,7 +41,7 @@ public class ClientProxy implements ISidedProxy  {
 	
 	@Override
 	public void init(FMLInitializationEvent event) {
-		
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLatexLog.class, new TESRLatexLog());
 	}
 	
 	@Override
@@ -49,6 +53,7 @@ public class ClientProxy implements ISidedProxy  {
 	public void stitchTextureEvent(TextureStitchEvent.Pre event) {
 		TextureMap map = event.getMap();
 		MetalModelLoader.stitchTextures(map);
+		map.registerSprite(ModDefinitions.getResource("blocks/log_rubber_leaking"));
 	}
 	
 	@SubscribeEvent
@@ -60,7 +65,7 @@ public class ClientProxy implements ISidedProxy  {
 		//Foliage
 		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BOG_GRASS);
 		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BAUXITE_GRASS);
-		//registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
+		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent
@@ -70,7 +75,7 @@ public class ClientProxy implements ISidedProxy  {
 		//Foliage
 		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BOG_GRASS);
 		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BAUXITE_GRASS);
-		//registry.registerBlockColorHandler(new BlockFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
+		registry.registerBlockColorHandler(new BlockFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent
