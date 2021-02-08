@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
-import net.smileycorp.atlas.api.util.PositionUtils;
+import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityLatexLog;
 import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
 
@@ -31,7 +31,7 @@ public class WorldGenSharinga extends WorldGenAbstractTree {
 		int y = pos.getY();
 		if(y >= 1 && y + height + 2 <= 256) {
 			for(int i = -1; i<2; i++) {
-				for (int j = 0; j<height+2; j++) {
+				for (int j = 2; j<height+2; j++) {
 					for (int k = -1; k<2; k++) {
 						BlockPos pos0 = pos.add(i, j, k);
 						IBlockState state = world.getBlockState(pos0);
@@ -53,6 +53,7 @@ public class WorldGenSharinga extends WorldGenAbstractTree {
 	}
 
 	public void generateTree(World world, Random rand, BlockPos pos, int height) {
+		System.out.println("trying to generate tree at "+pos);
 		int curveheight = rand.nextInt(3)+2;
 		//trunk
 		for (int j = 0; j<=height; j++){
@@ -76,7 +77,8 @@ public class WorldGenSharinga extends WorldGenAbstractTree {
 			} else {
 				world.setBlockState(pos.up(j), WorldBlocks.SHARINGA_LOG.getDefaultState(), 3);
 				if (j<curveheight&&rand.nextInt(4)==0) {
-					EnumFacing facing = PositionUtils.getRandomDirection(rand);
+					System.out.println("attempting to set leaking log at " + pos);
+					EnumFacing facing = DirectionUtils.getRandomDirection(rand);
 					world.setTileEntity(pos.up(j), new TileEntityLatexLog(facing, isGenerated));
 				}
 			}
@@ -90,7 +92,7 @@ public class WorldGenSharinga extends WorldGenAbstractTree {
 					BlockPos pos1 = new BlockPos(Math.round(pos.getX() + Math.sin(k) * i), pos.getY() + height -1 + r1, Math.round(pos.getZ() + Math.cos(k) * i));
 					IBlockState state = world.getBlockState(pos1);
 					if (state.getBlock().canBeReplacedByLeaves(state, world, pos1)) {
-						world.setBlockState(pos1, WorldBlocks.SHARINGA_LEAVES.getDefaultState(), 2);
+						world.setBlockState(pos1, WorldBlocks.SHARINGA_LEAVES.getDefaultState(), 18);
 					}
 				}
 			}

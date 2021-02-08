@@ -1,12 +1,16 @@
 package net.smileycorp.kinematica.core.common.machine.blocks;
 
 import java.util.Random;
-import net.minecraft.block.BlockDirectional;
+
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -15,26 +19,49 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.BlockBase;
 import net.smileycorp.kinematica.core.common.Kinematica;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
 
 public class BlockKiln extends BlockBase {
 	
-	PropertyDirection facing = BlockDirectional.FACING;
+	public static final PropertyDirection facing = BlockHorizontal.FACING;
 		
 	public BlockKiln() {
 		super("Kiln", Material.ROCK, SoundType.STONE, 1f, 6f, 0);
+		setDefaultState(this.blockState.getBaseState().withProperty(facing, EnumFacing.NORTH));
 	}
+	
+	@Override
+	protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[] {facing});
+    }
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta)	{
+		return this.getDefaultState().withProperty(facing, DirectionUtils.getDirection(meta));
+    }
+	
+	@Override
+    public int getMetaFromState(IBlockState state) {
+    	return DirectionUtils.getMeta((EnumFacing)state.getValue(facing));
+    }
 	
 	@Override
 	public boolean usesCustomItemHandler(){
 		return true;
 	}
 	
+	@Override
 	public int quantityDropped(Random random) {
-        return 0;
+        return 1;
 	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return MachineBlocks.FIRED_MUDBRICK.getItemDropped(state, rand, fortune);
+    }
 	
 	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer() {
@@ -46,20 +73,15 @@ public class BlockKiln extends BlockBase {
         if (world.isRemote) {
             return true;
         } else {
-        	for (int i = -1; i < 2; i++) {
-        		for (int j = -1; j < 2; j++) {
-        			for (int k = -1; k < 2; k++) {
-        				BlockPos newpos = pos.east(i).up(j).north(k);
-        				TileEntity tileentity = world.getTileEntity(newpos);
-        	            if (tileentity instanceof TileEntityKiln) {
-        	            	player.openGui(Kinematica.INSTANCE, 0, world, newpos.getX(), newpos.getY(), newpos.getZ());
-        	            	 return true;
-        	            }
-                	}
-            	}
+			BlockPos newpos = DirectionUtils.getPos(pos.down(), facing.getOpposite());
+			TileEntity tileentity = world.getTileEntity(newpos);
+            if (tileentity instanceof TileEntityKiln) {
+            	player.openGui(Kinematica.INSTANCE, 0, world, newpos.getX(), newpos.getY(), newpos.getZ());
+            	 return true;
         	}
-        }
-        return true;
+       	}
+
+        return false;
     }
 	
 

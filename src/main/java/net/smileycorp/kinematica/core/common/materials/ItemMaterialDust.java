@@ -5,12 +5,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.translation.I18n;
-import net.smileycorp.kinematica.api.metal.NonMetalRegistry;
+import net.smileycorp.atlas.api.interfaces.IMetaItem;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 @SuppressWarnings("deprecation")
-public class ItemMaterialDust extends Item {
+public class ItemMaterialDust extends Item implements IMetaItem {
+	
+	final String[] variants = {"Sulphur", "Phosphorus", "Arsenic", "Niter", "Quicklime", "Slaked_Lime", "Cement", "Cinnabar", "Coal", "Silica", "Flour"};
 	
 	public ItemMaterialDust() {
 		super();
@@ -24,7 +26,7 @@ public class ItemMaterialDust extends Item {
 	@Override
 	public void getSubItems(CreativeTabs tabs, NonNullList<ItemStack> itemList) {
 		if(!isInCreativeTab(tabs)) return;
-		for(int counter = 0; counter < NonMetalRegistry.getMaterials().size(); counter++) {
+		for(int counter = 0; counter < variants.length; counter++) {
 			itemList.add(new ItemStack(this, 1, counter));
 		}
 	}
@@ -32,15 +34,18 @@ public class ItemMaterialDust extends Item {
 	@Override
 	public String getItemStackDisplayName(ItemStack stack) {
 		int meta = stack.getItemDamage();
-		String name = NonMetalRegistry.getMaterials().get(meta);
-		return getDisplayName(name);
+		String name = variants[meta].replace("_", "");
+		return I18n.translateToLocal("item.kinematica." + name.replace("_", "") + "Dust.name").trim();
 	}
 	
-	private String getDisplayName(String name) {
-		String result = I18n.translateToLocal("localisation." + name.replace("_", "")).trim();
-		result += " ";
-		result += I18n.translateToLocal("localisation.dust").trim();
-		return result;
+	@Override
+	public String byMeta(int meta) {
+		return variants[meta].toLowerCase();
+	}
+	
+	@Override
+	public int getMaxMeta() {
+		return variants.length-1;
 	}
 
 }

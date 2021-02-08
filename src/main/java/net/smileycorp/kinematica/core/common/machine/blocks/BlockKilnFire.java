@@ -3,6 +3,9 @@ package net.smileycorp.kinematica.core.common.machine.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.InventoryHelper;
@@ -20,6 +23,8 @@ import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
 
 public class BlockKilnFire extends Block implements ITileEntityProvider {
 	
+	public static final PropertyBool burning = PropertyBool.create("burning");
+	
 	public BlockKilnFire() {
 		super(Material.FIRE);
 		String name = "Kiln_Fire";
@@ -28,7 +33,23 @@ public class BlockKilnFire extends Block implements ITileEntityProvider {
 		hasTileEntity=true;
 		setHardness(-1);
 		setResistance(14f);
+		setDefaultState(this.blockState.getBaseState().withProperty(burning, false));
 	}
+	
+	@Override
+	protected BlockStateContainer createBlockState() {
+        return new BlockStateContainer(this, new IProperty[] {burning});
+    }
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta)	{
+		return meta==1 ? this.getDefaultState().withProperty(burning, true):this.getDefaultState().withProperty(burning, false);
+    }
+	
+	@Override
+    public int getMetaFromState(IBlockState state) {
+		return state.getValue(burning) ? 1:0;
+    }
 	
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
@@ -47,7 +68,7 @@ public class BlockKilnFire extends Block implements ITileEntityProvider {
         } else {
             TileEntity tileentity = world.getTileEntity(pos);
             if (tileentity instanceof TileEntityKiln) {
-            	player.openGui(Kinematica.INSTANCE, 0, world, pos.getX(), pos.getY(), pos.getZ());
+            	player.openGui(Kinematica.INSTANCE, 1, world, pos.getX(), pos.getY(), pos.getZ());
             }
             return true;
         }

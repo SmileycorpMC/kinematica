@@ -2,22 +2,24 @@ package net.smileycorp.kinematica.core.common.machine.multiblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.smileycorp.atlas.api.util.DirectionUtils;
+import net.smileycorp.kinematica.core.common.machine.blocks.BlockKiln;
 import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
 
 public class Kiln {
 
 	public static boolean tryToCreate(World world, BlockPos pos) {
-		if (isValid(world, pos, pos.north())) return true;
-		else if (isValid(world, pos, pos.south())) return true;
-		else if (isValid(world, pos, pos.east())) return true;
-		else if (isValid(world, pos, pos.west())) return true;
+		for (int i = 0; i<4; i++) {
+			if (isValid(world, pos, DirectionUtils.getDirection(i))) return true;
+		}
 		//System.out.println("Kiln falied at "+pos);
 		return false;
 	}
 	
-	private static boolean isValid(World world, BlockPos basePos, BlockPos openSide) {
+	private static boolean isValid(World world, BlockPos basePos, EnumFacing facing) {
 		//System.out.println("Trying kiln with opening "+openSide);
 		for (int i = -1; i< 2; i++) {
 			for (int j = 0; j< 3; j++) {
@@ -30,7 +32,7 @@ public class Kiln {
 							return false;
 						}
 					}
-					else if (pos.equals(openSide)||(i==0&&j==1&&k==0)) {
+					else if (pos.equals(DirectionUtils.getPos(basePos, facing))||(i==0&&j==1&&k==0)) {
 						if (!world.isAirBlock(pos))	{
 							//System.out.println("Air Failed at "+pos);
 							return false;
@@ -45,26 +47,18 @@ public class Kiln {
 				}
 			}
 		}
-		placeKiln(world, basePos, openSide);
+		placeKiln(world, basePos, facing);
 		return true; 
 	}
 
-	private static void placeKiln(World world, BlockPos basePos, BlockPos openSide) {
+	private static void placeKiln(World world, BlockPos basePos, EnumFacing facing) {
+		world.setBlockState(basePos, MachineBlocks.KILN_CORE.getDefaultState(), 3);
+		world.setBlockState(DirectionUtils.getPos(basePos.up(), facing), MachineBlocks.KILN.getDefaultState().withProperty(BlockKiln.facing, facing), 3);
 		for (int i = -1; i<2; i++) {
 			for (int j = 0; j<3; j++) {
 				for (int k = -1; k<2; k++) {
 					BlockPos pos = basePos.east(i).up(j).south(k);
-					if (i==0 && j == 0 && k==0) {
-						world.setBlockState(basePos, MachineBlocks.KILN_CORE.getDefaultState(), 3);
-					} else if(world.getBlockState(pos)==MachineBlocks.MUDBRICK.getDefaultState()) world.setBlockState(pos, MachineBlocks.FIRED_MUDBRICK.getDefaultState(), 3);
-					else {
-						if (Math.abs(i) == 1  ^ Math.abs(k) == 1) {
-							if (j==-1) {
-							} else if (j==0) {
-							}
-							world.setBlockState(openSide.up(), MachineBlocks.KILN.getDefaultState(), 3);
-						}
-					}
+					if(world.getBlockState(pos)==MachineBlocks.MUDBRICK.getDefaultState()) world.setBlockState(pos, MachineBlocks.FIRED_MUDBRICK.getDefaultState(), 3);	
 				}
 			}
 		}

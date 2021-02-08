@@ -61,9 +61,9 @@ public class WorldGenSoil extends WorldGenerator {
 
                                     IBlockState state = world.getBlockState(blockpos);
                                     if (state.getBlock()==Blocks.DIRT)  {
-                                        world.setBlockState(blockpos, this.blockSoil, 2);
+                                        world.setBlockState(blockpos, this.blockSoil, 18);
                                     } else if (state.getBlock()==Blocks.GRASS)  {
-                                        world.setBlockState(blockpos, this.blockGrass, 2);
+                                        world.setBlockState(blockpos, this.blockGrass, 18);
                                     }
                                 }
                             }

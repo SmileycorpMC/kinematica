@@ -8,6 +8,10 @@ jei.category.kinematica.Kiln=Kiln Smelting
 
 localisation.Clay=Clay
 localisation.Ceramic=Ceramic
+localisation.Arsenic=Arsenic
+localisation.Sulphur=Sulfur
+localisation.Niter=Niter
+localisation.Phosphorus=Phosphorus
 
 localisation.Iron=Iron
 localisation.Gold=Gold
@@ -74,6 +78,18 @@ localisation.Clump=Clump
 localisation.Shard=Shard
 localisation.Slurry=Slurry
 localisation.Coin=Coin
+
+item.kinematica.SulphurDust.name=Sulfur
+item.kinematica.PhosphorusDust.name=Red Phosphorus
+item.kinematica.ArsenicDust.name=Arsenic
+item.kinematica.NiterDust.name=Niter
+item.kinematica.QuicklimeDust.name=Quicklime
+item.kinematica.SlakedLimeDust.name=Slaked Lime
+item.kinematica.CementDust.name=Cement
+item.kinematica.CinnabarDust.name=Cinnabar
+item.kinematica.CoalDust.name=Coal Dust
+item.kinematica.SilicaDust.name=Silica Dust
+item.kinematica.FlourDust.name=Flour
 
 tile.kinematica.Mud.name=Mud
 tile.kinematica.BogGrass.name=Bog Grass

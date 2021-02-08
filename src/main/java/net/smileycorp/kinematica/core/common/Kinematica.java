@@ -36,7 +36,7 @@ public class Kinematica {
 		KineConfig.syncConfig();
 		ModIntegration.preInit(event);
 		MinecraftForge.EVENT_BUS.register(new EventListener());
-		MinecraftForge.TERRAIN_GEN_BUS.register(new EventListener());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldRegister());
 		MinecraftForge.ORE_GEN_BUS.register(new WorldRegister());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ContainerHandler());
 		TileEntities.register();

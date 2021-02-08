@@ -67,7 +67,7 @@ public class WorldGenLimestone extends WorldGenerator {
                                     IBlockState state = world.getBlockState(blockpos);
                                     if (state.getBlock()==Blocks.STONE||state.getBlock()==Blocks.SANDSTONE)
                                     {
-                                        world.setBlockState(blockpos, this.blockLimestone, 2);
+                                        world.setBlockState(blockpos, this.blockLimestone, 18);
                                     }
                                 }
                             }

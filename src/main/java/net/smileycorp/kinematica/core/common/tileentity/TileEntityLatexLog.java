@@ -20,6 +20,7 @@ public class TileEntityLatexLog extends TileEntity {
 		if (hasLatex) {
 			storedLatex = (rand.nextInt(40)+10)*50;
 		} else storedLatex=0;
+		System.out.println("set latex tile entity with facing " + facing + " at " +pos);
 	}
 	
 	@Override

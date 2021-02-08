@@ -1,0 +1,8 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": {"model": "kinematica:kiln_inventory"},
+		"burning=true": {"model": "kinematica:kiln_fire"},
+        "burning=false": {"model": "kinematica:smoldered_kiln"}
+	}
+}

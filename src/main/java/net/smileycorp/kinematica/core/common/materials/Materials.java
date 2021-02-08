@@ -32,7 +32,7 @@ public class Materials {
 	public static List<ItemMetal> metal_items = new ArrayList<ItemMetal>();	
 	public static List<BlockMetal> metal_blocks = new ArrayList<BlockMetal>();	
 	
-	public static Item[] items = {SHAPED_CLAY, SHAPED_CERAMIC};
+	public static Item[] items = {SHAPED_CLAY, SHAPED_CERAMIC, MATERIAL_DUST};
 
 
 	public static void registerItems(IForgeRegistry<Item> registry) {
