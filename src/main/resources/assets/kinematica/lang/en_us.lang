@@ -1,8 +1,11 @@
 itemGroup.kinematica.Materials=Kinematica Materials
 itemGroup.kinematica.Blocks=Kinematica Blocks
 itemGroup.kinematica.Machines=Kinematica Machines
+itemGroup.kinematica.Tools=Kinematica Tools
 
 container.kinematica.Kiln=Kiln
+
+localisation.container.Fuel=Fuel
 
 jei.category.kinematica.Kiln=Kiln Smelting
 
@@ -10,6 +13,7 @@ localisation.Clay=Clay
 localisation.Ceramic=Ceramic
 localisation.Arsenic=Arsenic
 localisation.Sulphur=Sulfur
+localisation.Cinnabar=Cinnabar
 localisation.Niter=Niter
 localisation.Phosphorus=Phosphorus
 
@@ -65,6 +69,7 @@ localisation.DamascusSteel=Damascus Steel
 
 localisation.null=Null
 
+localisation.Blank=Blank
 localisation.Ingot=Ingot
 localisation.Dust=Dust
 localisation.Nugget=Nugget
@@ -78,37 +83,62 @@ localisation.Clump=Clump
 localisation.Shard=Shard
 localisation.Slurry=Slurry
 localisation.Coin=Coin
+localisation.Mould=Mold
 
 item.kinematica.SulphurDust.name=Sulfur
 item.kinematica.PhosphorusDust.name=Red Phosphorus
 item.kinematica.ArsenicDust.name=Arsenic
 item.kinematica.NiterDust.name=Niter
-item.kinematica.QuicklimeDust.name=Quicklime
-item.kinematica.SlakedLimeDust.name=Slaked Lime
-item.kinematica.CementDust.name=Cement
 item.kinematica.CinnabarDust.name=Cinnabar
 item.kinematica.CoalDust.name=Coal Dust
 item.kinematica.SilicaDust.name=Silica Dust
 item.kinematica.FlourDust.name=Flour
 
+item.kinematica.AggregateDust.name=Aggregate
+item.kinematica.GroundLimeDust.name=Calcite
+item.kinematica.QuicklimeDust.name=Quicklime
+item.kinematica.SlakedLimeDust.name=Slaked Lime
+item.kinematica.CementDust.name=Cement
+
+item.kinematica.Firestarter.name=Firestarter
+item.kinematica.CopperSword.name=Copper Sword
+item.kinematica.CopperSpade.name=Copper Shovel
+item.kinematica.CopperPickaxe.name=Copper Pickaxe
+item.kinematica.CopperAxe.name=Copper Axe
+item.kinematica.CopperHoe.name=Copper Hoe
+item.kinematica.BronzeSword.name=Bronze Sword
+item.kinematica.BronzeSpade.name=Bronze Shovel
+item.kinematica.BronzePickaxe.name=Bronze Pickaxe
+item.kinematica.BronzeAxe.name=Bronze Axe
+item.kinematica.BronzeHoe.name=Bronze Hoe
+
 tile.kinematica.Mud.name=Mud
 tile.kinematica.BogGrass.name=Bog Grass
 tile.kinematica.BauxiteSoil.name=Bauxite Soil
 tile.kinematica.BauxiteGrass.name=Bauxite Grass
-tile.kinematica.Mudbrick.name=Mudbrick
-tile.kinematica.FiredMudbrick.name=Hardened Mudbrick
 tile.kinematica.Limestone.name=Limestone
+tile.kinematica.Dolomite.name=Dolomite
 
 tile.kinematica.SharingaLog.name=Sharinga Wood
-tile.kinematica.SharingaPlanks.name=Sharinga Wood Planks
-tile.kinematica.SharingaSlab.name=Sharinga Wood Slab
-tile.kinematica.SharingaStairs.name=Sharinga Wood Stairs
 tile.kinematica.SharingaSapling.name=Sharinga Sapling
 tile.kinematica.SharingaLeaves.name=Sharinga Leaves
+tile.kinematica.SharingaPlanks.name=Sharinga Wood Planks
+tile.kinematica.SharingaPlanksSlab.name=Sharinga Wood Slab
+tile.kinematica.SharingaPlanksStairs.name=Sharinga Wood Stairs
 tile.kinematica.SharingaFence.name=Sharinga Fence
 tile.kinematica.SharingaGate.name=Sharinga Fence Gate
 tile.kinematica.SharingaDoor.name=Sharinga Door
 tile.kinematica.SharingaBoat.name=Sharinga Boat
+
+tile.kinematica.Mudbrick.name=Mudbrick
+tile.kinematica.MudbrickStairs.name=Mudbrick Stairs
+tile.kinematica.MudbrickSlab.name=Mudbrick Slab
+tile.kinematica.FiredMudbrick.name=Hardened Mudbrick
+tile.kinematica.FiredMudbrickSlab.name=Hardened Mudbrick Slab
+tile.kinematica.FiredMudbrickStairs.name=Hardened Mudbrick Stairs
+tile.kinematica.Adobe.name=Adobe
+tile.kinematica.AdobeSlab.name=Adobe Slab
+tile.kinematica.AdobeStairs.name=Adobe Stairs
 
 tile.kinematica.KilnBrick.name=Kiln Brick
 tile.kinematica.Kiln.name=Kiln

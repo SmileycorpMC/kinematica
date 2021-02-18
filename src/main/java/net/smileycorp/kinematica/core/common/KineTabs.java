@@ -1,14 +1,17 @@
 package net.smileycorp.kinematica.core.common;
 
+import java.util.Collection;
 import java.util.Random;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
-import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
+import net.smileycorp.kinematica.core.common.machine.BasicMachines;
+import net.smileycorp.kinematica.core.common.tools.Tools;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class KineTabs {
 	
@@ -20,10 +23,14 @@ public class KineTabs {
 		return stacks.get(rand.nextInt(stacks.size()));
 	}
 	
+	private static ItemStack chooseItem(Collection<Item> items) {
+		return new ItemStack((Item) items.toArray()[rand.nextInt(items.size())]);
+	}
+	
+	
 	public static CreativeTabs MATERIALS = new CreativeTabs(ModDefinitions.getName("Materials")){
+		
 		ItemStack iconItemStack;
-		
-		
 		
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -45,13 +52,38 @@ public class KineTabs {
 			return getIconItemStack();
 		}
 	};
+	
+	public static CreativeTabs TOOLS = new CreativeTabs(ModDefinitions.getName("Tools")){
+		 
+		ItemStack iconItemStack;
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getIconItemStack(){
+			
+			if (iconItemStack == null) {
+				iconItemStack = chooseItem(this);
+			} else if (ModDefinitions.ticker%35==0) {
+				if (rand.nextInt(12)==0) {
+					iconItemStack = chooseItem(Tools.COPPER.getItems());		
+				}
+			}
+			return this.iconItemStack;
+		 }
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return getIconItemStack();
+		}
+	 };
 	 
-	 public static CreativeTabs BLOCKS = new CreativeTabs(ModDefinitions.getName("Blocks")){
+	public static CreativeTabs BLOCKS = new CreativeTabs(ModDefinitions.getName("Blocks")){
 		 
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(WorldBlocks.LIMESTONE);
+			return new ItemStack(KineWorld.LIMESTONE);
 		}
 	 };
 
@@ -59,7 +91,7 @@ public class KineTabs {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem(){
-			return new ItemStack(MachineBlocks.FIRED_MUDBRICK);
+			return new ItemStack(BasicMachines.KILN_FIRE);
 		 }
 	 };
 }

@@ -15,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
 	
@@ -29,7 +30,7 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
             if (!worldIn.isAreaLoaded(pos, 3)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
             if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > 2)
             {
-                worldIn.setBlockState(pos, WorldBlocks.BAUXITE_SOIL.getDefaultState());
+                worldIn.setBlockState(pos, KineWorld.BAUXITE_SOIL.getDefaultState());
             }
             else
             {
@@ -51,13 +52,13 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
                         {
                             worldIn.setBlockState(blockpos, Blocks.GRASS.getDefaultState());
                         }
-                        else if (iblockstate1.getBlock() == WorldBlocks.MUD && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2)
+                        else if (iblockstate1.getBlock() == KineWorld.MUD && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2)
                         {
-                            worldIn.setBlockState(blockpos, WorldBlocks.BOG_GRASS.getDefaultState());
+                            worldIn.setBlockState(blockpos, KineWorld.BOG_GRASS.getDefaultState());
                         }
-                        else if (iblockstate1.getBlock() == WorldBlocks.BAUXITE_SOIL && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2)
+                        else if (iblockstate1.getBlock() == KineWorld.BAUXITE_SOIL && worldIn.getLightFromNeighbors(blockpos.up()) >= 4 && iblockstate.getLightOpacity(worldIn, pos.up()) <= 2)
                         {
-                            worldIn.setBlockState(blockpos, WorldBlocks.BAUXITE_GRASS.getDefaultState());
+                            worldIn.setBlockState(blockpos, KineWorld.BAUXITE_GRASS.getDefaultState());
                         }
                     }
                 }
@@ -67,7 +68,7 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
 
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return WorldBlocks.BAUXITE_SOIL.getItemDropped(state, rand, fortune);
+        return KineWorld.BAUXITE_SOIL.getItemDropped(state, rand, fortune);
     }
 
     /**

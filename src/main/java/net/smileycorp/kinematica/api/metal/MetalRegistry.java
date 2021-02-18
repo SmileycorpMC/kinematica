@@ -16,7 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fml.common.Loader;
-import net.smileycorp.atlas.api.item.DummyItemBlock;
+import net.smileycorp.atlas.api.dummy.DummyItemBlock;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class MetalRegistry {

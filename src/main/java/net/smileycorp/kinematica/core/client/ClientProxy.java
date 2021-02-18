@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -26,10 +27,13 @@ import net.smileycorp.kinematica.core.client.metal.ItemMetalColour;
 import net.smileycorp.kinematica.core.client.metal.MetalModelLoader;
 import net.smileycorp.kinematica.core.client.tesr.TESRLatexLog;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
-import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
-import net.smileycorp.kinematica.core.common.materials.Materials;
+import net.smileycorp.kinematica.core.common.construction.KineConstruction;
+import net.smileycorp.kinematica.core.common.machine.BasicMachines;
+import net.smileycorp.kinematica.core.common.materials.KineMaterials;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityLatexLog;
-import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
+import net.smileycorp.kinematica.core.common.tools.Tools;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
+import net.smileycorp.kinematica.core.integration.tcon.client.TConClientRegistry;
 
 @EventBusSubscriber(value = Side.CLIENT, modid = ModDefinitions.modid)
 public class ClientProxy implements ISidedProxy  {
@@ -60,29 +64,37 @@ public class ClientProxy implements ISidedProxy  {
 	public static void itemColourHandler(ColorHandlerEvent.Item event) {
 		ItemColors registry = event.getItemColors();
 		//Metals
-		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_items.toArray(new Item[]{}));
-		registry.registerItemColorHandler(new ItemMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
+		registry.registerItemColorHandler(new ItemMetalColour(), KineMaterials.metal_items.toArray(new Item[]{}));
+		registry.registerItemColorHandler(new ItemMetalColour(), KineMaterials.metal_blocks.toArray(new Block[]{}));
+		if (Loader.isModLoaded("tconstruct")) {
+			TConClientRegistry.itemColourHandler(registry);
+		}
 		//Foliage
-		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BOG_GRASS);
-		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.BAUXITE_GRASS);
-		registry.registerItemColorHandler(new ItemFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
+		registry.registerItemColorHandler(new ItemFoliageColour(), KineWorld.BOG_GRASS);
+		registry.registerItemColorHandler(new ItemFoliageColour(), KineWorld.BAUXITE_GRASS);
+		registry.registerItemColorHandler(new ItemFoliageColour(), KineWorld.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent
 	public static void blockColourHandler(ColorHandlerEvent.Block event) {
 		BlockColors registry = event.getBlockColors();
-		registry.registerBlockColorHandler(new BlockMetalColour(), Materials.metal_blocks.toArray(new Block[]{}));
+		registry.registerBlockColorHandler(new BlockMetalColour(), KineMaterials.metal_blocks.toArray(new Block[]{}));
+		if (Loader.isModLoaded("tconstruct")) {
+			TConClientRegistry.blockColourHandler(registry);
+		}
 		//Foliage
-		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BOG_GRASS);
-		registry.registerBlockColorHandler(new BlockGrassColour(), WorldBlocks.BAUXITE_GRASS);
-		registry.registerBlockColorHandler(new BlockFoliageColour(), WorldBlocks.SHARINGA_LEAVES);
+		registry.registerBlockColorHandler(new BlockGrassColour(), KineWorld.BOG_GRASS);
+		registry.registerBlockColorHandler(new BlockGrassColour(), KineWorld.BAUXITE_GRASS);
+		registry.registerBlockColorHandler(new BlockFoliageColour(), KineWorld.SHARINGA_LEAVES);
 	}
 	
 	@SubscribeEvent
 	public static void modelRegister(ModelRegistryEvent event) {
-		Materials.registerModels(event);
-		WorldBlocks.registerModels(event);
-		MachineBlocks.registerModels(event);
+		KineConstruction.registerModels(event);
+		BasicMachines.registerModels(event);
+		KineMaterials.registerModels(event);
+		Tools.registerModels(event);
+		KineWorld.registerModels(event);
 	}
 	
 }

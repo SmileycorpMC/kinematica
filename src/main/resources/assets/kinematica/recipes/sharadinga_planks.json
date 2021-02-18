@@ -1,0 +1,13 @@
+{
+    "type": "forge:ore_shapeless",
+    "group": "kinematica:sharinga_planks",
+    "ingredients": [
+        {
+            "item": "kinematica:sharinga_log"
+        }
+    ],
+    "result": {
+        "item": "kinematica:sharinga_planks",
+        "count": 4
+    }
+}

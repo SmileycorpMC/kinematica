@@ -16,9 +16,10 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
-import net.smileycorp.kinematica.core.common.inventory.ContainerKiln;
+import net.smileycorp.kinematica.core.common.inventory.ContainerKilnChamber;
+import net.smileycorp.kinematica.core.common.machine.blocks.BlockKilnFire;
 
-public class TileEntityKiln extends TileEntityCOBase {
+public class TileEntityKiln extends TileEntityBase {
     
 	public TileEntityKiln() {
 		super("Kiln");
@@ -100,7 +101,14 @@ public class TileEntityKiln extends TileEntityCOBase {
 
         if (this.isBurning())
         {
+        	if(!world.getBlockState(pos).getValue(BlockKilnFire.burning)) {
+        		BlockKilnFire.setState(world, pos, true);
+        	}
             --this.burnTime;
+        } else {
+        	if(world.getBlockState(pos).getValue(BlockKilnFire.burning)){
+        		BlockKilnFire.setState(world, pos, false);
+        	}
         }
 
         if (!this.world.isRemote)
@@ -174,7 +182,7 @@ public class TileEntityKiln extends TileEntityCOBase {
      */
     private boolean canSmelt() {
     	if (this.burnTime>0||(TileEntityFurnace.isItemFuel(this.stacks.get(2)))) {
-    		return KilnRecipes.instance().canSmelt(this.stacks.get(0), this.stacks.get(1));
+    		return KilnRecipes.canSmelt(this.stacks.get(0), this.stacks.get(1));
     	}
     	return false;
     }
@@ -188,7 +196,7 @@ public class TileEntityKiln extends TileEntityCOBase {
         {
             ItemStack in0 = this.stacks.get(0);
             ItemStack in1 = this.stacks.get(1);
-            ItemStack output = KilnRecipes.instance().getSmeltingOutput(in0, in1);
+            ItemStack output = KilnRecipes.getSmeltingOutput(in0, in1);
             
             ItemStack existingOutput = this.stacks.get(3);
             System.out.println(output);
@@ -234,7 +242,7 @@ public class TileEntityKiln extends TileEntityCOBase {
 
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn)
     {
-        return new ContainerKiln(playerInventory, this);
+        return new ContainerKilnChamber(playerInventory, this);
     }
 
     public int getField(int id)

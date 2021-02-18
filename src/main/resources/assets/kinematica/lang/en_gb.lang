@@ -1,4 +1,11 @@
+localisation.Mould=Mold
+
 localisation.Sulphur=Sulphur
 
 localisation.Aluminium=Aluminium
 localisation.GalvanisedSteel=Galvanised Steel
+
+item.kinematica.CopperSpade.name=Copper Spade
+item.kinematica.BronzeSpade.name=Bronze Spade
+
+item.kinematica.SulphurDust.name=Sulphur

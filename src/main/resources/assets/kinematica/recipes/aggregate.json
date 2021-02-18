@@ -1,0 +1,23 @@
+{
+    "type": "forge:ore_shapeless",
+    "group": "kinematica:aggregate",
+    "ingredients": [
+        {
+            "type": "forge:ore_dict",
+            "ore": "gravel"
+        },
+		{
+            "type": "forge:ore_dict",
+            "ore": "sand"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "sand"
+        }
+    ],
+    "result": {
+        "item": "kinematica:construction_dusts",
+        "count": 4,
+        "data": 0
+    }
+}

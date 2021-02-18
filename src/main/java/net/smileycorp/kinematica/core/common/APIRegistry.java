@@ -48,7 +48,7 @@ public class APIRegistry {
 		MetalRegistry.registerMetal("Titanium", ModDefinitions.modid, new Color(187, 195, 206), true);
 		
 		//Alloys
-		MetalRegistry.registerMetal("Bronze", ModDefinitions.modid, new Color(226, 135, 41), true);
+		MetalRegistry.registerMetal("Bronze", ModDefinitions.modid, new Color(216, 166, 80), true);
 		MetalRegistry.registerMetal("Brass", ModDefinitions.modid, new Color(213, 172, 53), true);
 		MetalRegistry.registerMetal("Durallium", ModDefinitions.modid, new Color(215, 179, 123), true);
 		MetalRegistry.registerMetal("Constantan", ModDefinitions.modid, new Color(232, 203, 122), true);

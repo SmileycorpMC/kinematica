@@ -6,6 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import net.smileycorp.atlas.api.util.DirectionUtils;
 
 public class TileEntityLatexLog extends TileEntity {
 	
@@ -13,23 +14,18 @@ public class TileEntityLatexLog extends TileEntity {
 	final int maxCapacity = 3000;
 	
 	EnumFacing facing;
-	int storedLatex;
+	int storedLatex = 0;
 	
-	public TileEntityLatexLog(EnumFacing facing, boolean hasLatex) {
-		this.facing=facing;
-		if (hasLatex) {
-			storedLatex = (rand.nextInt(40)+10)*50;
-		} else storedLatex=0;
-		System.out.println("set latex tile entity with facing " + facing + " at " +pos);
+	public TileEntityLatexLog() {
+		if (facing==null) {
+			facing=DirectionUtils.getDirection(rand.nextInt(4));
+			System.out.println("set latex tile entity with facing " + facing + " at " +pos);
+		}
 	}
 	
 	@Override
 	public boolean hasFastRenderer() {
         return true;
-    }
-	
-	public EnumFacing getFacing() {
-        return facing;
     }
 	
 	@Override
@@ -65,6 +61,19 @@ public class TileEntityLatexLog extends TileEntity {
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
 		return new SPacketUpdateTileEntity(pos, getBlockMetadata(), getUpdateTag());
+	}
+	
+	public int setNaturalLatex() {
+		storedLatex = (rand.nextInt(40)+10)*50;
+		return storedLatex;
+	}
+	
+	public int getLatex() {
+		return storedLatex;
+	}
+	
+	public EnumFacing getFacing() {
+		return facing;
 	}
 
 }

@@ -11,26 +11,41 @@ import net.smileycorp.atlas.api.util.RecipeUtils;
 import com.google.common.collect.Maps;
 
 public class KilnRecipes {
-
-	public static KilnRecipes instance() {
-		return new KilnRecipes();
-	}
 	
 	private static final Map<Ingredient[], ItemStack> results = Maps.<Ingredient[], ItemStack>newHashMap();
+	private static final Map<ItemStack, ItemStack> returnItem = Maps.<ItemStack, ItemStack>newHashMap();
 	
-	public Map<Ingredient[], ItemStack> getRecipeMap() {
+	public static Map<Ingredient[], ItemStack> getRecipeMap() {
 		return results;
 	}
 	
-	public void addRecipe(Ingredient input1, Ingredient input2, ItemStack output) {
+	public static void addRecipe(ItemStack slot0, ItemStack slot1, ItemStack output) {
+		addRecipe(Ingredient.fromStacks(slot0), Ingredient.fromStacks(slot1), output);
+	}
+	
+	public static void addRecipe(Ingredient slot0, ItemStack slot1, ItemStack output) {
+		addRecipe(slot0, Ingredient.fromStacks(slot1), output);
+	}
+	
+	public static void addRecipe(ItemStack slot0, Ingredient slot1, ItemStack output) {
+		addRecipe(Ingredient.fromStacks(slot0), slot1, output);
+	}
+	
+	public static void addRecipe(Ingredient input1, Ingredient input2, ItemStack output) {
 		results.put(new Ingredient[] {input1, input2}, output);
 	}
 	
-	public boolean canSmelt(ItemStack slot0, ItemStack slot1) {
+	public static void setReturnItem(ItemStack input, ItemStack returnitem) {
+		input.setCount(1);
+		returnitem.setCount(1);
+		returnItem.put(input, returnitem);
+	}
+	
+	public static boolean canSmelt(ItemStack slot0, ItemStack slot1) {
 		return !getSmeltingOutput(slot0, slot1).isEmpty();
 	}
 	
-	public ItemStack getSmeltingOutput(ItemStack slot0, ItemStack slot1) {
+	public static ItemStack getSmeltingOutput(ItemStack slot0, ItemStack slot1) {
 		ItemStack result = ItemStack.EMPTY;
 		Set<Entry<Ingredient[], ItemStack>> entries = results.entrySet();
 		for (Entry<Ingredient[], ItemStack> entry : entries) {
@@ -39,8 +54,8 @@ public class KilnRecipes {
 			for (Ingredient ingredient : ingredients) {
 				ItemStack[] stacks = ingredient.getMatchingStacks();
 				for (ItemStack stack : stacks) {
-					if (RecipeUtils.compareItemStacks(slot0, stack)
-							||RecipeUtils.compareItemStacks(slot1, stack)) {
+					if (RecipeUtils.compareItemStacks(slot0, stack, true)
+							||RecipeUtils.compareItemStacks(slot1, stack, true)) {
 						check++;
 						break;
 					}
@@ -51,5 +66,19 @@ public class KilnRecipes {
 			}
 		}
 		return result;
+	}
+	
+	public static ItemStack getReturnItem(ItemStack stack){
+		if (stack.getCount()==1) {
+			if (stack.getItem().hasContainerItem(stack)) {
+				return stack.getItem().getContainerItem(stack);
+			}
+			for (Entry<ItemStack, ItemStack> entry:returnItem.entrySet()) {
+				if (RecipeUtils.compareItemStacks(stack, entry.getKey(), true)){
+					return entry.getValue().copy();
+				}
+			}
+		}
+		return null;
 	}
 }

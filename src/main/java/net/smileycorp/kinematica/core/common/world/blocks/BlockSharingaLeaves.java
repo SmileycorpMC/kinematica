@@ -9,6 +9,7 @@ import javax.annotation.Nonnull;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -22,6 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class BlockSharingaLeaves extends BlockLeaves {
 
@@ -47,8 +49,18 @@ public class BlockSharingaLeaves extends BlockLeaves {
 	}
 	
 	@Override
+	public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+		return 20;
+	}
+	
+	@Override
+	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing facing) {
+		return 5;
+	}
+	
+	@Override
 	  public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-	    return Item.getItemFromBlock(WorldBlocks.SHARINGA_SAPLING);
+	    return Item.getItemFromBlock(KineWorld.SHARINGA_SAPLING);
 	  }
 	
 	@Override

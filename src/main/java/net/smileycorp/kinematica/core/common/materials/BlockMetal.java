@@ -16,9 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.smileycorp.atlas.api.block.BlockBase;
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
-import net.smileycorp.kinematica.core.common.BlockBase;
+import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityMetalBlock;
 
 @SuppressWarnings("unused")
@@ -27,7 +28,7 @@ public class BlockMetal extends BlockBase {
 	public final String metal;
 	
 	public BlockMetal(String modid, String metal) {
-		super(metal+"_Block", modid, Material.IRON, SoundType.METAL, 3.5f, 7f, 0);
+		super(metal+"_Block", modid, Material.IRON, SoundType.METAL, 3.5f, 7f, 0, KineTabs.BLOCKS);
 		this.metal=metal;
 	}
 	

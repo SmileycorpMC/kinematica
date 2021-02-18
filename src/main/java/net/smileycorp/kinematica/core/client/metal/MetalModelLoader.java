@@ -21,7 +21,7 @@ import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.materials.ItemMetal;
-import net.smileycorp.kinematica.core.common.materials.Materials;
+import net.smileycorp.kinematica.core.common.materials.KineMaterials;
 
 @SuppressWarnings("deprecation")
 public class MetalModelLoader implements ICustomModelLoader, IResourceManagerReloadListener {
@@ -51,7 +51,7 @@ public class MetalModelLoader implements ICustomModelLoader, IResourceManagerRel
 	}
 
 	public static void stitchTextures(TextureMap map) {
-		for (ItemMetal item : Materials.metal_items) {
+		for (ItemMetal item : KineMaterials.metal_items) {
 			
 			MetalType type = item.type;
 			

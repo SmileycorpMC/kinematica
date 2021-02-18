@@ -8,7 +8,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.smileycorp.kinematica.core.common.BlockBase;
+import net.smileycorp.atlas.api.block.BlockBase;
+import net.smileycorp.kinematica.core.common.KineTabs;
+import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class BlockBauxiteSoil extends BlockBase {
 	
@@ -17,7 +19,7 @@ public class BlockBauxiteSoil extends BlockBase {
 	}
 	
 	public BlockBauxiteSoil(String name, Material mat, SoundType sound) {
-		super(name, mat, sound, 0.5f, 1f,  "shovel", 0);
+		super(name, ModDefinitions.modid, mat, sound, 0.5f, 1f,  "shovel", 0, KineTabs.BLOCKS);
 	}
 	
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable)	{

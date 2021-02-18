@@ -11,6 +11,8 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.smileycorp.kinematica.core.common.world.gen.OreGenerator;
+import net.smileycorp.kinematica.core.common.world.gen.StoneGenerator;
 import net.smileycorp.kinematica.core.common.world.gen.WorldGenSharinga;
 
 public class WorldRegister {

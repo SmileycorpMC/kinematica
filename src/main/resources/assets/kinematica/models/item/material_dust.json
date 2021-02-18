@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "kinematica:items/material_dust_base"
-    }
-}

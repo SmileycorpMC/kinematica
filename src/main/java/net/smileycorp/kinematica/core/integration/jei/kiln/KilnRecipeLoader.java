@@ -16,7 +16,7 @@ public class KilnRecipeLoader {
 	@SuppressWarnings("unchecked")
 	public static List<KilnRecipeWrapper> getRecipes(IJeiHelpers jeiHelpers) {
 		List<KilnRecipeWrapper> recipes = new ArrayList<KilnRecipeWrapper> ();
-		Map<Ingredient[], ItemStack> kilnMap = KilnRecipes.instance().getRecipeMap();
+		Map<Ingredient[], ItemStack> kilnMap = KilnRecipes.getRecipeMap();
 		Set<Entry<Ingredient[], ItemStack>> set = kilnMap.entrySet();
 		Iterator<?> iterator = set.iterator();
 		while(iterator.hasNext()) {

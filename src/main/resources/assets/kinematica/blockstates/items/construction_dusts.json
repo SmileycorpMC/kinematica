@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "transform": "forge:default-item",
+        "model": "forge:item-layer"
+    },
+    "variants": {
+		"aggregate": [{ "textures": { "layer0": "kinematica:items/dusts/aggregate" }}],
+		"ground_lime": [{ "textures": { "layer0": "kinematica:items/dusts/ground_lime" }}],
+		"quicklime": [{ "textures": { "layer0": "kinematica:items/dusts/quicklime" }}],
+		"slaked_lime": [{ "textures": { "layer0": "kinematica:items/dusts/slaked_lime" }}],
+		"cement": [{ "textures": { "layer0": "kinematica:items/dusts/cement" }}]
+    }
+}

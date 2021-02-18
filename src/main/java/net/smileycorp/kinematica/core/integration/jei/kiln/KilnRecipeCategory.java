@@ -11,6 +11,7 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
@@ -48,7 +49,7 @@ public class KilnRecipeCategory implements IRecipeCategory<KilnRecipeWrapper> {
 
 	@Override
 	public String getTitle() {
-		return I18n.translateToLocal("jei.category.compositeores.Kiln").trim();
+		return I18n.translateToLocal("jei.category.kinematica.Kiln").trim();
 	}
 
 	@Override
@@ -59,10 +60,13 @@ public class KilnRecipeCategory implements IRecipeCategory<KilnRecipeWrapper> {
 	@Override
 	public void setRecipe(IRecipeLayout recipeLayout, KilnRecipeWrapper recipeWrapper, IIngredients ingredients) {
 		IGuiItemStackGroup items = recipeLayout.getItemStacks();
+		items.init(0, true, 2, 7);
+		items.init(1, true, 20, 7);
+		items.init(2, false, 82, 7);
 		
-		items.init(0, true, 3, 8);
-		items.init(1, true, 21, 8);
-		items.init(2, false, 84, 8);
+		recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
+	    recipeLayout.getItemStacks().set(1, ingredients.getInputs(ItemStack.class).get(1));
+	    recipeLayout.getItemStacks().set(2, ingredients.getOutputs(ItemStack.class).get(0));
 	}
 
 }

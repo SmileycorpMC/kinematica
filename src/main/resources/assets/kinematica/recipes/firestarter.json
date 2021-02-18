@@ -1,0 +1,19 @@
+{
+    "type": "forge:ore_shaped",
+    "group": "kinematica:firestarter",
+	"pattern" : [
+		"S ",
+		" S"
+	],
+	"key" : {
+		"S" : {
+            "type": "forge:ore_dict",
+            "ore": "stickWood"
+        }
+	},
+    "result": {
+        "item": "kinematica:firestarter",
+        "count": 1,
+        "data": 0
+    }
+}

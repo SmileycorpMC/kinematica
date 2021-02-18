@@ -2,12 +2,15 @@ package net.smileycorp.kinematica.core.common.machine.multiblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.smileycorp.atlas.api.util.DirectionUtils;
-import net.smileycorp.kinematica.core.common.machine.blocks.BlockKiln;
-import net.smileycorp.kinematica.core.common.machine.blocks.MachineBlocks;
+import net.smileycorp.kinematica.core.common.construction.KineConstruction;
+import net.smileycorp.kinematica.core.common.machine.BasicMachines;
+import net.smileycorp.kinematica.core.common.machine.blocks.BlockKilnChamber;
 
 public class Kiln {
 
@@ -19,27 +22,27 @@ public class Kiln {
 		return false;
 	}
 	
-	private static boolean isValid(World world, BlockPos basePos, EnumFacing facing) {
+	private static boolean isValid(World world, BlockPos pos, EnumFacing facing) {
 		//System.out.println("Trying kiln with opening "+openSide);
 		for (int i = -1; i< 2; i++) {
 			for (int j = 0; j< 3; j++) {
 				for (int k = -1; k< 2; k++) {
-					BlockPos pos = basePos.east(i).up(j).south(k);
-					Block block = world.getBlockState(pos).getBlock();
-					if (pos==basePos) {
+					BlockPos newpos = pos.east(i).up(j).south(k);
+					Block block = world.getBlockState(newpos).getBlock();
+					if (newpos==pos) {
 						if(block!=Blocks.FIRE) {
 							//System.out.println("Fire Failed at "+pos);
 							return false;
 						}
 					}
-					else if (pos.equals(DirectionUtils.getPos(basePos, facing))||(i==0&&j==1&&k==0)) {
-						if (!world.isAirBlock(pos))	{
+					else if (newpos.equals(DirectionUtils.getPos(pos, facing))||(i==0&&j==1&&k==0)) {
+						if (!world.isAirBlock(newpos))	{
 							//System.out.println("Air Failed at "+pos);
 							return false;
 						}
 					}
 					else {
-						if (block!=MachineBlocks.MUDBRICK&&block!=MachineBlocks.FIRED_MUDBRICK){
+						if (block!=KineConstruction.MUDBRICK.getBase()&&block!=KineConstruction.FIRED_MUDBRICK.getBase()){
 							//System.out.println("Mud Brick Failed at "+pos);
 							return false;
 						}
@@ -47,18 +50,24 @@ public class Kiln {
 				}
 			}
 		}
-		placeKiln(world, basePos, facing);
+		placeKiln(world, pos, facing);
 		return true; 
 	}
 
-	private static void placeKiln(World world, BlockPos basePos, EnumFacing facing) {
-		world.setBlockState(basePos, MachineBlocks.KILN_CORE.getDefaultState(), 3);
-		world.setBlockState(DirectionUtils.getPos(basePos.up(), facing), MachineBlocks.KILN.getDefaultState().withProperty(BlockKiln.facing, facing), 3);
+	private static void placeKiln(World world, BlockPos pos, EnumFacing facing) {
+		world.setBlockState(pos, BasicMachines.KILN_FIRE.getDefaultState(), 3);
+		if (world.isRemote) world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.3f, 1f, true);
+		BlockPos chamberpos = DirectionUtils.getPos(pos.up(), facing);
+		world.setBlockState(chamberpos, BasicMachines.KILN_CHAMBER.getDefaultState().withProperty(BlockKilnChamber.facing, facing), 3);
+		if (world.isRemote) world.playSound(chamberpos.getX(), chamberpos.getY()+1, chamberpos.getZ(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.3f, 1f, true);
 		for (int i = -1; i<2; i++) {
 			for (int j = 0; j<3; j++) {
 				for (int k = -1; k<2; k++) {
-					BlockPos pos = basePos.east(i).up(j).south(k);
-					if(world.getBlockState(pos)==MachineBlocks.MUDBRICK.getDefaultState()) world.setBlockState(pos, MachineBlocks.FIRED_MUDBRICK.getDefaultState(), 3);	
+					BlockPos newpos = pos.east(i).up(j).south(k);
+					if(world.getBlockState(newpos)==KineConstruction.MUDBRICK.getBase().getDefaultState()) {
+						world.setBlockState(newpos, KineConstruction.FIRED_MUDBRICK.getBase().getDefaultState(), 3);
+						if (world.isRemote) world.playSound(newpos.getX(), newpos.getY(), newpos.getZ(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.3f, 1f, true);
+					}
 				}
 			}
 		}

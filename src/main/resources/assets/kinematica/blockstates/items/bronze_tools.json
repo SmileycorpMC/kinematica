@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "atlascore:tool"
+    },
+    "variants": {
+		"sword": [{ "textures": { "layer0": "kinematica:items/tools/bronze_sword" }}],
+		"spade": [{ "textures": { "layer0": "kinematica:items/tools/bronze_shovel" }}],
+		"pickaxe": [{ "textures": { "layer0": "kinematica:items/tools/bronze_pickaxe" }}],
+		"axe": [{ "textures": { "layer0": "kinematica:items/tools/bronze_axe" }}],
+		"hoe": [{ "textures": { "layer0": "kinematica:items/tools/bronze_hoe" }}]
+    }
+}

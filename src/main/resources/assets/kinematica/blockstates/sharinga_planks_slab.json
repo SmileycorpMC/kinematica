@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block",
+		"uvlock": true,
+		"textures": {
+			"side": "kinematica:blocks/planks_rubber",
+			"bottom": "#side",
+			"top": "#side",
+			"all": "#side"
+		}
+	},
+	"variants": {
+		"half=top": [{"model": "half_slab", "x": 180}],
+		"half=bottom": [{"model": "half_slab"}],
+		"double": [{"model": "cube_all"}],
+		"normal": [{"model": "half_slab"}]
+	}
+}

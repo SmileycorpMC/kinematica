@@ -9,10 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class WorldGenMud extends WorldGenerator {
-	private final IBlockState blockMud = WorldBlocks.MUD.getDefaultState();
+	private final IBlockState blockMud = KineWorld.MUD.getDefaultState();
     /** The number of blocks to generate. */
     private final int numberOfBlocks = 45;
 

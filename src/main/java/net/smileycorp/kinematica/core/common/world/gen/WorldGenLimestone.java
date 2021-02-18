@@ -9,10 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.smileycorp.kinematica.core.common.world.blocks.WorldBlocks;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class WorldGenLimestone extends WorldGenerator {
-	private final IBlockState blockLimestone = WorldBlocks.LIMESTONE.getDefaultState();
+	private final IBlockState blockLimestone = KineWorld.LIMESTONE.getDefaultState();
     /** The number of blocks to generate. */
     private final int numberOfBlocks = 75;
 

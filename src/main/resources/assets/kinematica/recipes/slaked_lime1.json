@@ -1,0 +1,47 @@
+{
+    "type": "forge:ore_shapeless",
+    "group": "kinematica:slaked_lime",
+    "ingredients": [
+        {
+            "item": "minecraft:water_bucket"
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        },
+		{
+            "item": "kinematica:construction_dusts",
+			"data": 2
+        }
+    ],
+    "result": {
+        "item": "kinematica:construction_dusts",
+        "count": 8,
+        "data": 3
+    }
+}
