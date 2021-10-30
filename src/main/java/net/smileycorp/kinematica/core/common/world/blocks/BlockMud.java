@@ -11,8 +11,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+
 import net.smileycorp.atlas.api.block.BlockBase;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
@@ -27,6 +29,7 @@ public class BlockMud extends BlockBase {
 		super(name, ModDefinitions.modid, mat, sound, 0.5f, 1f,  "shovel", 0, KineTabs.BLOCKS);
 	}
 	
+	@Override
 	public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable)	{
         EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
         switch (plantType) {
@@ -48,6 +51,7 @@ public class BlockMud extends BlockBase {
 	
 	static final AxisAlignedBB MUD_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
 	
+	@Override
 	@Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
     {
@@ -57,7 +61,8 @@ public class BlockMud extends BlockBase {
     /**
      * Called When an Entity Collided with the Block
      */
-    public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
+    @Override
+	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn)
     {
         entityIn.motionX *= 0.4D;
         entityIn.motionZ *= 0.4D;

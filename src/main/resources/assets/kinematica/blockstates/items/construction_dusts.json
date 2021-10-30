@@ -6,7 +6,8 @@
     },
     "variants": {
 		"aggregate": [{ "textures": { "layer0": "kinematica:items/dusts/aggregate" }}],
-		"ground_lime": [{ "textures": { "layer0": "kinematica:items/dusts/ground_lime" }}],
+		"limestone": [{ "textures": { "layer0": "kinematica:items/dusts/limestone" }}],
+		"dolomite": [{ "textures": { "layer0": "kinematica:items/dusts/dolomite" }}],
 		"quicklime": [{ "textures": { "layer0": "kinematica:items/dusts/quicklime" }}],
 		"slaked_lime": [{ "textures": { "layer0": "kinematica:items/dusts/slaked_lime" }}],
 		"cement": [{ "textures": { "layer0": "kinematica:items/dusts/cement" }}]

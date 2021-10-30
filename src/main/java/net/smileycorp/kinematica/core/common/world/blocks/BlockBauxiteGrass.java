@@ -13,8 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
@@ -23,6 +25,7 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
 		super("Bauxite_Grass", Material.GRASS, SoundType.PLANT);
 	}
 	
+	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!worldIn.isRemote)
@@ -66,6 +69,7 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
         }
     }
 
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return KineWorld.BAUXITE_SOIL.getItemDropped(state, rand, fortune);
@@ -74,17 +78,20 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
     /**
      * Whether this IGrowable can grow
      */
-    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
+    @Override
+	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
     {
         return true;
     }
 
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    @Override
+	public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
         return true;
     }
 
-    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    @Override
+	public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
     {
         BlockPos blockpos = pos.up();
 
@@ -129,7 +136,8 @@ public class BlockBauxiteGrass extends BlockBauxiteSoil implements IGrowable {
         }
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()
     {
         return BlockRenderLayer.CUTOUT_MIPPED;

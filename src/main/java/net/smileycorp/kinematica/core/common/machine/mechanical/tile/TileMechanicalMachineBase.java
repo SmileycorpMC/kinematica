@@ -2,9 +2,10 @@ package net.smileycorp.kinematica.core.common.machine.mechanical.tile;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
+
 import net.smileycorp.kinematica.api.IMechanicalPower;
 
-public class TileMechanicalBase extends TileEntity implements ITickable, IMechanicalPower {
+public class TileMechanicalMachineBase extends TileEntity implements ITickable, IMechanicalPower {
 	
 	private float torque;
 	private float velocity;

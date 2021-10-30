@@ -6,6 +6,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+
 import net.smileycorp.atlas.api.util.DirectionUtils;
 
 public class TileEntityLatexLog extends TileEntity {
@@ -18,7 +19,7 @@ public class TileEntityLatexLog extends TileEntity {
 	
 	public TileEntityLatexLog() {
 		if (facing==null) {
-			facing=DirectionUtils.getDirection(rand.nextInt(4));
+			facing=DirectionUtils.getXZDirection(rand.nextInt(4));
 			System.out.println("set latex tile entity with facing " + facing + " at " +pos);
 		}
 	}

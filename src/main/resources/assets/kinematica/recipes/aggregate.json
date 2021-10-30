@@ -10,6 +10,10 @@
             "type": "forge:ore_dict",
             "ore": "sand"
         },
+		{
+            "type": "forge:ore_dict",
+            "ore": "gravel"
+        },
         {
             "type": "forge:ore_dict",
             "ore": "sand"

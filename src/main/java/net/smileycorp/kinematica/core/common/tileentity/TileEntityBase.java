@@ -25,11 +25,13 @@ public class TileEntityBase extends TileEntity implements ITickable, ISidedInven
 		this.name=name;
 	}
 	
+	@Override
 	public int getSizeInventory() {
         return this.stacks.size();
     }
 
-    public boolean isEmpty() {
+    @Override
+	public boolean isEmpty() {
         for (ItemStack itemstack : this.stacks) {
             if (!itemstack.isEmpty()) {
                 return false;
@@ -41,11 +43,13 @@ public class TileEntityBase extends TileEntity implements ITickable, ISidedInven
     /**
      * Returns the stack in the given slot.
      */
-    public ItemStack getStackInSlot(int index) {
+    @Override
+	public ItemStack getStackInSlot(int index) {
         return this.stacks.get(index);
     }
     
-    public ItemStack decrStackSize(int index, int count) {
+    @Override
+	public ItemStack decrStackSize(int index, int count) {
         ItemStack stack = ItemStackHelper.getAndSplit(this.stacks, index, count);
         if (!stack.isEmpty()) {
     		this.markDirty();
@@ -53,7 +57,8 @@ public class TileEntityBase extends TileEntity implements ITickable, ISidedInven
         return stack;
     }
     
-    public ItemStack removeStackFromSlot(int index) {
+    @Override
+	public ItemStack removeStackFromSlot(int index) {
     	ItemStack stack = ItemStackHelper.getAndRemove(this.stacks, index);
     	if (!stack.isEmpty()) {
     		this.markDirty();
@@ -108,8 +113,10 @@ public class TileEntityBase extends TileEntity implements ITickable, ISidedInven
         }
 	}
 
+	@Override
 	public void openInventory(EntityPlayer player) {}
 	
+	@Override
 	public void closeInventory(EntityPlayer player) {}
 
 	@Override
@@ -155,7 +162,8 @@ public class TileEntityBase extends TileEntity implements ITickable, ISidedInven
 	@Override
 	public void update() {}
 	
-	 public ITextComponent getDisplayName() {
+	 @Override
+	public ITextComponent getDisplayName() {
 		 return (ITextComponent)(this.hasCustomName() ? new TextComponentString(this.getName()) : new TextComponentTranslation(this.getName(), new Object[0]));
 	 }
 

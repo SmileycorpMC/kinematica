@@ -21,7 +21,8 @@ public class WorldGenSoil extends WorldGenerator {
     	blockGrass=grass.getDefaultState();
     }
     
-    public boolean generate(World world, Random rand, BlockPos pos) {
+    @Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
         float f = rand.nextFloat() * (float)Math.PI;
         double d0 = (double)((float)(pos.getX() + 8) + MathHelper.sin(f) * (float)this.numberOfBlocks / 8.0F);
         double d1 = (double)((float)(pos.getX() + 8) - MathHelper.sin(f) * (float)this.numberOfBlocks / 8.0F);

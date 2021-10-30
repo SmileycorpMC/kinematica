@@ -3,9 +3,6 @@ package net.smileycorp.kinematica.core.client.metal;
 import java.util.List;
 
 import javax.vecmath.Matrix4f;
-import org.apache.commons.lang3.tuple.Pair;
-
-import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.BakedQuad;
@@ -17,8 +14,10 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.client.model.PerspectiveMapWrapper;
 import net.minecraftforge.common.model.TRSRTransformation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.apache.commons.lang3.tuple.Pair;
+
+import com.google.common.collect.ImmutableMap;
 
 public class BakedModelMetal implements IBakedModel {
 
@@ -37,7 +36,6 @@ public class BakedModelMetal implements IBakedModel {
 		return PerspectiveMapWrapper.handlePerspective(this, transforms, cameraTransformType);
 	}
 	
-	@SideOnly(Side.CLIENT)
 	@Override
 	public ItemCameraTransforms getItemCameraTransforms() {
 		return ItemCameraTransforms.DEFAULT;

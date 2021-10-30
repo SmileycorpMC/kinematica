@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "kinematica:refractory_brick",
+	"pattern" : [
+		"BB",
+		"BB"
+	],
+	"key" : {
+		"B" : {
+            "item": "kinematica:construction_materials",
+			"data": 0
+        }
+	},
+    "result": {
+        "item": "kinematica:refractory_brick",
+        "count": 1,
+        "data": 0
+    }
+}

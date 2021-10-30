@@ -1,11 +1,21 @@
 package net.smileycorp.kinematica.core.common.fluids;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+import net.minecraft.block.Block;
+
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.registries.IForgeRegistry;
+
+import net.smileycorp.atlas.api.client.FluidStateMapper;
 
 public class KineFluids {
+	
+	public static final List<BlockFluidBase> FLUID_BLOCKS = new ArrayList<BlockFluidBase>();
 	
 	//Gasses
 	public static Fluid HYDROGEN;
@@ -31,7 +41,7 @@ public class KineFluids {
 	public static Fluid HEAVY_WATER;
 	public static Fluid SUPERHEAVY_WATER;
 	
-	public static Fluid RESIN;
+	public static Fluid LATEX_RESIN;
 	public static Fluid TAR;
 	public static Fluid RUBBER;
 	public static Fluid CRUDE_OIL;
@@ -46,6 +56,15 @@ public class KineFluids {
 	public static Fluid MERCURY;
 	public static Fluid AMALGAM;
 	
-	public static Map<String, Fluid> MOLTEN_METALS =  new HashMap<String, Fluid>();
-
+	public static void registerBlocks(IForgeRegistry<Block> registry) {
+		
+	}
+	
+	public static void registerModels(ModelRegistryEvent event) {
+		for (BlockFluidBase block : FLUID_BLOCKS) {
+			ModelLoader.setCustomStateMapper(block, new FluidStateMapper(block.getFluid()));
+		}
+	}
+	
+	
 }

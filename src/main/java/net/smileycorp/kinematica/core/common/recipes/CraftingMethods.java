@@ -2,6 +2,7 @@ package net.smileycorp.kinematica.core.common.recipes;
 
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreIngredient;
+
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.ModDefinitions;

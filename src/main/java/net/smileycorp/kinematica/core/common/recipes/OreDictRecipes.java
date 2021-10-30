@@ -3,8 +3,10 @@ package net.smileycorp.kinematica.core.common.recipes;
 import java.util.ArrayList;
 
 import net.minecraft.item.ItemStack;
+
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
+
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
@@ -18,9 +20,9 @@ public class OreDictRecipes {
 		for (String ore : oredicts) {
 			if(ore.contains("ingot")) {
 				ingots.add(ore.replace("ingot", ""));
-			} else if(ore.contains("dust")) {
+			} else if(ore.contains("dust") &! OreDictionary.getOres(ore).isEmpty()) {
 				dusts.add(ore.replace("dust", ""));
-			} else if(ore.contains("ore")) {
+			} else if(ore.contains("ore") &! OreDictionary.getOres(ore).isEmpty()) {
 				ores.add(ore.replace("ore", ""));
 			}
 		}
@@ -32,7 +34,7 @@ public class OreDictRecipes {
 						KilnRecipes.addRecipe(new OreIngredient("ore"+oreblock), new OreIngredient("sand"), out);
 						ItemStack out2 = out.copy();
 						out2.setCount(2);
-						KilnRecipes.addRecipe(new OreIngredient("ore"+oreblock), new OreIngredient("dustMercury"), out);
+						KilnRecipes.addRecipe(new OreIngredient("ore"+oreblock), new OreIngredient("dustMercury"), out2);
 						System.out.println("["+ModDefinitions.modid+"] detected matching ores, adding kiln recipe for ore" + oreblock + " to " + out);
 					} catch(Exception e) {
 						System.out.println("["+ModDefinitions.modid+"] detected matching ores, error adding kiln recipe for ore" + oreblock + " to ingot" + ingot);

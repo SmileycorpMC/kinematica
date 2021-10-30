@@ -7,6 +7,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
 

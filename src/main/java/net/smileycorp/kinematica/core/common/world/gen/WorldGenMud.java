@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class WorldGenMud extends WorldGenerator {
@@ -16,7 +17,8 @@ public class WorldGenMud extends WorldGenerator {
     /** The number of blocks to generate. */
     private final int numberOfBlocks = 45;
 
-    public boolean generate(World world, Random rand, BlockPos pos) {
+    @Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
     	 if (!(world.getBlockState(pos.up()).getMaterial()==Material.WATER)) {
              return false;
          }

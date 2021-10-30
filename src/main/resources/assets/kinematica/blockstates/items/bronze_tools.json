@@ -1,7 +1,7 @@
 {
     "forge_marker": 1,
     "defaults": {
-        "model": "atlascore:tool"
+        "model": "atlaslib:tool"
     },
     "variants": {
 		"sword": [{ "textures": { "layer0": "kinematica:items/tools/bronze_sword" }}],

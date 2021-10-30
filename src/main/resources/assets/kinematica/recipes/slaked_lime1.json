@@ -7,41 +7,41 @@
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         },
 		{
             "item": "kinematica:construction_dusts",
-			"data": 2
+			"data": 3
         }
     ],
     "result": {
         "item": "kinematica:construction_dusts",
         "count": 8,
-        "data": 3
+        "data": 4
     }
 }

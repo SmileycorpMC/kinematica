@@ -7,8 +7,10 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
 
@@ -31,7 +33,8 @@ public class GuiKilnFuel extends GuiContainer {
 	    /**
 	     * Draws the screen and all the components in it.
 	     */
-	    public void drawScreen(int mouseX, int mouseY, float partialTicks)
+	    @Override
+		public void drawScreen(int mouseX, int mouseY, float partialTicks)
 	    {
 	        this.drawDefaultBackground();
 	        super.drawScreen(mouseX, mouseY, partialTicks);
@@ -41,7 +44,8 @@ public class GuiKilnFuel extends GuiContainer {
 	    /**
 	     * Draw the foreground layer for the GuiContainer (everything in front of the items)
 	     */
-	    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
+	    @Override
+		protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
 	    {
 	        String s = this.tile.getDisplayName().getUnformattedText()+" "+I18n.translateToLocal("localisation.container.Fuel");;
 	        this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 6, 4210752);
@@ -51,7 +55,8 @@ public class GuiKilnFuel extends GuiContainer {
 	    /**
 	     * Draws the background layer of this container (behind the items).
 	     */
-	    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
+	    @Override
+		protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	    {
 	        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 	        this.mc.getTextureManager().bindTexture(guiTexture);

@@ -6,24 +6,34 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 import net.minecraft.item.ItemStack;
+
 import net.minecraftforge.fluids.Fluid;
+
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 
-class MetalEntry {
+public class MetalEntry {
+
 	final int index;
+	final String modid;
+	final String name;
 	final Color colour;
 	final boolean isShapeable;
-	final String modid;
+	boolean registerFluid = true;
+	final int meltingTemp;
+	final int density;
 	
 	Map<MetalType, ItemStack> items = Maps.<MetalType, ItemStack>newHashMap();
 	
 	Fluid fluid = null;
 	
-	public MetalEntry(int index, String modid, Color colour, boolean isShapeable) {
+	public MetalEntry(int index, String modid, String name, Color colour, boolean isShapeable, int meltingTemp, int density) {
 		this.index=index;
 		this.modid=modid;
+		this.name=name;
 		this.colour=colour;
 		this.isShapeable=isShapeable;
+		this.meltingTemp=meltingTemp;
+		this.density=density;
 	}
 	
 	void setFluid(Fluid fluid) {
@@ -34,11 +44,27 @@ class MetalEntry {
 		items.put(type, stack);
 	}
 	
-	public boolean hasCustomFluid() {
-		return fluid!=null;
+	public void setFluidEnabled(boolean registerFluid) {
+		this.registerFluid = registerFluid;
 	}
 	
-	public Fluid getCustomFluid() {
+	public boolean hasFluid() {
+		return fluid!=null&&shouldHaveFluid();
+	}
+	
+	public boolean shouldHaveFluid() {
+		return registerFluid;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public String getMod() {
+		return modid;
+	}
+	
+	public Fluid getFluid() {
 		return fluid;
 	}
 	
@@ -49,4 +75,13 @@ class MetalEntry {
 	public ItemStack getItem(MetalType type) {
 		return items.get(type);
 	}
+
+	public int getMeltingTemp() {
+		return meltingTemp;
+	}
+
+	public int getDensity() {
+		return density;
+	}
+
 }

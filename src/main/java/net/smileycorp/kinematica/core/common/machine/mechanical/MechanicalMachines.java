@@ -8,11 +8,14 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.smileycorp.atlas.api.interfaces.IBlockProperties;
+
+import net.smileycorp.atlas.api.block.IBlockProperties;
+import net.smileycorp.kinematica.core.common.machine.mechanical.blocks.BlockWoodenAxle;
 
 public class MechanicalMachines {
 
@@ -20,9 +23,8 @@ public class MechanicalMachines {
 	  public static Set<Item> ITEMS = new HashSet<Item>();
     
     //Power Transfer
-	public static Block WOODEN_AXEL;
-    public static Block STONE_AXEL;
-	public static Block MECHANICAL_AXEL;
+	public static Block WOODEN_AXLE = new BlockWoodenAxle();
+	public static Block MECHANICAL_AXLE;
     public static Block WOODEN_GEARBOX;
     public static Block STONE_GEARBOX;
     public static Block MECHANICAL_GEARBOX;
@@ -34,6 +36,7 @@ public class MechanicalMachines {
     public static Block MECHANICAL_PUMP;
     public static Block MECHANICAL_FAN;
     public static Block MECHANICAL_PISTON;
+    public static Block BELLOWS;
     
     //Basic Generators
     public static Block HANDCRANK;
@@ -53,6 +56,7 @@ public class MechanicalMachines {
     
     //Transfer
     public static Block MECHANICAL_BELT;
+    public static Block MECHANICAL_CONVEYOR_BELT;
     public static Block MECHANICAL_PIPE;
     public static Block MECHANICAL_DUCT;
     

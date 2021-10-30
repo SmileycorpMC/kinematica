@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
+
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.KineTabs;
 

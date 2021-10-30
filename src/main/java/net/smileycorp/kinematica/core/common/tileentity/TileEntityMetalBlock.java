@@ -5,6 +5,7 @@ import java.awt.Color;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 
 public class TileEntityMetalBlock extends TileEntity {

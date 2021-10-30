@@ -1,11 +1,12 @@
 package net.smileycorp.kinematica.core.common.machine.mechanical.tile;
 
 import net.minecraft.util.EnumFacing;
+
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.CapabilityEnergy;
 
-public class TileAcyclicGenerator extends TileMechanicalBase implements ICapabilityProvider  {
+public class TileAcyclicGenerator extends TileMechanicalMachineBase implements ICapabilityProvider  {
     
     protected int energy = 0;
 

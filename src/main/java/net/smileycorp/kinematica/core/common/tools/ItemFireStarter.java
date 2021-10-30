@@ -17,10 +17,11 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
-import net.smileycorp.atlas.api.util.DirectionUtils;
+
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
@@ -51,7 +52,7 @@ public class ItemFireStarter extends Item {
 			EntityPlayer player = (EntityPlayer) entity;
 			RayTraceResult trace = player.rayTrace(5, 0);
 			EnumFacing facing = trace.sideHit;
-			BlockPos pos = DirectionUtils.getPos(trace.getBlockPos(), facing);
+			BlockPos pos = trace.getBlockPos().offset(facing);
 			EnumHand hand = entity.getActiveHand();
 			if (Blocks.FIRE.canPlaceBlockAt(world, pos)&&!world.isRainingAt(pos)) {
 				if (world.isRemote) {
@@ -79,7 +80,7 @@ public class ItemFireStarter extends Item {
 			World world = player.world;
 			RayTraceResult trace = player.rayTrace(5, 0);
 			EnumFacing facing = trace.sideHit;
-			BlockPos pos = DirectionUtils.getPos(trace.getBlockPos(), facing);
+			BlockPos pos = trace.getBlockPos().offset(facing);
 			if (Blocks.FIRE.canPlaceBlockAt(world, pos)&&!world.isRainingAt(pos)) {
 				if (world.isRemote&&count%5==1) {
 					world.playSound(entity.posX, entity.posY, entity.posZ, SoundEvents.BLOCK_WOOD_STEP, SoundCategory.PLAYERS, 1.0F, 1.0F, true);
@@ -93,7 +94,7 @@ public class ItemFireStarter extends Item {
 		if(world.isRemote){
 			return EnumActionResult.PASS;
 		}
-		BlockPos newpos = DirectionUtils.getPos(pos, facing);
+		BlockPos newpos = pos.offset(facing);
 		if ((world.isAirBlock(newpos)||world.getBlockState(newpos).getMaterial()==Material.PLANTS)&&!world.isRainingAt(newpos)) {
 			player.setActiveHand(hand);
 	        return EnumActionResult.SUCCESS;

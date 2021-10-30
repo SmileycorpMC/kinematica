@@ -6,12 +6,14 @@ import java.util.Set;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.registries.IForgeRegistry;
+
 import net.smileycorp.atlas.api.client.RenderingUtils;
-import net.smileycorp.atlas.api.interfaces.IMetaItem;
+import net.smileycorp.atlas.api.item.IMetaItem;
 import net.smileycorp.atlas.api.item.ToolSet;
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;

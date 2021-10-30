@@ -5,9 +5,12 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 import net.minecraftforge.fml.common.network.IGuiHandler;
-import net.smileycorp.kinematica.core.client.gui.*;
-import net.smileycorp.kinematica.core.common.tileentity.*;
+
+import net.smileycorp.kinematica.core.client.gui.GuiKilnChamber;
+import net.smileycorp.kinematica.core.client.gui.GuiKilnFuel;
+import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
 
 public class ContainerHandler implements IGuiHandler {
 

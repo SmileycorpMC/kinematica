@@ -16,6 +16,7 @@ localisation.Sulphur=Sulfur
 localisation.Cinnabar=Cinnabar
 localisation.Niter=Niter
 localisation.Phosphorus=Phosphorus
+localisation.Anthracite=Anthracite Coal
 
 localisation.Iron=Iron
 localisation.Gold=Gold
@@ -61,6 +62,8 @@ localisation.Steel=Steel
 localisation.GalvanisedSteel=Galvanized Steel
 localisation.Stellite=Stellite
 localisation.WhiteGold=White Gold
+localisation.Bisbronze=Bisbronze
+localisation.ArsenicalBronze=Arsenical Bronze
 
 localisation.Mithril=Mithril
 localisation.Hepatizion=Hepatizion
@@ -78,6 +81,7 @@ localisation.Plate=Plate
 localisation.Rod=Rod
 localisation.Ore=Ore
 localisation.Block=Block
+localisation.Molten=Molten
 localisation.DirtyDust=Dirty Dust
 localisation.Clump=Clump
 localisation.Shard=Shard
@@ -93,12 +97,21 @@ item.kinematica.CinnabarDust.name=Cinnabar
 item.kinematica.CoalDust.name=Coal Dust
 item.kinematica.SilicaDust.name=Silica Dust
 item.kinematica.FlourDust.name=Flour
+item.kinematica.AnthraciteDust.name=Anthracite Coal Dust
+item.kinematica.CokeDust.name=Coal Coke Dust
 
 item.kinematica.AggregateDust.name=Aggregate
-item.kinematica.GroundLimeDust.name=Calcite
+item.kinematica.LimestoneDust.name=Crushed Limestone
+item.kinematica.DolomiteDust.name=Crushed Dolomite
 item.kinematica.QuicklimeDust.name=Quicklime
 item.kinematica.SlakedLimeDust.name=Slaked Lime
 item.kinematica.CementDust.name=Cement
+
+item.kinematica.WoodenGear.name=Wooden Gear
+item.kinematica.Anthracite.name=Anthracite Coal
+item.kinematica.Coke.name=Coal Coke
+item.kinematica.WoodenGear.name=Wooden Gear
+item.kinematica.RefractoryBrick.name=Refractory Brick
 
 item.kinematica.Firestarter.name=Firestarter
 item.kinematica.CopperSword.name=Copper Sword
@@ -139,6 +152,11 @@ tile.kinematica.FiredMudbrickStairs.name=Hardened Mudbrick Stairs
 tile.kinematica.Adobe.name=Adobe
 tile.kinematica.AdobeSlab.name=Adobe Slab
 tile.kinematica.AdobeStairs.name=Adobe Stairs
+tile.kinematica.RefractoryBrick.name=Refractory Brick
+tile.kinematica.RefractoryBrickSlab.name=Refractory Brick Slab
+tile.kinematica.RefractoryBrickStairs.name=Refractory Brick Stairs
 
 tile.kinematica.KilnBrick.name=Kiln Brick
 tile.kinematica.Kiln.name=Kiln
+
+entity.kinematica.BlueWitherSkeleton.name=Blue Wither Skeleton

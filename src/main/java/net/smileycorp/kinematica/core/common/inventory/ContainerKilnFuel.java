@@ -9,6 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -39,12 +40,14 @@ public class ContainerKilnFuel extends Container {
 	}
 	
 
+	@Override
 	public void addListener(IContainerListener listener)
     {
         super.addListener(listener);
         listener.sendAllWindowProperties(this, inventory);
     }
 	
+	@Override
 	public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
@@ -67,6 +70,7 @@ public class ContainerKilnFuel extends Container {
         this.currentItemBurnTime = this.inventory.getField(1);
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
     public void updateProgressBar(int id, int data) {
         this.inventory.setField(id, data);

@@ -13,8 +13,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 import net.smileycorp.kinematica.core.common.inventory.ContainerKilnChamber;
 import net.smileycorp.kinematica.core.common.machine.blocks.BlockKilnFire;
@@ -34,7 +36,8 @@ public class TileEntityKiln extends TileEntityBase {
     /**
      * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
      */
-    public void setInventorySlotContents(int index, ItemStack stack)
+    @Override
+	public void setInventorySlotContents(int index, ItemStack stack)
     {
         ItemStack itemstack = this.stacks.get(index);
         boolean flag = !stack.isEmpty() && stack.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(stack, itemstack);
@@ -53,7 +56,8 @@ public class TileEntityKiln extends TileEntityBase {
         }
     }
 
-    public void readFromNBT(NBTTagCompound compound)
+    @Override
+	public void readFromNBT(NBTTagCompound compound)
     {
         super.readFromNBT(compound);
         this.stacks = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
@@ -69,7 +73,8 @@ public class TileEntityKiln extends TileEntityBase {
         }
     }
 
-    public NBTTagCompound writeToNBT(NBTTagCompound compound)
+    @Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound)
     {
         super.writeToNBT(compound);
         compound.setInteger("BurnTime", (short)this.burnTime);
@@ -94,7 +99,8 @@ public class TileEntityKiln extends TileEntityBase {
     /**
      * Like the old updateEntity(), except more generic.
      */
-    public void update()
+    @Override
+	public void update()
     {
         boolean flag = this.isBurning();
         boolean flag1 = false;
@@ -182,7 +188,7 @@ public class TileEntityKiln extends TileEntityBase {
      */
     private boolean canSmelt() {
     	if (this.burnTime>0||(TileEntityFurnace.isItemFuel(this.stacks.get(2)))) {
-    		return KilnRecipes.canSmelt(this.stacks.get(0), this.stacks.get(1));
+    			return KilnRecipes.canSmelt(stacks.get(0), stacks.get(1), stacks.get(3));
     	}
     	return false;
     }
@@ -196,17 +202,17 @@ public class TileEntityKiln extends TileEntityBase {
         {
             ItemStack in0 = this.stacks.get(0);
             ItemStack in1 = this.stacks.get(1);
-            ItemStack output = KilnRecipes.getSmeltingOutput(in0, in1);
+            ItemStack result = KilnRecipes.getSmeltingOutput(in0, in1);
             
-            ItemStack existingOutput = this.stacks.get(3);
-            System.out.println(output);
-            if (existingOutput.isEmpty())
+            ItemStack output = this.stacks.get(3);
+            System.out.println(result);
+            if (output.isEmpty())
             {
-                this.stacks.set(3, output.copy());
+                this.stacks.set(3, result.copy());
             }
-            else if (existingOutput.getItem() == output.getItem())
+            else
             {
-                existingOutput.grow(output.getCount());
+                output.grow(result.getCount());
             }
 
             in0.shrink(1);
@@ -218,7 +224,8 @@ public class TileEntityKiln extends TileEntityBase {
      * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot. For
      * guis use Slot.isItemValid
      */
-    public boolean isItemValidForSlot(int index, ItemStack stack)
+    @Override
+	public boolean isItemValidForSlot(int index, ItemStack stack)
     {
         if (index == 3)
         {
@@ -245,7 +252,8 @@ public class TileEntityKiln extends TileEntityBase {
         return new ContainerKilnChamber(playerInventory, this);
     }
 
-    public int getField(int id)
+    @Override
+	public int getField(int id)
     {
         switch (id)
         {
@@ -262,7 +270,8 @@ public class TileEntityKiln extends TileEntityBase {
         }
     }
 
-    public void setField(int id, int value)
+    @Override
+	public void setField(int id, int value)
     {
         switch (id)
         {
@@ -280,13 +289,15 @@ public class TileEntityKiln extends TileEntityBase {
         }
     }
 
-    public int getFieldCount()
+    @Override
+	public int getFieldCount()
     {
         return 4;
     }
 
 
-    public void clear()
+    @Override
+	public void clear()
     {
         this.stacks.clear();
     }

@@ -8,11 +8,13 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
+
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-import net.smileycorp.atlas.api.interfaces.IBlockProperties;
+
+import net.smileycorp.atlas.api.block.IBlockProperties;
 
 public class PneumaticMachines {
   	public static Set<Block> BLOCKS = new HashSet<Block>();

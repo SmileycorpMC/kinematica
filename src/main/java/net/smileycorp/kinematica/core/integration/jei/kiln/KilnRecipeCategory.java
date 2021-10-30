@@ -27,7 +27,7 @@ public class KilnRecipeCategory implements IRecipeCategory<KilnRecipeWrapper> {
 	public static ResourceLocation LOCATION = ModDefinitions.getResource("textures/gui/jei/kiln.png");
 	
 	public KilnRecipeCategory(IGuiHelper guiHelper) {
-		this.background = guiHelper.createDrawable(LOCATION, 0, 0, 106, 30);
+		this.background = guiHelper.createDrawable(LOCATION, 0, 0, 106, 50);
 		IDrawableStatic arrowDrawable = guiHelper.createDrawable(LOCATION, 106, 0, 24, 17);
 		this.arrow = guiHelper.createAnimatedDrawable(arrowDrawable, 160, IDrawableAnimated.StartDirection.LEFT, false);
 	}
@@ -65,7 +65,9 @@ public class KilnRecipeCategory implements IRecipeCategory<KilnRecipeWrapper> {
 		items.init(2, false, 82, 7);
 		
 		recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
-	    recipeLayout.getItemStacks().set(1, ingredients.getInputs(ItemStack.class).get(1));
+		if (ingredients.getInputs(ItemStack.class).size()>1) {
+			recipeLayout.getItemStacks().set(1, ingredients.getInputs(ItemStack.class).get(1));
+		}
 	    recipeLayout.getItemStacks().set(2, ingredients.getOutputs(ItemStack.class).get(0));
 	}
 

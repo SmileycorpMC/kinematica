@@ -8,8 +8,10 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.kinematica.core.common.inventory.slot.SlotItemOutput;
 
 public class ContainerKilnChamber extends Container {
@@ -41,12 +43,14 @@ public class ContainerKilnChamber extends Container {
         }
 	}
 	
+	@Override
 	public void addListener(IContainerListener listener)
     {
         super.addListener(listener);
         listener.sendAllWindowProperties(this, inventory);
     }
 	
+	@Override
 	public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
@@ -82,6 +86,7 @@ public class ContainerKilnChamber extends Container {
         this.totalProcessTime = this.inventory.getField(3);
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
     public void updateProgressBar(int id, int data) {
         this.inventory.setField(id, data);

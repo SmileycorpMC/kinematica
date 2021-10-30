@@ -5,14 +5,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.translation.I18n;
-import net.smileycorp.atlas.api.interfaces.IMetaItem;
+
+import net.smileycorp.atlas.api.item.IMetaItem;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 @SuppressWarnings("deprecation")
 public class ItemConstructionDusts extends Item implements IMetaItem {
 	
-	final String[] variants = {"Aggregate", "Ground_Lime", "Quicklime", "Slaked_Lime", "Cement"};
+	final String[] variants = {"Aggregate", "Limestone", "Dolomite", "Quicklime", "Slaked_Lime", "Cement"};
 	
 	public ItemConstructionDusts() {
 		super();

@@ -14,7 +14,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.smileycorp.atlas.api.interfaces.IBlockProperties;
+
+import net.smileycorp.atlas.api.block.IBlockProperties;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.world.gen.WorldGenSharinga;
@@ -43,19 +44,23 @@ public class BlockSharingaSapling extends BlockSapling implements IBlockProperti
         } 
 	}
 	
+	@Override
 	public int damageDropped(IBlockState state) {
         return 0;
     }
 
-    public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)	{
+    @Override
+	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)	{
     	items.add(new ItemStack(this));
     }
     
-    public IBlockState getStateFromMeta(int meta) {
+    @Override
+	public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(STAGE, meta);
     }
 
-    public int getMetaFromState(IBlockState state) {
+    @Override
+	public int getMetaFromState(IBlockState state) {
         return state.getValue(STAGE);
     }
     

@@ -7,6 +7,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.machine.BasicMachines;
@@ -16,7 +17,7 @@ public class Kiln {
 
 	public static boolean tryToCreate(World world, BlockPos pos) {
 		for (int i = 0; i<4; i++) {
-			if (isValid(world, pos, DirectionUtils.getDirection(i))) return true;
+			if (isValid(world, pos, DirectionUtils.getXZDirection(i))) return true;
 		}
 		//System.out.println("Kiln falied at "+pos);
 		return false;
@@ -35,7 +36,7 @@ public class Kiln {
 							return false;
 						}
 					}
-					else if (newpos.equals(DirectionUtils.getPos(pos, facing))||(i==0&&j==1&&k==0)) {
+					else if (newpos.equals(pos.offset(facing))||(i==0&&j==1&&k==0)) {
 						if (!world.isAirBlock(newpos))	{
 							//System.out.println("Air Failed at "+pos);
 							return false;
@@ -57,7 +58,7 @@ public class Kiln {
 	private static void placeKiln(World world, BlockPos pos, EnumFacing facing) {
 		world.setBlockState(pos, BasicMachines.KILN_FIRE.getDefaultState(), 3);
 		if (world.isRemote) world.playSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.3f, 1f, true);
-		BlockPos chamberpos = DirectionUtils.getPos(pos.up(), facing);
+		BlockPos chamberpos = pos.up().offset(facing);
 		world.setBlockState(chamberpos, BasicMachines.KILN_CHAMBER.getDefaultState().withProperty(BlockKilnChamber.facing, facing), 3);
 		if (world.isRemote) world.playSound(chamberpos.getX(), chamberpos.getY()+1, chamberpos.getZ(), SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 0.3f, 1f, true);
 		for (int i = -1; i<2; i++) {

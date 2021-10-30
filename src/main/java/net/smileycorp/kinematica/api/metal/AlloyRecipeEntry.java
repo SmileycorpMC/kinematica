@@ -1,31 +1,39 @@
 package net.smileycorp.kinematica.api.metal;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
 
-class AlloyRecipeEntry {
+import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
+
+public class AlloyRecipeEntry {
 	
-	final ItemStack catalyst;
-	final MetalStack[] ingredients;
+	final Ingredient catalyst;
+	final MetalStack output;
+	final MetalStack[] inputs;
 
-	public AlloyRecipeEntry(MetalStack... ingredients) {
-		this(null, ingredients);
+	public AlloyRecipeEntry(MetalStack output, MetalStack... inputs) {
+		this(output, null, inputs);
 	}
 
-	public AlloyRecipeEntry(ItemStack catalyst, MetalStack... ingredients) {
+	public AlloyRecipeEntry(MetalStack output, Ingredient catalyst, MetalStack... inputs) {
+		this.output = output;
 		this.catalyst = catalyst;
-		this.ingredients=ingredients;
+		this.inputs = inputs;
+	}
+	
+	public MetalStack getOutput() {
+		return output;
 	}
 
 	public boolean hasCatalyst() {
 		return catalyst!=null;
 	}
 
-	public ItemStack getCatalyst() {
+	public Ingredient getCatalyst() {
 		return catalyst;
 	}
 
-	public MetalStack[] getIngredients() {
-		return ingredients;
+	public MetalStack[] getInputs() {
+		return inputs;
 	}
 	
 }

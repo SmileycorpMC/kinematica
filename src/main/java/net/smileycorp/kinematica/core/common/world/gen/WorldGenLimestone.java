@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class WorldGenLimestone extends WorldGenerator {
@@ -16,7 +17,8 @@ public class WorldGenLimestone extends WorldGenerator {
     /** The number of blocks to generate. */
     private final int numberOfBlocks = 75;
 
-    public boolean generate(World world, Random rand, BlockPos pos) {
+    @Override
+	public boolean generate(World world, Random rand, BlockPos pos) {
         if (!canGenerate(world, pos)) {
             return false;
         }

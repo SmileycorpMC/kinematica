@@ -8,6 +8,9 @@ public class KineConfig {
 	//general
 	public static String tempUnits = "K";
 	
+	//client
+	public static boolean specialOreRenderer = true;
+	
 	public static void syncConfig(){
 		try{
 			config.load();
@@ -17,6 +20,9 @@ public class KineConfig {
 			if (tempUnits!="C"&&tempUnits!="F"&&tempUnits!="R"){
 				tempUnits = "K";
 			}
+			//client
+			specialOreRenderer = config.get("client", "specialOreRenderer",
+					true, "Whether to use the special ore renderer. (Turn off if you experience lag.)").getBoolean();
 		} catch (Exception e) {
 		} finally {
     	if (config.hasChanged()) config.save();

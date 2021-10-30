@@ -12,6 +12,8 @@
 		"cinnabar": [{ "textures": { "layer0": "kinematica:items/dusts/cinnabar" }}],
 		"coal": [{ "textures": { "layer0": "kinematica:items/dusts/coal" }}],
 		"silica": [{ "textures": { "layer0": "kinematica:items/dusts/silica" }}],
-		"flour": [{ "textures": { "layer0": "kinematica:items/dusts/flour" }}]
+		"flour": [{ "textures": { "layer0": "kinematica:items/dusts/flour" }}],
+		"anthracite": [{ "textures": { "layer0": "kinematica:items/dusts/anthracite" }}],
+		"coke": [{ "textures": { "layer0": "kinematica:items/dusts/coke" }}]
     }
 }

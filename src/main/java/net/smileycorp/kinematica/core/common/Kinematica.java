@@ -10,24 +10,23 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.smileycorp.atlas.api.interfaces.ISidedProxy;
 import net.smileycorp.kinematica.core.common.inventory.ContainerHandler;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntities;
+import net.smileycorp.kinematica.core.common.world.OresHandler;
 import net.smileycorp.kinematica.core.common.world.WorldRegister;
 import net.smileycorp.kinematica.core.integration.ModIntegration;
 
-@Mod(modid = ModDefinitions.modid, name=ModDefinitions.name, version = ModDefinitions.version, dependencies = "before:undergroundbiomes")
+@Mod(modid = ModDefinitions.modid, name=ModDefinitions.name, version = ModDefinitions.version, dependencies = ModDefinitions.dependencies)
 public class Kinematica {
 	
 	@Instance(ModDefinitions.modid)
 	public static Kinematica INSTANCE;
 	
 	@SidedProxy(clientSide = ModDefinitions.client, serverSide = ModDefinitions.server)
-	public static ISidedProxy proxy;
+	public static CommonProxy proxy;
 	
 	public Kinematica() {
 		INSTANCE = this;
-		APIRegistry.registerAPI();
 	}
 	
 	@EventHandler
@@ -39,6 +38,7 @@ public class Kinematica {
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldRegister());
 		MinecraftForge.ORE_GEN_BUS.register(new WorldRegister());
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ContainerHandler());
+		APIRegistry.registerAPI();
 		TileEntities.register();
 		WorldRegister.registerGeneration();
 		MinecraftForge.EVENT_BUS.register(proxy);
@@ -48,6 +48,7 @@ public class Kinematica {
 	@EventHandler
 	public void init(FMLInitializationEvent event){
 		ModIntegration.init();
+		ContentRegistry.registerRecipes();
 		proxy.init(event);
 	}
 	
@@ -55,7 +56,7 @@ public class Kinematica {
 	public void postInit(FMLPostInitializationEvent event){
 		ModIntegration.postInit();
 		proxy.postInit(event);
-		ContentRegistry.registerRecipes();
+		OresHandler.setupOres();
 	}
 
 }

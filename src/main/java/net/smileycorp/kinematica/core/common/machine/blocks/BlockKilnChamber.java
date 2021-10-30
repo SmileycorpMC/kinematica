@@ -17,8 +17,10 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.atlas.api.block.BlockBase;
 import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.Kinematica;
@@ -42,12 +44,12 @@ public class BlockKilnChamber extends BlockBase {
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta)	{
-		return this.getDefaultState().withProperty(facing, DirectionUtils.getDirection(meta));
+		return this.getDefaultState().withProperty(facing, DirectionUtils.getXZDirection(meta));
     }
 	
 	@Override
     public int getMetaFromState(IBlockState state) {
-    	return DirectionUtils.getMeta((EnumFacing)state.getValue(facing));
+    	return DirectionUtils.getXZMeta(state.getValue(facing));
     }
 	
 	@Override
@@ -65,6 +67,7 @@ public class BlockKilnChamber extends BlockBase {
         return KineConstruction.FIRED_MUDBRICK.getBase().getItemDropped(state, rand, fortune);
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
@@ -75,7 +78,7 @@ public class BlockKilnChamber extends BlockBase {
         if (world.isRemote) {
             return true;
         } else {
-			BlockPos newpos = DirectionUtils.getPos(pos.down(), facing.getOpposite());
+			BlockPos newpos = pos.down().offset(facing, -1);
 			TileEntity tileentity = world.getTileEntity(newpos);
             if (tileentity instanceof TileEntityKiln) {
             	player.openGui(Kinematica.INSTANCE, 0, world, newpos.getX(), newpos.getY(), newpos.getZ());

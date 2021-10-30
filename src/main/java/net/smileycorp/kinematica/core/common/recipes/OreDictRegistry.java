@@ -1,21 +1,22 @@
 package net.smileycorp.kinematica.core.common.recipes;
 
 import net.minecraft.item.ItemStack;
+
 import net.minecraftforge.oredict.OreDictionary;
+
 import net.smileycorp.kinematica.api.util.ElementUtils;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
 import net.smileycorp.kinematica.core.common.materials.ItemMetal;
 import net.smileycorp.kinematica.core.common.materials.KineMaterials;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
-import net.smileycorp.kinematica.core.common.world.blocks.BlockSimpleOre;
+import net.smileycorp.kinematica.core.common.world.blocks.BlockOreBase;
 
 public class OreDictRegistry {
 	
 	public static void registerOreDicts() {
 		OreDictionary.registerOre("mud", KineWorld.MUD);
 		OreDictionary.registerOre("stoneLimestone", KineWorld.LIMESTONE);
-		OreDictionary.registerOre("stoneLimestone", KineWorld.DOLOMITE);
 		OreDictionary.registerOre("stoneDolomite", KineWorld.DOLOMITE);
 		OreDictionary.registerOre("logWood", KineWorld.SHARINGA_LOG);
 		OreDictionary.registerOre("treeLeaves", KineWorld.SHARINGA_LEAVES);
@@ -23,8 +24,19 @@ public class OreDictRegistry {
 		OreDictionary.registerOre("plankWood", KineConstruction.SHARINGA_PLANKS.getBase());
 		OreDictionary.registerOre("stairWood", KineConstruction.SHARINGA_PLANKS.getStairs());
 		OreDictionary.registerOre("slabWood", KineConstruction.SHARINGA_PLANKS.getSlab());
+		OreDictionary.registerOre("gearWood", new ItemStack(KineMaterials.MATERIALS));
+		OreDictionary.registerOre("coal", new ItemStack(KineMaterials.MATERIALS, 1, 1));
+		OreDictionary.registerOre("anthracite", new ItemStack(KineMaterials.MATERIALS, 1, 1));
+		OreDictionary.registerOre("anthraciteCoal", new ItemStack(KineMaterials.MATERIALS, 1, 1));
+		OreDictionary.registerOre("coke", new ItemStack(KineMaterials.MATERIALS, 1, 2));
+		OreDictionary.registerOre("coalCoke", new ItemStack(KineMaterials.MATERIALS, 1, 2));
+		OreDictionary.registerOre("dustCoal", new ItemStack(KineMaterials.MATERIAL_DUST, 1, 8));
+		OreDictionary.registerOre("dustAnthraciteCoal", new ItemStack(KineMaterials.MATERIAL_DUST, 1, 8));
+		OreDictionary.registerOre("dustCoalCoke", new ItemStack(KineMaterials.MATERIAL_DUST, 1, 9));
 		OreDictionary.registerOre("dustLimestone", new ItemStack(KineConstruction.DUSTS, 1, 1));
+		OreDictionary.registerOre("dustDolomite", new ItemStack(KineConstruction.DUSTS, 1, 2));
 		OreDictionary.registerOre("dustCalcite", new ItemStack(KineConstruction.DUSTS, 1, 1));
+		OreDictionary.registerOre("dustMagnesite", new ItemStack(KineConstruction.DUSTS, 1, 2));
 		OreDictionary.registerOre("dustMercury",  new ItemStack(KineMaterials.MATERIAL_DUST, 1, 4));
 		OreDictionary.registerOre("dustCinnabar", new ItemStack(KineMaterials.MATERIAL_DUST, 1, 4));
 		
@@ -42,7 +54,7 @@ public class OreDictRegistry {
 				OreDictionary.registerOre("block" + altName, block);
 			}
 		}
-		for (BlockSimpleOre block : KineWorld.ores) {
+		for (BlockOreBase block : KineWorld.ores) {
 			String name = block.getName().replace("Nether", "").replace("_", "");
 			OreDictionary.registerOre("ore" + name , block);
 			for (String altName : ElementUtils.getOtherNames(name)) {

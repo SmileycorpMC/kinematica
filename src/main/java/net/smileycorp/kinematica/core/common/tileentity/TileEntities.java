@@ -1,12 +1,15 @@
 package net.smileycorp.kinematica.core.common.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
+
 import net.minecraftforge.fml.common.registry.GameRegistry;
+
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class TileEntities {
 	public static void register() {
 		registerTileEntity(TileEntityKiln.class, "Kiln");
+		registerTileEntity(TileEntityKineOre.class, "KinematicaOre");
 		registerTileEntity(TileEntityLatexLog.class, "LatexLog");
 	}
 	

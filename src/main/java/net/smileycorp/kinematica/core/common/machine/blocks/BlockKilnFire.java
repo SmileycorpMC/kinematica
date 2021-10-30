@@ -21,8 +21,10 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 import net.smileycorp.kinematica.core.common.Kinematica;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
@@ -57,6 +59,7 @@ public class BlockKilnFire extends Block implements ITileEntityProvider {
         return false;
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
@@ -99,14 +102,15 @@ public class BlockKilnFire extends Block implements ITileEntityProvider {
 		return state.getValue(burning) ? 13:0;
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
-		System.out.println("waaaw");
+		//System.out.println("waaaw");
 		if (state.getValue(burning)) {
-			System.out.println("weeew");
+			//System.out.println("weeew");
         	world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX(), pos.getX()+2, pos.getZ(), 0, 0.5f, 0);
         	if (rand.nextInt(5)==1) {
-        		System.out.println("wuuuw");
+        		//System.out.println("wuuuw");
         		world.playSound((double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
         	}
         }

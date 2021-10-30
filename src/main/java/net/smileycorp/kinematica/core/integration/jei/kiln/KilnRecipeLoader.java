@@ -8,8 +8,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import mezz.jei.api.IJeiHelpers;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 
 public class KilnRecipeLoader {

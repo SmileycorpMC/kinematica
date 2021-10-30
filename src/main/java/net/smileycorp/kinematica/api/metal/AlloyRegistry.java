@@ -1,22 +1,29 @@
 package net.smileycorp.kinematica.api.metal;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.google.common.collect.Maps;
+import net.minecraft.item.crafting.Ingredient;
+
+import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
 
 public class AlloyRegistry {
-	private static Map<String, AlloyRecipeEntry> alloys = Maps.<String, AlloyRecipeEntry>newHashMap();
+	private static List<AlloyRecipeEntry> alloys = new ArrayList<AlloyRecipeEntry>();
 	
-	public static void registerAlloy(String result, MetalStack... ingredients) {
-		registerAlloy (result, new AlloyRecipeEntry(ingredients));
+	public static void registerAlloy(MetalStack result, Ingredient catalyst, MetalStack... ingredients) {
+		registerAlloy(result.getMetal().getName(), new AlloyRecipeEntry(result, catalyst, ingredients));
+	}
+	
+	public static void registerAlloy(MetalStack result, MetalStack... ingredients) {
+		registerAlloy(result.getMetal().getName(), new AlloyRecipeEntry(result, ingredients));
 	}
 	
 	public static void registerAlloy(String result, AlloyRecipeEntry recipe) {
-		alloys.put(result, recipe);
+		alloys.add(recipe);
 	}
 	
-	public AlloyRecipeEntry getRecipe(String alloy) {
-		return alloys.get(alloy);
+	public static List<AlloyRecipeEntry> getRecipes() {
+		return alloys;
 	}
 
 }
