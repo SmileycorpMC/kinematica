@@ -1,61 +1,45 @@
 package net.smileycorp.kinematica.core.common.construction;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
-
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-
-import net.smileycorp.atlas.api.block.IBlockProperties;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.smileycorp.atlas.api.block.ShapedBlock;
-import net.smileycorp.atlas.api.client.RenderingUtils;
-import net.smileycorp.atlas.api.item.IMetaItem;
-import net.smileycorp.kinematica.core.common.KineTabs;
-import net.smileycorp.kinematica.core.common.ModDefinitions;
-import net.smileycorp.kinematica.core.common.construction.items.ItemConstructionDusts;
-import net.smileycorp.kinematica.core.common.construction.items.ItemConstructionMaterials;
+import net.smileycorp.kinematica.core.common.Constants;
 
 public class KineConstruction {
-	public  static Set<Block> BLOCKS = new HashSet<Block>();
-	public  static Set<Item> ITEMS = new HashSet<Item>();
-	
+
+	public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Constants.MODID);
+	public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.MODID);
+
 	//items
-	public static Item DUSTS = new ItemConstructionDusts();
-	public static Item MATERIALS = new ItemConstructionMaterials();
+	//public static Item DUSTS = new ItemConstructionDusts();
+	//public static Item MATERIALS = new ItemConstructionMaterials();
 
 	//shaped blocks
-	public static ShapedBlock SHARINGA_PLANKS = new ShapedBlock("Sharinga_Planks", ModDefinitions.modid, Material.WOOD, SoundType.WOOD, 1f, 6f, "axe", 0, KineTabs.BLOCKS);
-	public static ShapedBlock MUDBRICK = new ShapedBlock("Mudbrick", ModDefinitions.modid, Material.CLAY, SoundType.GROUND, 0.85f, 2f,  "shovel", 0, KineTabs.BLOCKS);
-	public static ShapedBlock FIRED_MUDBRICK = new ShapedBlock("Fired_Mudbrick", ModDefinitions.modid, Material.ROCK, SoundType.STONE, 1.2f, 6f, 0, KineTabs.BLOCKS);
-	public static ShapedBlock ADOBE = new ShapedBlock("Adobe", ModDefinitions.modid, Material.ROCK, SoundType.STONE, 1f, 5f, 0, KineTabs.BLOCKS);
-	public static ShapedBlock REFRACTORY_BRICK = new ShapedBlock("Refractory_Brick", ModDefinitions.modid, Material.ROCK, SoundType.STONE, 2.2f, 10f, 0, KineTabs.BLOCKS);
-	
-	//regular blocks
-	public static Block SHARINGA_FENCE;
-	public static Block SHARINGA_GATE;
-	public static Block SHARINGA_DOOR;
-	public static Block SHARINGA_TRAPDOOR;
-	
-	public static Block REINFORCED_CONCRETE_POWDER;
+	/*public static ShapedBlock MUDBRICK = new ShapedBlock("mudbrick", CreativeModeTabs.f_256837_, Block.Properties.of(Material.CLAY, MaterialColor.DIRT).sound(SoundType.GRAVEL).strength(0.85f, 2f),
+			ITEMS, BLOCKS, false);
+	public static ShapedBlock FIRED_MUDBRICK = new ShapedBlock("fired_mudbrick", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DIRT).sound(SoundType.STONE).strength(1.2f, 6f),
+			ITEMS, BLOCKS, false);
+	public static ShapedBlock ADOBE = new ShapedBlock("adobe", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DIRT).sound(SoundType.STONE).strength(1f, 5f),
+			ITEMS, BLOCKS, false);*/
+	public static ShapedBlock REFRACTORY_BRICKS = new ShapedBlock("refractory_bricks", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DEEPSLATE).sound(SoundType.DEEPSLATE_BRICKS).strength(2.2f, 10f),
+			ITEMS, BLOCKS, false);
+
+	/*public static Block REINFORCED_CONCRETE_POWDER;
 	public static Block REINFORCED_CONCRETE;
-	
-	public static Block SCAFFOLDING;
-	
-	public static Block[] blocks = {};
+
+	public static Block SCAFFOLDING;*/
+
+	/*public static Block[] blocks = {};
 	public static ShapedBlock[] shapedBlocks = {SHARINGA_PLANKS, MUDBRICK, FIRED_MUDBRICK, ADOBE, REFRACTORY_BRICK};
-	public static Item[] items = {DUSTS, MATERIALS};
-		
-	public static void registerBlocks(IForgeRegistry<Block> registry) {
+	//public static Item[] items = {DUSTS, MATERIALS};
+
+	/*public static void registerBlocks(IForgeRegistry<Block> registry) {
 		for (ShapedBlock block:shapedBlocks) {
 			block.registerBlocks(registry);
 		}
@@ -82,7 +66,7 @@ public class KineConstruction {
 
 	public static void registerModels(ModelRegistryEvent event) {
 		for (Item item : items) {
-			if (item instanceof IMetaItem) {	
+			if (item instanceof IMetaItem) {
 				for(int meta = 0; meta<=((IMetaItem)item).getMaxMeta(); meta++) {
 					RenderingUtils.setMetaModel(ModDefinitions.modid, item, meta);
 				}
@@ -103,5 +87,5 @@ public class KineConstruction {
 			}
 			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(loc, "normal"));
 		}
-	}
+	}*/
 }

@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "kinematica:items/nugget_base"
+        "layer0": "kinematica:item/nugget_base"
     },
 	"display": {
 		"thirdperson_righthand": {

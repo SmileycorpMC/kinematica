@@ -1,7 +1,7 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "kinematica:items/metal/rod_base"
+        "layer0": "kinematica:item/metal/rod_base"
     },
 	"display": {
         "thirdperson_righthand": {

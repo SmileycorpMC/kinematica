@@ -1,99 +1,52 @@
 package net.smileycorp.kinematica.core.common;
 
-import java.util.Collection;
-import java.util.Random;
-
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-
-import net.smileycorp.kinematica.core.common.machine.BasicMachines;
-import net.smileycorp.kinematica.core.common.tools.Tools;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.registries.RegistryObject;
+import net.smileycorp.atlas.api.item.ToolSet.ToolType;
+import net.smileycorp.kinematica.core.common.construction.KineConstruction;
+import net.smileycorp.kinematica.core.common.tools.KineTools;
+import net.smileycorp.kinematica.core.common.world.KineMaterials;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class KineTabs {
-	
-	static Random rand = new Random();
-	
-	private static ItemStack chooseItem(CreativeTabs tab) {
-		NonNullList<ItemStack> stacks = NonNullList.<ItemStack>create();
-		tab.displayAllRelevantItems(stacks);
-		return stacks.get(rand.nextInt(stacks.size()));
-	}
-	
-	private static ItemStack chooseItem(Collection<Item> items) {
-		return new ItemStack((Item) items.toArray()[rand.nextInt(items.size())]);
-	}
-	
-	
-	public static CreativeTabs MATERIALS = new CreativeTabs(ModDefinitions.getName("Materials")){
-		
-		ItemStack iconItemStack;
-		
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getIconItemStack(){
-			
-			if (iconItemStack == null) {
-				iconItemStack = chooseItem(this);
-			} else if (ModDefinitions.ticker%35==0) {
-				if (rand.nextInt(12)==0) {
-					iconItemStack = chooseItem(this);		
-				}
-			}
-			return this.iconItemStack;
-		 }
-		
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return getIconItemStack();
-		}
-	};
-	
-	public static CreativeTabs TOOLS = new CreativeTabs(ModDefinitions.getName("Tools")){
-		 
-		ItemStack iconItemStack;
-		
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getIconItemStack(){
-			
-			if (iconItemStack == null) {
-				iconItemStack = chooseItem(this);
-			} else if (ModDefinitions.ticker%35==0) {
-				if (rand.nextInt(12)==0) {
-					iconItemStack = chooseItem(Tools.COPPER.getItems());		
-				}
-			}
-			return this.iconItemStack;
-		 }
-		
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return getIconItemStack();
-		}
-	 };
-	 
-	public static CreativeTabs BLOCKS = new CreativeTabs(ModDefinitions.getName("Blocks")){
-		 
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem() {
-			return new ItemStack(KineWorld.LIMESTONE);
-		}
-	 };
 
-	public static CreativeTabs MACHINES = new CreativeTabs(ModDefinitions.getName("Machines")){
-		@Override
-		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem(){
-			return new ItemStack(BasicMachines.KILN_FIRE);
-		 }
-	 };
+	public static CreativeModeTab MATERIALS;
+	public static CreativeModeTab WORLD;
+	public static CreativeModeTab TOOLS;
+	public static CreativeModeTab CONSTRUCTION;
+
+	@SubscribeEvent
+	public void registerTabs(CreativeModeTabEvent.Register event) {
+		MATERIALS = event.registerCreativeModeTab(Constants.loc("materials"), builder -> builder.m_257941_(Component.translatable("itemGroup.kinematica.Materials"))
+				.m_257737_(()->new ItemStack(KineMaterials.WOODEN_GEAR.get())).m_257501_((params, outputs) -> {
+					for (RegistryObject<Item> reg: KineMaterials.ITEMS.getEntries()) {
+						outputs.m_246326_(reg.get());
+					}}));
+
+		WORLD = event.registerCreativeModeTab(Constants.loc("world"), builder -> builder.m_257941_(Component.translatable("itemGroup.kinematica.World"))
+				.m_257737_(()->new ItemStack(KineWorld.LIMESTONE.get())).m_257501_((params, outputs) -> {
+					for (RegistryObject<Item> reg: KineWorld.ITEMS.getEntries()) {
+						outputs.m_246326_(reg.get());
+					}}));
+
+		TOOLS = event.registerCreativeModeTab(Constants.loc("tools"), builder -> builder.m_257941_(Component.translatable("itemGroup.kinematica.Tools"))
+				.m_257737_(()->new ItemStack(KineTools.COPPER.getItem(ToolType.PICKAXE))).m_257501_((params, outputs) -> {
+					for (RegistryObject<Item> reg: KineTools.ITEMS.getEntries()) {
+						outputs.m_246326_(reg.get());
+					}
+				}));
+
+		CONSTRUCTION = event.registerCreativeModeTab(Constants.loc("construction"), builder -> builder.m_257941_(Component.translatable("itemGroup.kinematica.Construction"))
+				.m_257737_(()->new ItemStack(KineConstruction.REFRACTORY_BRICKS.getBase())).m_257501_((params, outputs) -> {
+					for (RegistryObject<Item> reg: KineConstruction.ITEMS.getEntries()) {
+						outputs.m_246326_(reg.get());
+					}
+				}));
+	}
+
 }

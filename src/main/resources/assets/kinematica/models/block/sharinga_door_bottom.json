@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "top": "kinematica:block/sharinga_door_top",
+    "bottom": "kinematica:block/sharinga_door_bottom"
+  }
+}

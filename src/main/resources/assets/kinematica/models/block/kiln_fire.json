@@ -1,10 +1,10 @@
 {
 	"__comment": "By Smileycorp",
 	"textures": {
-		"particle": "kinematica:blocks/machine/kiln_logs",
-		"logs": "kinematica:blocks/machine/kiln_logs",
-		"coal": "blocks/coal_block",
-		"fire0": "blocks/fire_layer_0"
+		"particle": "kinematica:block/machine/kiln_logs",
+		"logs": "kinematica:block/machine/kiln_logs",
+		"coal": "block/coal_block",
+		"fire0": "block/fire_layer_0"
 	},
 	"elements": [ 	 
 		{

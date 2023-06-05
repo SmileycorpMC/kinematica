@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "kinematica:block/sharinga_planks",
+    "top": "kinematica:block/sharinga_planks",
+    "side": "kinematica:block/sharinga_planks"
+  }
+}

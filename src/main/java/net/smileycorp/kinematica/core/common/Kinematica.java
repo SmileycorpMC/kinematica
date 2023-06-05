@@ -1,62 +1,44 @@
 package net.smileycorp.kinematica.core.common;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
-import net.smileycorp.kinematica.core.common.inventory.ContainerHandler;
-import net.smileycorp.kinematica.core.common.tileentity.TileEntities;
-import net.smileycorp.kinematica.core.common.world.OresHandler;
-import net.smileycorp.kinematica.core.common.world.WorldRegister;
-import net.smileycorp.kinematica.core.integration.ModIntegration;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.smileycorp.kinematica.core.client.ClientEventListener;
+import net.smileycorp.kinematica.core.common.construction.KineConstruction;
+import net.smileycorp.kinematica.core.common.tools.KineTools;
+import net.smileycorp.kinematica.core.common.world.KineMaterials;
+import net.smileycorp.kinematica.core.common.world.KineWorld;
 
-@Mod(modid = ModDefinitions.modid, name=ModDefinitions.name, version = ModDefinitions.version, dependencies = ModDefinitions.dependencies)
+@Mod(Constants.MODID)
+@Mod.EventBusSubscriber(modid = Constants.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Kinematica {
-	
-	@Instance(ModDefinitions.modid)
-	public static Kinematica INSTANCE;
-	
-	@SidedProxy(clientSide = ModDefinitions.client, serverSide = ModDefinitions.server)
-	public static CommonProxy proxy;
-	
-	public Kinematica() {
-		INSTANCE = this;
+
+	@SubscribeEvent
+	public static void modConstruction(FMLConstructModEvent event) {
+		KineConstruction.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineConstruction.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineMaterials.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineTools.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineWorld.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineWorld.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineWorld.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+		KineWorld.BLOCK_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+		FMLJavaModLoadingContext.get().getModEventBus().register(new KineTabs());
 	}
-	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event){
-		KineConfig.config = new Configuration(event.getSuggestedConfigurationFile());
-		KineConfig.syncConfig();
-		ModIntegration.preInit(event);
-		MinecraftForge.EVENT_BUS.register(new EventListener());
-		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldRegister());
-		MinecraftForge.ORE_GEN_BUS.register(new WorldRegister());
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new ContainerHandler());
-		APIRegistry.registerAPI();
-		TileEntities.register();
-		WorldRegister.registerGeneration();
-		MinecraftForge.EVENT_BUS.register(proxy);
-		proxy.preInit(event);
+
+	@SubscribeEvent
+	public static void loadComplete(FMLLoadCompleteEvent event) {
+		KineWorld.loadComplete();
+		KineMaterials.loadComplete();
 	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event){
-		ModIntegration.init();
-		ContentRegistry.registerRecipes();
-		proxy.init(event);
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event){
-		ModIntegration.postInit();
-		proxy.postInit(event);
-		OresHandler.setupOres();
+
+	@SubscribeEvent
+	public static void clientSetup(FMLClientSetupEvent event){
+		MinecraftForge.EVENT_BUS.register(new ClientEventListener());
 	}
 
 }

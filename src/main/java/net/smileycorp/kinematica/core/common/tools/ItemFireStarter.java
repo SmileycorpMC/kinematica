@@ -1,104 +1,96 @@
 package net.smileycorp.kinematica.core.common.tools;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Enchantments;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.World;
-
-import net.minecraftforge.common.util.BlockSnapshot;
-import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
-
-import net.smileycorp.kinematica.core.common.KineTabs;
-import net.smileycorp.kinematica.core.common.ModDefinitions;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.block.CandleCakeBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 
 public class ItemFireStarter extends Item {
-	
-	public ItemFireStarter() {
-		String name = "Firestarter";
-		setRegistryName(ModDefinitions.getResource(name));
-		setUnlocalizedName(ModDefinitions.getName(name));
-		setCreativeTab(KineTabs.TOOLS);
-		setMaxStackSize(1);
-		setFull3D();
+
+	private final boolean isTinderbox;
+
+	public ItemFireStarter(boolean isTinderbox) {
+		super(new Properties().rarity(isTinderbox ? Rarity.RARE : Rarity.UNCOMMON).stacksTo(1).durability(isTinderbox ? 72 : 0));
+		this.isTinderbox = isTinderbox;
 	}
-	
+
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-        return EnumAction.BOW;
-    }
-	
+	public UseAnim getUseAnimation(ItemStack stack) {
+		return UseAnim.BOW;
+	}
+
 	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
-        return 50;
-    }
-	
+	public int getUseDuration(ItemStack stack) {
+		return isTinderbox ? 20 : 50;
+	}
+
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
-		if (entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) entity;
-			RayTraceResult trace = player.rayTrace(5, 0);
-			EnumFacing facing = trace.sideHit;
-			BlockPos pos = trace.getBlockPos().offset(facing);
-			EnumHand hand = entity.getActiveHand();
-			if (Blocks.FIRE.canPlaceBlockAt(world, pos)&&!world.isRainingAt(pos)) {
-				if (world.isRemote) {
-					world.playSound(player.posX, player.posY, player.posZ, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.PLAYERS, 1.0F, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2F + 1.0F, true);
-				}
-				if (!player.capabilities.isCreativeMode&&!(EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, player.getHeldItem(hand))>0)) {
-					stack.shrink(1);
-				}
-				world.setBlockState(pos, Blocks.FIRE.getDefaultState(), 3);
-				if (ForgeEventFactory.onPlayerBlockPlace(player, 
-						new BlockSnapshot(world, pos, Blocks.FIRE.getDefaultState()), facing, hand).getResult()==Result.DENY
-						&&world.getBlockState(pos).getBlock()==Blocks.FIRE) {
-					world.setBlockToAir(pos);
-				}
-				
-			}
-		}
-        return stack;
-    }
-	
-	@Override
-	public void onUsingTick(ItemStack stack, EntityLivingBase entity, int count) {
-		if (entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) entity;
-			World world = player.world;
-			RayTraceResult trace = player.rayTrace(5, 0);
-			EnumFacing facing = trace.sideHit;
-			BlockPos pos = trace.getBlockPos().offset(facing);
-			if (Blocks.FIRE.canPlaceBlockAt(world, pos)&&!world.isRainingAt(pos)) {
-				if (world.isRemote&&count%5==1) {
-					world.playSound(entity.posX, entity.posY, entity.posZ, SoundEvents.BLOCK_WOOD_STEP, SoundCategory.PLAYERS, 1.0F, 1.0F, true);
+	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
+		if (entity instanceof Player) {
+			Player player = (Player) entity;
+			HitResult result = player.pick(5, 0, true);
+			if (result instanceof BlockHitResult) {
+				BlockHitResult blockresult = (BlockHitResult) result;
+				BlockPos pos = blockresult.getBlockPos();
+				InteractionHand hand = entity.getUsedItemHand();
+				BlockState blockstate = level.getBlockState(pos);
+				if (!CampfireBlock.canLight(blockstate) && !CandleBlock.canLight(blockstate) && !CandleCakeBlock.canLight(blockstate)) {
+					Direction dir = blockresult.getDirection();
+					BlockPos placePos = pos.relative(dir);
+					if (BaseFireBlock.canBePlacedAt(level, placePos, dir)) {
+						level.playSound(player, placePos, isTinderbox ? SoundEvents.FLINTANDSTEEL_USE : SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+						BlockState fire = BaseFireBlock.getState(level, placePos);
+						level.setBlock(placePos, fire, 11);
+						level.gameEvent(player, GameEvent.BLOCK_PLACE, pos);
+						if (player instanceof ServerPlayer) {
+							CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, placePos, stack);
+							stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
+						}
+					}
+				} else {
+					level.playSound(player, pos, isTinderbox ? SoundEvents.FLINTANDSTEEL_USE : SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
+					level.setBlock(pos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
+					level.gameEvent(player, GameEvent.BLOCK_PLACE, pos);
+					if (player != null) {
+						stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
+					}
 				}
 			}
 		}
-    }
-	
+		return stack;
+	}
+
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if(world.isRemote){
-			return EnumActionResult.PASS;
-		}
-		BlockPos newpos = pos.offset(facing);
-		if ((world.isAirBlock(newpos)||world.getBlockState(newpos).getMaterial()==Material.PLANTS)&&!world.isRainingAt(newpos)) {
-			player.setActiveHand(hand);
-	        return EnumActionResult.SUCCESS;
-		}
-		return EnumActionResult.FAIL;
-    }
+	public void onUsingTick(ItemStack stack, LivingEntity entity, int duration) {
+		Level level = entity.level;
+		level.playSound(null, entity.blockPosition(), isTinderbox ? SoundEvents.COPPER_STEP : SoundEvents.WOOD_STEP, SoundSource.PLAYERS, 1F, 1F);
+	}
+
+	@Override
+	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+		ItemStack itemstack = player.getItemInHand(hand);
+		player.startUsingItem(hand);
+		return InteractionResultHolder.success(itemstack);
+	}
+
 }

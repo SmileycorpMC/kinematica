@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:water_bucket"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        },
+		{
+            "tag": "forge:dusts/quicklime"
+        }
+    ],
+    "result": {
+        "item": "kinematica:slaked_lime",
+        "count": 8
+    }
+}

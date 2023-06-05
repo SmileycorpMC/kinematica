@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+	"S"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "X": {
+      "tag": "forge:anthracite_coal"
+    },
+	"X": {
+      "tag": "minecraft:soul_fire_base_blocks"
+    },
+  },
+  "result": {
+    "item": "minecraft:soul_torch",
+    "count": 6
+  }
+}

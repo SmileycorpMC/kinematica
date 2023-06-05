@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "kinematica:items/dust_base"
+        "layer0": "kinematica:item/dust_base"
     },
 	"display": {
 		"thirdperson_righthand": {

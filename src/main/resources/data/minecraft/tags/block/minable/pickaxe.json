@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "kinematica:limestone",
+	"kinematica:dolomite",
+	"kinematica:pegmatite"
+  ]
+}

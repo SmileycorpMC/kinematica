@@ -1,1 +1,8 @@
-{"forge_marker": 1,"defaults": {"model": "cube_all", "textures": { "all": "kinematica:blocks/planks_rubber" }},"variants": {"normal": [{}]}}
+{
+  "forge_marker": 1,
+  "variants": {
+    "": {
+      "model": "kinematica:block/sharinga_planks"
+    }
+  }
+}

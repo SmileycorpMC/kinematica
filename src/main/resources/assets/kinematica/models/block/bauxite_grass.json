@@ -1,0 +1,9 @@
+{
+    "parent": "atlaslib:block/grassy_cube",
+    "textures": {
+        "base": "kinematica:block/bauxite_soil",
+		"particle": "#base",
+		"top": "minecraft:block/grass_block_top",
+		"side": "minecraft:block/grass_block_side_overlay"
+    }
+}

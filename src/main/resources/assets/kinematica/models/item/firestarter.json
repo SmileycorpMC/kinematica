@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "kinematica:items/firestarter"
+        "layer0": "kinematica:item/firestarter"
     }
 }

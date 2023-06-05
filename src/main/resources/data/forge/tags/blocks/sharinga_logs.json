@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "kinematica:sharinga_log",
+    "kinematica:sharinga_wood",
+    "kinematica:stripped_sharinga_log",
+    "kinematica:stripped_sharinga_wood"
+  ]
+}

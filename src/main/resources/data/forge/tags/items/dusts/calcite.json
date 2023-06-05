@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+		"kinematica:crushed_calcite",
+		"kinematica:crushed_limestone",
+		"kinematica:crushed_dolomite"
+  ]
+}

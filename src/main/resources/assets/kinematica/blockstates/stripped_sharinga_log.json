@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "kinematica:block/stripped_sharinga_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "kinematica:block/stripped_sharinga_log"
+    },
+    "axis=z": {
+      "model": "kinematica:block/stripped_sharinga_log",
+      "x": 90
+    }
+  }
+}

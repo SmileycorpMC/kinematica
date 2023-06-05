@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "tag": "forge:sharinga_logs"
+        }
+    ],
+    "result": {
+        "item": "kinematica:sharinga_planks",
+        "count": 4
+    }
+}

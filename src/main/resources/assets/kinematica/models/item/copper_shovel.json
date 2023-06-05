@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "kinematica:item/tools/copper_shovel"
+    }
+}

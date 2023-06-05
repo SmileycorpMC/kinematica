@@ -1,20 +1,16 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "cube_column",
-    "textures": {
-      "end": "kinematica:blocks/log_rubber_top",
-      "side": "kinematica:blocks/log_rubber",
-	  "all": "#side"
-    }
-  },
   "variants": {
-    "normal": [{}],
-    "axis": {
-      "x": {"x": 90, "y": 90},
-      "y": {},
-      "z": {"x": 90},
-      "none": {"model": "cube_all"}
+    "axis=x": {
+      "model": "kinematica:block/sharinga_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "kinematica:block/sharinga_log"
+    },
+    "axis=z": {
+      "model": "kinematica:block/sharinga_log",
+      "x": 90
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "kinematica:block/sharinga_sapling",
+    "particle": "#cross"
+  }
+}

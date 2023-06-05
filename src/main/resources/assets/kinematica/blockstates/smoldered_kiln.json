@@ -1,9 +1,0 @@
-{
-	"forge_marker": 1,
-	"defaults": {
-		"model": "kinematica:smoldered_kiln"
-	},
-	"variants": {
-		"normal": [{}]
-	}
-}

@@ -1,15 +1,7 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "transform": "forge:default-item",
-    "model": "cross",
-    "textures": { "cross": "kinematica:blocks/sapling_rubber"}
-  },
   "variants": {
-    "inventory": [{
-		"model": "builtin/generated",
-        "textures": {"layer0": "#cross"}
-      }],
-    "normal": [{}]
+    "": {
+      "model": "kinematica:block/sharinga_sapling"
+    }
   }
 }

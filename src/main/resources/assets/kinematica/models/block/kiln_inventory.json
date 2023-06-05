@@ -1,10 +1,10 @@
 {
 	"textures": {
-		"particle": "kinematica:blocks/machine/charred_logs",
-		"logs": "kinematica:blocks/machine/charred_logs",
-		"coal": "blocks/coal_block",
-		"brick": "kinematica:blocks/fired_mudbrick",
-		"front": "kinematica:blocks/machine/kiln"
+		"particle": "kinematica:block/machine/charred_logs",
+		"logs": "kinematica:block/machine/charred_logs",
+		"coal": "block/coal_block",
+		"brick": "kinematica:block/fired_mudbrick",
+		"front": "kinematica:block/machine/kiln"
 	},
 	"elements": [ 	 
 		{

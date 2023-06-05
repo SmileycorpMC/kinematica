@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+	"pattern" : [
+		"S ",
+		" S"
+	],
+	"key" : {
+		"S" : {
+            "tag": "forge:rods/wooden"
+        }
+	},
+    "result": {
+        "item": "kinematica:firestarter",
+        "count": 1
+    }
+}

@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "kinematica:items/plate_base"
+        "layer0": "kinematica:item/plate_base"
     },
 	"display": {
 		"thirdperson_righthand": {

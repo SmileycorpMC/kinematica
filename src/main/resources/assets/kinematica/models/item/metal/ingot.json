@@ -1,7 +1,7 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "kinematica:items/gay"
+        "layer0": "kinematica:item/gay"
     },
     "display": {
         "ground": {

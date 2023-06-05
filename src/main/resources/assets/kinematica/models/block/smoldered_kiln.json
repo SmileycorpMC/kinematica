@@ -1,9 +1,9 @@
 {
 	"__comment": "By Smileycorp",
 	"textures": {
-		"particle": "kinematica:blocks/machine/charred_logs",
-		"logs": "kinematica:blocks/machine/charred_logs",
-		"coal": "blocks/coal_block"
+		"particle": "kinematica:block/machine/charred_logs",
+		"logs": "kinematica:block/machine/charred_logs",
+		"coal": "block/coal_block"
 	},
 	"elements": [ 	 
 		{

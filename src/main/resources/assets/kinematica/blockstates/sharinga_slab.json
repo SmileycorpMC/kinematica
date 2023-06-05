@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/sharinga_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/sharinga_planks"
+    },
+    "type=top": {
+      "model": "kinematica:block/sharinga_slab_top"
+    }
+  }
+}

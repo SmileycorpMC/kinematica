@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "kinematica:block/sharinga_leaves"
+  }
+}
