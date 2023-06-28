@@ -1,5 +1,6 @@
 package net.smileycorp.kinematica.core.common.construction;
 
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -8,8 +9,11 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import net.smileycorp.atlas.api.block.ShapedBlock;
 import net.smileycorp.kinematica.core.common.Constants;
+
+import java.util.function.Supplier;
 
 public class KineConstruction {
 
@@ -20,72 +24,23 @@ public class KineConstruction {
 	//public static Item DUSTS = new ItemConstructionDusts();
 	//public static Item MATERIALS = new ItemConstructionMaterials();
 
-	//shaped blocks
-	/*public static ShapedBlock MUDBRICK = new ShapedBlock("mudbrick", CreativeModeTabs.f_256837_, Block.Properties.of(Material.CLAY, MaterialColor.DIRT).sound(SoundType.GRAVEL).strength(0.85f, 2f),
-			ITEMS, BLOCKS, false);
-	public static ShapedBlock FIRED_MUDBRICK = new ShapedBlock("fired_mudbrick", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DIRT).sound(SoundType.STONE).strength(1.2f, 6f),
-			ITEMS, BLOCKS, false);
-	public static ShapedBlock ADOBE = new ShapedBlock("adobe", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DIRT).sound(SoundType.STONE).strength(1f, 5f),
-			ITEMS, BLOCKS, false);*/
+	public static RegistryObject<Block> POLISHED_LIMESTONE = registerBlock("polished_limestone", Block.Properties.of(Material.STONE, MaterialColor.SAND)
+			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
+	public static RegistryObject<Block> POLISHED_DOLOMITE = registerBlock("polished_dolomite", Block.Properties.of(Material.STONE, MaterialColor.SNOW)
+			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
+
+	public static RegistryObject<Block> POLISHED_PEGMATITE = registerBlock("polished_pegmatite", Block.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_ORANGE)
+			.sound(SoundType.STONE).strength(1.5f, 9f).requiresCorrectToolForDrops());
 	public static ShapedBlock REFRACTORY_BRICKS = new ShapedBlock("refractory_bricks", CreativeModeTabs.f_256837_, Block.Properties.of(Material.STONE, MaterialColor.DEEPSLATE).sound(SoundType.DEEPSLATE_BRICKS).strength(2.2f, 10f),
 			ITEMS, BLOCKS, false);
 
-	/*public static Block REINFORCED_CONCRETE_POWDER;
-	public static Block REINFORCED_CONCRETE;
-
-	public static Block SCAFFOLDING;*/
-
-	/*public static Block[] blocks = {};
-	public static ShapedBlock[] shapedBlocks = {SHARINGA_PLANKS, MUDBRICK, FIRED_MUDBRICK, ADOBE, REFRACTORY_BRICK};
-	//public static Item[] items = {DUSTS, MATERIALS};
-
-	/*public static void registerBlocks(IForgeRegistry<Block> registry) {
-		for (ShapedBlock block:shapedBlocks) {
-			block.registerBlocks(registry);
-		}
-		//registry.registerAll(blocks);
+	private static RegistryObject<Block> registerBlock(String name, Block.Properties properties) {
+		return registerBlock(name, ()-> new Block(properties));
 	}
 
-	public static void registerItems(IForgeRegistry<Item> registry) {
-		for (final Item item : items) {
-			registry.register(item);
-			ITEMS.add(item);
-		}
-		for (ShapedBlock block:shapedBlocks) {
-			block.registerItems(registry);
-			block.registerRecipes();
-		}
-		for (final Block block : blocks) {
-			Item item = new ItemBlock(block);
-			item.setRegistryName(block.getRegistryName());
-			item.setUnlocalizedName(block.getUnlocalizedName());
-			registry.register(item);
-			ITEMS.add(item);
-		}
+	private static RegistryObject<Block> registerBlock(String name, Supplier<Block> supplier) {
+		RegistryObject<Block> block = BLOCKS.register(name, supplier);
+		ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
+		return block;
 	}
-
-	public static void registerModels(ModelRegistryEvent event) {
-		for (Item item : items) {
-			if (item instanceof IMetaItem) {
-				for(int meta = 0; meta<=((IMetaItem)item).getMaxMeta(); meta++) {
-					RenderingUtils.setMetaModel(ModDefinitions.modid, item, meta);
-				}
-			} else {
-				ModelLoader.setCustomModelResourceLocation(item, 0,new ModelResourceLocation(item.getRegistryName().toString()));
-			}
-		}
-		for (ShapedBlock block:shapedBlocks) {
-			block.registerModels();
-		}
-		for (Block block : blocks) {
-			final ResourceLocation loc = ForgeRegistries.BLOCKS.getKey(block);
-			if (block instanceof IBlockProperties) {
-				if(((IBlockProperties) block).useInventoryVariant()) {
-					ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(loc, "inventory"));
-					continue;
-				}
-			}
-			ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(loc, "normal"));
-		}
-	}*/
 }

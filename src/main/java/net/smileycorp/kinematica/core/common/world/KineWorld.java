@@ -38,9 +38,6 @@ public class KineWorld {
 	public static DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Constants.MODID);
 	public static DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Constants.MODID);
 
-	//main blocks
-	//public static RegistryObject<Block> MUD = registerBlock("mud", () -> new BlockMud());
-	//public static RegistryObject<Block> BOG_GRASS = registerBlock("bog_grass",() ->  new BlockBogGrass());
 	public static RegistryObject<Block> BAUXITE_SOIL = registerBlock("bauxite_soil",() ->  new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).color(MaterialColor.COLOR_ORANGE)));
 	public static RegistryObject<Block> BAUXITE_GRASS = registerBlock("bauxite_grass",() ->  new BauxiteGrassBlock());
 	public static RegistryObject<Block> PEAT = registerBlock("peat",() ->  new MudBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).color(MaterialColor.COLOR_ORANGE)));
@@ -49,6 +46,7 @@ public class KineWorld {
 			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
 	public static RegistryObject<Block> DOLOMITE = registerBlock("dolomite", Block.Properties.of(Material.STONE, MaterialColor.SNOW)
 			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
+
 	public static RegistryObject<Block> PEGMATITE = registerBlock("pegmatite", Block.Properties.of(Material.STONE, MaterialColor.TERRACOTTA_ORANGE)
 			.sound(SoundType.STONE).strength(1.5f, 9f).requiresCorrectToolForDrops());
 	public static WoodBlock SHARINGA_WOOD = WoodBlockBuilder.of("sharinga", Constants.MODID, CreativeModeTabs.f_256837_, ITEMS, BLOCKS)
