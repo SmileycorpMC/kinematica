@@ -1,8 +1,5 @@
 package net.smileycorp.kinematica.core.common.world;
 
-import java.util.function.Supplier;
-import java.util.stream.Stream;
-
 import net.minecraft.Util;
 import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.EntityType;
@@ -30,6 +27,9 @@ import net.smileycorp.kinematica.core.common.world.block.BauxiteGrassBlock;
 import net.smileycorp.kinematica.core.common.world.block.OreBlockEntity;
 import net.smileycorp.kinematica.core.common.world.block.PeatGrassBlock;
 import net.smileycorp.kinematica.core.common.world.entity.BlueWitherSkeleton;
+
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class KineWorld {
 
