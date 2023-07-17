@@ -1,9 +1,9 @@
 {
-	"itemGroup.kinematica.Materials":"Kinematica Materials",
-	"itemGroup.kinematica.World":"Kinematica World",
-	"itemGroup.kinematica.Construction":"Kinematica Construction",
-	"itemGroup.kinematica.Machines":"Kinematica Machines",
-	"itemGroup.kinematica.Tools":"Kinematica Tools",
+	"creativetab.kinematica.materials":"Kinematica Materials",
+	"creativetab.kinematica.world":"Kinematica World",
+	"creativetab.kinematica.construction":"Kinematica Construction",
+	"creativetab.kinematica.machines":"Kinematica Machines",
+	"creativetab.kinematica.tools":"Kinematica Tools",
 	
 	"item.kinematica.sulphur":"Sulfur",
 	"item.kinematica.phosphorus":"Red Phosphorus",
@@ -29,6 +29,7 @@
 	"item.kinematica.refractory_brick":"Refractory Brick",
 
 	"item.kinematica.firestarter":"Firestarter",
+	"item.kinematica.tinderbox":"Tinderbox",
 	"item.kinematica.copper_sword":"Copper Sword",
 	"item.kinematica.copper_spade":"Copper Shovel",
 	"item.kinematica.copper_pickaxe":"Copper Pickaxe",

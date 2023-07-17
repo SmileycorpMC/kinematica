@@ -9,21 +9,22 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.smileycorp.atlas.api.block.ShapedBlock;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 public class StoneBlock {
 
-    private final CreativeModeTab tab;
+    private final Supplier<CreativeModeTab> tab;
     public final RegistryObject<Block> pillar;
     private final Map<StoneShape, ShapedBlock> blocks = Maps.newHashMap();
 
-    public StoneBlock(String name, CreativeModeTab tab, BlockBehaviour.Properties props, DeferredRegister<Item> itemRegister, DeferredRegister<Block> blockRegister) {
+    public StoneBlock(String name, Supplier<CreativeModeTab> tab, BlockBehaviour.Properties props, DeferredRegister<Item> itemRegister, DeferredRegister<Block> blockRegister) {
         this.tab = tab;
         for (StoneShape shape : StoneShape.values()) {
             blocks.put(shape, new ShapedBlock(shape.getName(name), tab, props, itemRegister, blockRegister, false));
@@ -42,10 +43,8 @@ public class StoneBlock {
     }
 
     @SubscribeEvent
-    public void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == this.tab) {
-            event.m_246326_(getPillar().asItem());
-        }
+    public void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == tab.get()) event.accept(pillar);
     }
 
     public enum StoneShape implements StringRepresentable {

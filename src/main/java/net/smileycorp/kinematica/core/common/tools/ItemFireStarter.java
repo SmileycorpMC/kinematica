@@ -81,9 +81,9 @@ public class ItemFireStarter extends Item {
 	}
 
 	@Override
-	public void onUsingTick(ItemStack stack, LivingEntity entity, int duration) {
-		Level level = entity.level;
-		level.playSound(null, entity.blockPosition(), isTinderbox ? SoundEvents.COPPER_STEP : SoundEvents.WOOD_STEP, SoundSource.PLAYERS, 1F, 1F);
+	public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int duration) {
+		level.playSound(null, entity.blockPosition(), isTinderbox ? SoundEvents.COPPER_STEP :
+				SoundEvents.WOOD_STEP, SoundSource.PLAYERS, 1F, 1F);
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package net.smileycorp.kinematica.core.common.world;
 
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -42,4 +43,26 @@ public class KineMaterials {
 		FuelHandler.INSTANCE.registerFuel(COKE.get(), 3200);
 	}
 
+    public static void fillMaterialsTab(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
+		output.accept(ANTHRACTITE.get());
+		output.accept(COKE.get());
+		output.accept(SULPHUR.get());
+		output.accept(PHOSPHORUS.get());
+		output.accept(NITER.get());
+		output.accept(ARSENIC.get());
+		output.accept(CINNABAR.get());
+		output.accept(COAL_DUST.get());
+		output.accept(ANTHRACITE_DUST.get());
+		output.accept(COKE_DUST.get());
+		output.accept(FLOUR.get());
+		output.accept(SILICA.get());
+		output.accept(CRUSHED_CALCITE.get());
+		output.accept(CRUSHED_LIMESTONE.get());
+		output.accept(CRUSHED_DOLOMITE.get());
+		output.accept(QUICKLIME.get());
+		output.accept(SLAKED_LIME.get());
+		output.accept(CEMENT.get());
+		output.accept(REFRACTORY_BRICK.get());
+		output.accept(WOODEN_GEAR.get());
+    }
 }
