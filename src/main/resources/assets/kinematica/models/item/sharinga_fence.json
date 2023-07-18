@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_inventory",
   "textures": {
-    "texture": "kinematica:blocks/sharinga_planks"
+    "texture": "kinematica:block/sharinga_planks"
   }
 }

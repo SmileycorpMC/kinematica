@@ -7,11 +7,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.client.event.RecipesUpdatedEvent;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.smileycorp.atlas.common.AtlasLib;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 import net.smileycorp.kinematica.core.common.world.entity.BlueWitherSkeleton;
 

@@ -1,7 +1,6 @@
 package net.smileycorp.kinematica.core.common.tools;
 
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;

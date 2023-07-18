@@ -12,7 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.smileycorp.atlas.api.block.ShapedBlock;
 import net.smileycorp.kinematica.core.common.Constants;
 import net.smileycorp.kinematica.core.common.KineTabs;
-import net.smileycorp.kinematica.core.common.world.block.StoneBlock;
+import net.smileycorp.kinematica.core.common.construction.block.ShapedMudBlock;
+import net.smileycorp.kinematica.core.common.construction.block.ShapedStoneBlock;
 
 import java.util.function.Supplier;
 
@@ -25,18 +26,12 @@ public class KineConstruction {
 	//public static Item DUSTS = new ItemConstructionDusts();
 	//public static Item MATERIALS = new ItemConstructionMaterials();
 
-	public static StoneBlock LIMESTONE = new StoneBlock("limestone", KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.SAND)
-			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
+	public static ShapedMudBlock BAUXITE = new ShapedMudBlock("bauxite", KineTabs.CONSTRUCTION, p->p.mapColor(MapColor.COLOR_ORANGE), ITEMS, BLOCKS);
 
-	public static StoneBlock DOLOMITE = new StoneBlock("dolomite", KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.SNOW)
-			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
-
-	public static StoneBlock PEGMATITE = new StoneBlock("pegmatite", KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE)
-			.sound(SoundType.STONE).strength(1.5f, 9f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
-
+	public static ShapedMudBlock PEAT = new ShapedMudBlock("peat", KineTabs.CONSTRUCTION, p->p.mapColor(MapColor.TERRACOTTA_BLACK), ITEMS, BLOCKS);
 
 	public static ShapedBlock REFRACTORY_BRICKS = new ShapedBlock("refractory_bricks", KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.DEEPSLATE).sound(SoundType.DEEPSLATE_BRICKS).strength(2.2f, 10f),
-			ITEMS, BLOCKS, false);
+			ITEMS, BLOCKS, true);
 
 	private static RegistryObject<Block> registerBlock(String name, Block.Properties properties) {
 		return registerBlock(name, ()-> new Block(properties));

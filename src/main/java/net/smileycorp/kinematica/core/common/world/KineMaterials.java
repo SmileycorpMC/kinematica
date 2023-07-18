@@ -32,7 +32,7 @@ public class KineMaterials {
 	public static final RegistryObject<Item> CEMENT = registerItem("cement");
 	public static final RegistryObject<Item> REFRACTORY_BRICK = registerItem("refractory_brick");
 	public static final RegistryObject<Item> WOODEN_GEAR = registerItem("wooden_gear");
-	//public static final RegistryObject<Item> FLOUR = registerItem("grass_");
+	public static final RegistryObject<Item> GRASS_FIBER = registerItem("grass_fiber");
 
 	private static RegistryObject<Item> registerItem(String name) {
 		return ITEMS.register(name,  ()-> new Item(new Item.Properties()));
@@ -64,5 +64,6 @@ public class KineMaterials {
 		output.accept(CEMENT.get());
 		output.accept(REFRACTORY_BRICK.get());
 		output.accept(WOODEN_GEAR.get());
+		output.accept(GRASS_FIBER.get());
     }
 }

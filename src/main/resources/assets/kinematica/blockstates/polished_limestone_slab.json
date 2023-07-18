@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/polished_limestone_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/polished_limestone"
+    },
+    "type=top": {
+      "model": "kinematica:block/polished_limestone_slab_top"
+    }
+  }
+}

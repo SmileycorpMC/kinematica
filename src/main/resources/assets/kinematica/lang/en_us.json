@@ -27,6 +27,7 @@
 	"item.kinematica.anthracite":"Anthracite Coal",
 	"item.kinematica.coke":"Coal Coke",
 	"item.kinematica.refractory_brick":"Refractory Brick",
+	"item.kinematica.grass_fiber":"Grass Fiber",
 
 	"item.kinematica.firestarter":"Firestarter",
 	"item.kinematica.tinderbox":"Tinderbox",
@@ -65,6 +66,7 @@
 	"block.kinematica.sharinga_door":"Sharinga Door",
 	"block.kinematica.sharinga_trapdoor":"Sharinga Trapdoor",
 	"block.kinematica.sharinga_sign":"Sharinga Sign",
+	"block.kinematica.sharinga_hanging_sign":"Sharinga Hanging Sign",
 	"item.kinematica.sharinga_boat":"Sharinga Boat",
 	"item.kinematica.sharinga_chest_boat":"Sharinga Chest Boat",
 	
@@ -74,7 +76,36 @@
 	"block.kinematica.sulphur_ore":"Sulfur Ore",
 	"block.kinematica.anthracite_ore":"Anthracite Coal Ore",
 
+	"block.kinematica.polished_limestone":"Polished Limestone",
+	"block.kinematica.polished_limestone_slab":"Polished Limestone Slab",
+	"block.kinematica.polished_limestone_stairs":"Polished Limestone Stairs",
+	"block.kinematica.limestone_bricks":"Limestone Bricks",
+	"block.kinematica.limestone_bricks_slab":"Limestone Brick Slab",
+	"block.kinematica.limestone_bricks_stairs":"Limestone Brick Stairs",
+	"block.kinematica.limestone_bricks_wall":"Limestone Brick Wall",
+	"block.kinematica.chiseled_limestone":"Chiseled Limestone",
+	"block.kinematica.limestone_pillar":"Limestone Pillar",
+	
+	"block.kinematica.polished_dolomite":"Polished Dolomite",
+	"block.kinematica.polished_dolomite_slab":"Polished Dolomite Slab",
+	"block.kinematica.polished_dolomite_stairs":"Polished Dolomite Stairs",
+	"block.kinematica.dolomite_bricks":"Dolomite Bricks",
+	"block.kinematica.dolomite_bricks_slab":"Dolomite Brick Slab",
+	"block.kinematica.dolomite_bricks_stairs":"Dolomite Brick Stairs",
+	"block.kinematica.chiseled_dolomite":"Chiseled Dolomite",
+	"block.kinematica.dolomite_pillar":"Dolomite Pillar",
+	
+	"block.kinematica.polished_pegmatite":"Polished Pegmatite",
+	"block.kinematica.polished_pegmatite_slab":"Polished Pegmatite Slab",
+	"block.kinematica.polished_pegmatite_stairs":"Polished Pegmatite Stairs",
+	"block.kinematica.pegmatite_bricks":"Pegmatite Bricks",
+	"block.kinematica.pegmatite_bricks_slab":"Pegmatite Brick Slab",
+	"block.kinematica.pegmatite_bricks_stairs":"Pegmatite Brick Stairs",
+	"block.kinematica.chiseled_pegmatite":"Chiseled Pegmatite",
+	"block.kinematica.pegmatite_pillar":"Pegmatite Pillar",
+
 	"block.kinematica.refractory_bricks":"Refractory Brick",
 	"block.kinematica.refractory_bricks_slab":"Refractory Brick Slab",
 	"block.kinematica.refractory_bricks_stairs":"Refractory Brick Stairs"
+	
 }

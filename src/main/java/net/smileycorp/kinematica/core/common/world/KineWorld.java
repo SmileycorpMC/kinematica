@@ -23,6 +23,7 @@ import net.smileycorp.atlas.api.block.WoodBlock;
 import net.smileycorp.atlas.api.block.WoodBlockBuilder;
 import net.smileycorp.kinematica.core.common.Constants;
 import net.smileycorp.kinematica.core.common.KineTabs;
+import net.smileycorp.kinematica.core.common.construction.block.ShapedStoneBlock;
 import net.smileycorp.kinematica.core.common.world.block.BauxiteGrassBlock;
 import net.smileycorp.kinematica.core.common.world.block.OreBlockEntity;
 import net.smileycorp.kinematica.core.common.world.block.PeatGrassBlock;
@@ -41,17 +42,19 @@ public class KineWorld {
 
 	public static RegistryObject<Block> BAUXITE_SOIL = registerBlock("bauxite_soil",() ->  new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(MapColor.COLOR_ORANGE)));
 	public static RegistryObject<Block> BAUXITE_GRASS = registerBlock("bauxite_grass",() ->  new BauxiteGrassBlock());
-	public static RegistryObject<Block> PEAT = registerBlock("peat",() ->  new MudBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(MapColor.COLOR_ORANGE)));
+	public static RegistryObject<Block> PEAT = registerBlock("peat",() ->  new MudBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(MapColor.TERRACOTTA_BLACK)));
 	public static RegistryObject<Block> PEAT_GRASS = registerBlock("peat_grass", () ->  new PeatGrassBlock());
-	public static RegistryObject<Block> LIMESTONE = registerBlock("limestone", Block.Properties.of().mapColor(MapColor.SAND)
-			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
-	public static RegistryObject<Block> DOLOMITE = registerBlock("dolomite", Block.Properties.of().mapColor(MapColor.SNOW)
-			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops());
 
-	public static RegistryObject<Block> PEGMATITE = registerBlock("pegmatite", Block.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE)
-			.sound(SoundType.STONE).strength(1.5f, 9f).requiresCorrectToolForDrops());
+	public static ShapedStoneBlock LIMESTONE = new ShapedStoneBlock("limestone", KineTabs.WORLD, KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.SAND)
+			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
+
+	public static ShapedStoneBlock DOLOMITE = new ShapedStoneBlock("dolomite",KineTabs.WORLD, KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.SNOW)
+			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
+
+	public static ShapedStoneBlock PEGMATITE = new ShapedStoneBlock("pegmatite", KineTabs.WORLD,  KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE)
+			.sound(SoundType.STONE).strength(1.5f, 9f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
 	public static WoodBlock SHARINGA_WOOD = WoodBlockBuilder.of("sharinga", Constants.MODID, KineTabs.WORLD, ITEMS, BLOCKS)
-			.barkColour(MapColor.TERRACOTTA_BROWN).plankColour(MapColor.TERRACOTTA_WHITE).decorationsTab(KineTabs.CONSTRUCTION).enableBoat().build();
+			.barkColour(MapColor.TERRACOTTA_BROWN).plankColour(MapColor.TERRACOTTA_WHITE).decorationsTab(KineTabs.CONSTRUCTION).build();
 
 	//ores
 	public static RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", Block.Properties.of().mapColor(MapColor.STONE)
@@ -98,9 +101,6 @@ public class KineWorld {
 		output.accept(BAUXITE_GRASS.get());
 		output.accept(PEAT.get());
 		output.accept(PEAT_GRASS.get());
-		output.accept(LIMESTONE.get());
-		output.accept(DOLOMITE.get());
-		output.accept(PEGMATITE.get());
 		output.accept(TIN_ORE.get());
 		output.accept(ZINC_ORE.get());
 		output.accept(CINNABAR_ORE.get());

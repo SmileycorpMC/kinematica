@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "kinematica:block/limestone_bricks",
+    "top": "kinematica:block/limestone_bricks",
+    "side": "kinematica:block/limestone_bricks"
+  }
+}

@@ -23,7 +23,7 @@ public class KineTabs {
 
 	public static final RegistryObject<CreativeModeTab> WORLD = TABS.register("world", () -> CreativeModeTab.builder()
 			.title(Component.translatable("creativetab." + Constants.MODID + ".world"))
-			.withTabsBefore(CreativeModeTabs.SPAWN_EGGS).icon(() -> new ItemStack(KineWorld.LIMESTONE.get()))
+			.withTabsBefore(CreativeModeTabs.SPAWN_EGGS).icon(() -> new ItemStack(KineWorld.LIMESTONE.getBase()))
 			.displayItems(KineWorld::fillWorldTab).build());
 
 	public static final RegistryObject<CreativeModeTab> TOOLS = TABS.register("tools", () -> CreativeModeTab.builder()
