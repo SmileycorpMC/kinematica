@@ -23,8 +23,8 @@ public class KineBlockstates extends BlockStateProvider {
 		stoneBlock(KineWorld.LIMESTONE);
 		stoneBlock(KineWorld.DOLOMITE);
 		stoneBlock(KineWorld.PEGMATITE);
-		registerMudBlock(KineConstruction.BAUXITE);
-		registerMudBlock(KineConstruction.PEAT);
+		mudBlock(KineConstruction.BAUXITE);
+		mudBlock(KineConstruction.PEAT);
 		shapedBlock(Constants.loc("block/refractory_bricks"), KineConstruction.REFRACTORY_BRICKS);
 	}
 
@@ -43,17 +43,23 @@ public class KineBlockstates extends BlockStateProvider {
 	}
 
 	public void stoneBlock(ShapedStoneBlock block) {
-		shapedBlock(Constants.loc("block/"+block.getName()), block);
+		ResourceLocation loc = Constants.loc("block/" + block.getName());
+		shapedBlock(loc, block);
 		simpleBlock(block.getChiseled());
 		simpleBlockItem(block.getChiseled(), new ModelFile.UncheckedModelFile("kinematica:block/chiseled_"+block.getName()));
 		logBlock(block.getPillar());
 		simpleBlockItem(block.getPillar(), new ModelFile.UncheckedModelFile("kinematica:block/"+block.getName()+"_pillar"));
+		buttonBlock(block.getButton(), loc);
+		itemModels().buttonInventory(loc +"_button_inventory", loc);
+		simpleBlockItem(block.getButton(), new ModelFile.UncheckedModelFile(loc +"_button_inventory"));
+		pressurePlateBlock(block.getPressurePlate(), loc);
+		simpleBlockItem(block.getPressurePlate(), new ModelFile.UncheckedModelFile(loc +"_pressure_plate"));
 		for (ShapedStoneBlock.StoneShape shape : ShapedStoneBlock.StoneShape.values()) {
 			shapedBlock(Constants.loc("block/"+shape.getName(block.getName())), block.get(shape));
 		}
 	}
 
-	public void registerMudBlock(ShapedMudBlock block) {
+	public void mudBlock(ShapedMudBlock block) {
 		shapedBlock(Constants.loc("block/"+block.getName()+"_bricks"), block);
 		simpleBlock(block.getPackedBlock());
 		simpleBlockItem(block.getPackedBlock(), new ModelFile.UncheckedModelFile("kinematica:block/packed_"+block.getName()));

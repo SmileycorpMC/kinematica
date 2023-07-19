@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pegmatite_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kinematica:pegmatite_slab"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "kinematica:chiseled_pegmatite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pegmatite_slab",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kinematica:chiseled_pegmatite"
+    ]
+  },
+  "sends_telemetry_event": false
+}

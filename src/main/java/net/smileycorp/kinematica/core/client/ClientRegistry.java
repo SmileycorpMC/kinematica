@@ -14,8 +14,6 @@ import net.smileycorp.kinematica.core.client.colour.MudBlockGrassColour;
 import net.smileycorp.kinematica.core.common.Constants;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
-import java.awt.*;
-
 @Mod.EventBusSubscriber(modid = Constants.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistry {
 

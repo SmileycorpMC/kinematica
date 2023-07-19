@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "kinematica:dolomite"
+    }
+  ],
+  "result": {
+    "item": "kinematica:dolomite_button"
+  }
+}

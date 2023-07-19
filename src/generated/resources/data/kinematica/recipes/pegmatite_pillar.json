@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "kinematica:pegmatite"
+    }
+  },
+  "pattern": [
+    "b",
+    "b"
+  ],
+  "result": {
+    "count": 2,
+    "item": "kinematica:pegmatite_pillar"
+  },
+  "show_notification": true
+}

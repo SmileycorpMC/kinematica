@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "kinematica:pegmatite"
+    }
+  ],
+  "result": {
+    "item": "kinematica:pegmatite_button"
+  }
+}

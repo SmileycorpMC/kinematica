@@ -6,11 +6,14 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.smileycorp.atlas.api.block.ShapedBlock;
@@ -21,19 +24,27 @@ import java.util.function.Supplier;
 public class ShapedStoneBlock extends ShapedBlock {
 
     private final String name;
+    protected final BlockSetType type;
     private final Supplier<CreativeModeTab> decorationsTab;
     private final Map<StoneShape, ShapedBlock> blocks = Maps.newHashMap();
     public final RegistryObject<Block> chiseled;
     public final RegistryObject<Block> pillar;
 
+    public final RegistryObject<Block> button;
+
+    public final RegistryObject<Block> pressure_plate;
+
     public ShapedStoneBlock(String name, Supplier<CreativeModeTab> tab, Supplier<CreativeModeTab> decorationsTab, BlockBehaviour.Properties props, DeferredRegister<Item> itemRegister, DeferredRegister<Block> blockRegister) {
         super(name, tab, props, itemRegister, blockRegister, false);
+        type = new BlockSetType(name);
         this.decorationsTab = decorationsTab;
         for (StoneShape shape : StoneShape.values()) {
             blocks.put(shape, new ShapedBlock(shape.getName(name), decorationsTab, props, itemRegister, blockRegister, true));
         }
         chiseled = register("chiseled_" + name, () -> new Block(props), itemRegister, blockRegister);
         pillar = register(name + "_pillar", () -> new RotatedPillarBlock(props), itemRegister, blockRegister);
+        button = register(name + "_button", () -> new ButtonBlock(props.strength(0.5F).pushReaction(PushReaction.DESTROY).noCollission(), BlockSetType.STONE, 20, false), itemRegister, blockRegister);
+        pressure_plate = register(name + "_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, props.strength(0.5F).pushReaction(PushReaction.DESTROY).noCollission(), this.type), itemRegister, blockRegister);
         this.name = name;
     }
 
@@ -51,6 +62,14 @@ public class ShapedStoneBlock extends ShapedBlock {
 
     public RotatedPillarBlock getPillar() {
         return (RotatedPillarBlock) pillar.get();
+    }
+
+    public ButtonBlock getButton() {
+        return (ButtonBlock) button.get();
+    }
+
+    public PressurePlateBlock getPressurePlate() {
+        return (PressurePlateBlock) pressure_plate.get();
     }
 
     public ShapedBlock get(StoneShape shape) {

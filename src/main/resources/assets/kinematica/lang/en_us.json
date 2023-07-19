@@ -97,6 +97,8 @@
 	"block.kinematica.limestone_bricks_wall": "Limestone Brick Wall",
 	"block.kinematica.chiseled_limestone": "Chiseled Limestone",
 	"block.kinematica.limestone_pillar": "Limestone Pillar",
+	"block.kinematica.limestone_button": "Limestone Button",
+	"block.kinematica.limestone_pressure_plate": "Limestone Pressure Plate",
 
 	"block.kinematica.dolomite": "Dolomite",
 	"block.kinematica.dolomite_slab": "Dolomite Slab",
@@ -111,6 +113,8 @@
 	"block.kinematica.dolomite_bricks_wall": "Dolomite Brick Wall",
 	"block.kinematica.chiseled_dolomite": "Chiseled Dolomite",
 	"block.kinematica.dolomite_pillar": "Dolomite Pillar",
+	"block.kinematica.dolomite_button": "Dolomite Button",
+	"block.kinematica.dolomite_pressure_plate": "Dolomite Pressure Plate",
 
 	"block.kinematica.pegmatite": "Pegmatite",
 	"block.kinematica.pegmatite_slab": "Pegmatite Slab",
@@ -125,6 +129,8 @@
 	"block.kinematica.pegmatite_bricks_wall": "Pegmatite Brick Wall",
 	"block.kinematica.chiseled_pegmatite": "Chiseled Pegmatite",
 	"block.kinematica.pegmatite_pillar": "Pegmatite Pillar",
+	"block.kinematica.pegmatite_button": "Pegmatite Button",
+	"block.kinematica.pegmatite_pressure_plate": "Pegmatite Pressure Plate",
 
 	"block.kinematica.refractory_bricks": "Refractory Brick",
 	"block.kinematica.refractory_bricks_slab": "Refractory Brick Slab",

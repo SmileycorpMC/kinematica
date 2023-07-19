@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "kinematica:limestone"
+    }
+  ],
+  "result": {
+    "item": "kinematica:limestone_button"
+  }
+}

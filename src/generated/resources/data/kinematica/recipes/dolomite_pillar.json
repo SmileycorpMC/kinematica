@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "kinematica:dolomite"
+    }
+  },
+  "pattern": [
+    "b",
+    "b"
+  ],
+  "result": {
+    "count": 2,
+    "item": "kinematica:dolomite_pillar"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "kinematica:limestone"
+    }
+  },
+  "pattern": [
+    "bb"
+  ],
+  "result": {
+    "item": "kinematica:limestone_pressure_plate"
+  },
+  "show_notification": true
+}

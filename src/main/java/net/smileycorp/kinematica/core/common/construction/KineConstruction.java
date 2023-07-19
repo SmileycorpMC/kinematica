@@ -13,7 +13,6 @@ import net.smileycorp.atlas.api.block.ShapedBlock;
 import net.smileycorp.kinematica.core.common.Constants;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.construction.block.ShapedMudBlock;
-import net.smileycorp.kinematica.core.common.construction.block.ShapedStoneBlock;
 
 import java.util.function.Supplier;
 

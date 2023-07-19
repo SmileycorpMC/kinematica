@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "kinematica:dolomite"
+    }
+  },
+  "pattern": [
+    "bb"
+  ],
+  "result": {
+    "item": "kinematica:dolomite_pressure_plate"
+  },
+  "show_notification": true
+}
