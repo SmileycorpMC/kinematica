@@ -21,14 +21,13 @@ import java.util.function.Supplier;
 public class ShapedStoneBlock extends ShapedBlock {
 
     private final String name;
-    private final Supplier<CreativeModeTab> tab, decorationsTab;
+    private final Supplier<CreativeModeTab> decorationsTab;
     private final Map<StoneShape, ShapedBlock> blocks = Maps.newHashMap();
     public final RegistryObject<Block> chiseled;
     public final RegistryObject<Block> pillar;
 
     public ShapedStoneBlock(String name, Supplier<CreativeModeTab> tab, Supplier<CreativeModeTab> decorationsTab, BlockBehaviour.Properties props, DeferredRegister<Item> itemRegister, DeferredRegister<Block> blockRegister) {
         super(name, tab, props, itemRegister, blockRegister, false);
-        this.tab = tab;
         this.decorationsTab = decorationsTab;
         for (StoneShape shape : StoneShape.values()) {
             blocks.put(shape, new ShapedBlock(shape.getName(name), decorationsTab, props, itemRegister, blockRegister, true));
@@ -60,13 +59,11 @@ public class ShapedStoneBlock extends ShapedBlock {
 
     @SubscribeEvent
     public void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == tab.get()) event.accept(getBase());
         if (event.getTab() == decorationsTab.get()) {
-            event.accept(getSlab());
-            event.accept(getStairs());
             event.accept(chiseled);
             event.accept(pillar);
         }
+        super.addCreative(event);
     }
 
     public String getName() {

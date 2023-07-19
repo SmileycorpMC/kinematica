@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/peat_bricks_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/peat_bricks"
+    },
+    "type=top": {
+      "model": "kinematica:block/peat_bricks_slab_top"
+    }
+  }
+}

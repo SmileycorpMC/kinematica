@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "kinematica:block/polished_pegmatite",
+    "side": "kinematica:block/polished_pegmatite",
+    "top": "kinematica:block/polished_pegmatite"
+  }
+}

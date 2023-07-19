@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/dolomite_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/dolomite"
+    },
+    "type=top": {
+      "model": "kinematica:block/dolomite_slab_top"
+    }
+  }
+}

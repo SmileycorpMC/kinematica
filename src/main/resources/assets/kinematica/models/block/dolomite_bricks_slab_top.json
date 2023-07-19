@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "kinematica:block/dolomite_bricks",
-    "top": "kinematica:block/dolomite_bricks",
-    "side": "kinematica:block/dolomite_bricks"
-  }
-}

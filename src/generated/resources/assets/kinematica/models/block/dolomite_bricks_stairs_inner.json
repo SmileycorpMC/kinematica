@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "kinematica:block/dolomite_bricks",
+    "side": "kinematica:block/dolomite_bricks",
+    "top": "kinematica:block/dolomite_bricks"
+  }
+}

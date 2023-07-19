@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/bauxite_bricks_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/bauxite_bricks"
+    },
+    "type=top": {
+      "model": "kinematica:block/bauxite_bricks_slab_top"
+    }
+  }
+}

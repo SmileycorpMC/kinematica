@@ -22,10 +22,6 @@ public class KineConstruction {
 	public static DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Constants.MODID);
 	public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.MODID);
 
-	//items
-	//public static Item DUSTS = new ItemConstructionDusts();
-	//public static Item MATERIALS = new ItemConstructionMaterials();
-
 	public static ShapedMudBlock BAUXITE = new ShapedMudBlock("bauxite", KineTabs.CONSTRUCTION, p->p.mapColor(MapColor.COLOR_ORANGE), ITEMS, BLOCKS);
 
 	public static ShapedMudBlock PEAT = new ShapedMudBlock("peat", KineTabs.CONSTRUCTION, p->p.mapColor(MapColor.TERRACOTTA_BLACK), ITEMS, BLOCKS);

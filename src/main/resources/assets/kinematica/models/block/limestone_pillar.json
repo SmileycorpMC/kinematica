@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "side": "kinematica:block/limestone_pillar_side",
-    "end": "kinematica:block/limestone_pillar_top",
-    "particle": "#side"
-  }
-}

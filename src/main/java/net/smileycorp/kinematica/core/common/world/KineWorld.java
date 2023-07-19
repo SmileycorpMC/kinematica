@@ -25,6 +25,7 @@ import net.smileycorp.kinematica.core.common.Constants;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.construction.block.ShapedStoneBlock;
 import net.smileycorp.kinematica.core.common.world.block.BauxiteGrassBlock;
+import net.smileycorp.kinematica.core.common.world.block.MudGrassBlock;
 import net.smileycorp.kinematica.core.common.world.block.OreBlockEntity;
 import net.smileycorp.kinematica.core.common.world.block.PeatGrassBlock;
 import net.smileycorp.kinematica.core.common.world.entity.BlueWitherSkeleton;
@@ -40,10 +41,11 @@ public class KineWorld {
 	public static DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Constants.MODID);
 	public static DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Constants.MODID);
 
+	public static RegistryObject<Block> MUD_GRASS = registerBlock("mud_grass", MudGrassBlock::new);
 	public static RegistryObject<Block> BAUXITE_SOIL = registerBlock("bauxite_soil",() ->  new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(MapColor.COLOR_ORANGE)));
-	public static RegistryObject<Block> BAUXITE_GRASS = registerBlock("bauxite_grass",() ->  new BauxiteGrassBlock());
+	public static RegistryObject<Block> BAUXITE_GRASS = registerBlock("bauxite_grass", BauxiteGrassBlock::new);
 	public static RegistryObject<Block> PEAT = registerBlock("peat",() ->  new MudBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(MapColor.TERRACOTTA_BLACK)));
-	public static RegistryObject<Block> PEAT_GRASS = registerBlock("peat_grass", () ->  new PeatGrassBlock());
+	public static RegistryObject<Block> PEAT_GRASS = registerBlock("peat_grass", PeatGrassBlock::new);
 
 	public static ShapedStoneBlock LIMESTONE = new ShapedStoneBlock("limestone", KineTabs.WORLD, KineTabs.CONSTRUCTION, Block.Properties.of().mapColor(MapColor.SAND)
 			.sound(SoundType.STONE).strength(1f, 6f).requiresCorrectToolForDrops(), ITEMS, BLOCKS);
@@ -97,6 +99,7 @@ public class KineWorld {
 	}
 
     public static void fillWorldTab(CreativeModeTab.ItemDisplayParameters itemDisplayParameters, CreativeModeTab.Output output) {
+		output.accept(MUD_GRASS.get());
 		output.accept(BAUXITE_SOIL.get());
 		output.accept(BAUXITE_GRASS.get());
 		output.accept(PEAT.get());

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "kinematica:block/bauxite_bricks",
+    "side": "kinematica:block/bauxite_bricks",
+    "top": "kinematica:block/bauxite_bricks"
+  }
+}

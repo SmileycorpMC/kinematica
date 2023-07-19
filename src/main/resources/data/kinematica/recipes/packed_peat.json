@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"category": "building",
+    "ingredients": [
+        {
+            "item": "minecraft:clay_ball"
+        },
+        {
+			"item": "kinematica:peat"
+        },
+		{
+            "type": "forge:ore_dict",
+            "ore": "binding"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "sand"
+        }
+    ],
+    "result": {
+        "item": "kinematica:packed_peat",
+        "count": 1
+    }
+}

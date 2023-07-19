@@ -106,6 +106,7 @@ minecraft {
             mods {
                 "${mod_id}" {
                     source sourceSets.main
+					source sourceSets.test
                 }
             }
         }

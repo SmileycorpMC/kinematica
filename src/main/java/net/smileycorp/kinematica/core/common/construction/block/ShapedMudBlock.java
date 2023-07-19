@@ -17,6 +17,7 @@ import java.util.function.Supplier;
 
 public class ShapedMudBlock extends ShapedBlock {
 
+    private final String name;
     private final RegistryObject<Block> packed_block;
 
     public ShapedMudBlock(String name, Supplier<CreativeModeTab> tab, Function<BlockBehaviour.Properties, BlockBehaviour.Properties> properties, DeferredRegister<Item> items, DeferredRegister<Block> blocks) {
@@ -27,6 +28,7 @@ public class ShapedMudBlock extends ShapedBlock {
         items.register("packed_" + name, () -> {
             return new BlockItem(packed_block.get(), new Item.Properties());
         });
+        this.name = name;
     }
 
     public Block getPackedBlock() {
@@ -42,4 +44,7 @@ public class ShapedMudBlock extends ShapedBlock {
         super.addCreative(event);
     }
 
+    public String getName() {
+        return name;
+    }
 }

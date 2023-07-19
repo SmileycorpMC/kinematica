@@ -16,7 +16,7 @@ public class PeatGrassBlock extends GrassBlock {
 	protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D);
 
 	public PeatGrassBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.GRASS).dynamicShape());
+		super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).dynamicShape());
 	}
 
 	@Override

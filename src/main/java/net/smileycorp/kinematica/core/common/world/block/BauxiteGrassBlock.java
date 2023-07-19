@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 public class BauxiteGrassBlock extends GrassBlock {
 
 	public BauxiteGrassBlock() {
-		super(BlockBehaviour.Properties.copy(Blocks.GRASS));
+		super(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK));
 	}
 
 }

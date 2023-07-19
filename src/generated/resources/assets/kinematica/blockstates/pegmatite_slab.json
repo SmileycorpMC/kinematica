@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "kinematica:block/pegmatite_slab"
+    },
+    "type=double": {
+      "model": "kinematica:block/pegmatite"
+    },
+    "type=top": {
+      "model": "kinematica:block/pegmatite_slab_top"
+    }
+  }
+}

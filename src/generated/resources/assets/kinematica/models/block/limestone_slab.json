@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "kinematica:block/limestone",
+    "side": "kinematica:block/limestone",
+    "top": "kinematica:block/limestone"
+  }
+}

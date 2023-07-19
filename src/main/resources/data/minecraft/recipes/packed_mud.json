@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shapeless",
+	"category": "building",
+    "ingredients": [
+        {
+            "item": "minecraft:clay_ball"
+        },
+        {
+			"item": "minecraft:mud"
+        },
+		{
+            "type": "forge:ore_dict",
+            "ore": "binding"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "sand"
+        }
+    ],
+    "result": {
+        "item": "minecraft:packed_mud",
+        "count": 1
+    }
+}
