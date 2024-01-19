@@ -10,7 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.smileycorp.kinematica.core.client.ClientEventListener;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.tools.KineTools;
-import net.smileycorp.kinematica.core.common.world.KineMaterials;
+import net.smileycorp.kinematica.core.common.materials.KineMaterials;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 @Mod(Constants.MODID)

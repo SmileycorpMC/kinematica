@@ -9,7 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.tools.KineTools;
-import net.smileycorp.kinematica.core.common.world.KineMaterials;
+import net.smileycorp.kinematica.core.common.materials.KineMaterials;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 
 public class KineTabs {

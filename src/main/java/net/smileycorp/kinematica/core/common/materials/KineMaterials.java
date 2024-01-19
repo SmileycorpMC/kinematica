@@ -1,4 +1,4 @@
-package net.smileycorp.kinematica.core.common.world;
+package net.smileycorp.kinematica.core.common.materials;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
