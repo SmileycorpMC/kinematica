@@ -1,7 +1,5 @@
 package net.smileycorp.kinematica.core.common;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
@@ -9,17 +7,17 @@ import net.minecraft.init.Blocks;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 import net.smileycorp.kinematica.core.common.machine.multiblock.Kiln;
 import net.smileycorp.kinematica.core.common.recipes.WorldRecipes;
 import net.smileycorp.kinematica.core.common.world.entity.EntityBlueWitherSkeleton;
+
+import java.util.Random;
 
 
 

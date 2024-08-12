@@ -1,19 +1,17 @@
 package net.smileycorp.kinematica.core.common.recipes;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map.Entry;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
-
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
 
 public class MachineRecipes {
 	

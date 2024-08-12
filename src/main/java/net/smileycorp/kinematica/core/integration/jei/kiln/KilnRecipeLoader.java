@@ -1,18 +1,12 @@
 package net.smileycorp.kinematica.core.integration.jei.kiln;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import mezz.jei.api.IJeiHelpers;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public class KilnRecipeLoader {
 	@SuppressWarnings("unchecked")

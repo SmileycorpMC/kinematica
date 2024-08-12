@@ -1,7 +1,6 @@
 package net.smileycorp.kinematica.core.integration.tcon.client;
 
 import c4.conarm.common.ConstructsRegistry;
-
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
 

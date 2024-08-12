@@ -1,18 +1,16 @@
 package net.smileycorp.kinematica.core.client.tesr;
 
-import java.awt.Color;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
 import net.minecraftforge.client.model.animation.FastTESR;
-
 import net.smileycorp.atlas.api.client.RenderingUtils;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityLatexLog;
+
+import java.awt.*;
 
 public class TESRLatexLog extends FastTESR<TileEntityLatexLog> {
 	

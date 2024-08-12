@@ -1,10 +1,7 @@
 package net.smileycorp.kinematica.core.client.metal;
 
-import javax.vecmath.Vector3f;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-
 import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
 import net.minecraft.client.renderer.block.model.ItemOverrideList;
@@ -13,14 +10,14 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.common.model.TRSRTransformation;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.materials.ItemMetal;
+
+import javax.vecmath.Vector3f;
 
 
 public class MetalOverrideList extends ItemOverrideList {
@@ -50,8 +47,8 @@ public class MetalOverrideList extends ItemOverrideList {
         builder.put(TransformType.THIRD_PERSON_LEFT_HAND, leftify(thirdperson));
         builder.put(TransformType.FIRST_PERSON_RIGHT_HAND, firstperson);
         builder.put(TransformType.FIRST_PERSON_LEFT_HAND, leftify(firstperson));
-        return (ImmutableMap<TransformType, TRSRTransformation>) builder.build();
-    }
+        return builder.build();
+	}
 	
 	private static final TRSRTransformation flipX = new TRSRTransformation(null, null, new Vector3f(-1, 1, 1),
             null); 

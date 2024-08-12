@@ -1,21 +1,19 @@
 package net.smileycorp.kinematica.core.common.machine.mechanical;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-
 import net.smileycorp.atlas.api.block.IBlockProperties;
 import net.smileycorp.kinematica.core.common.machine.mechanical.blocks.BlockWoodenAxle;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class MechanicalMachines {
 

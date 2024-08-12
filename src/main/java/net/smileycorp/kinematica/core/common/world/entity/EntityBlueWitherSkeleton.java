@@ -1,13 +1,12 @@
 package net.smileycorp.kinematica.core.common.world.entity;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-
 import net.smileycorp.kinematica.core.common.ModDefinitions;
+
+import javax.annotation.Nullable;
 
 public class EntityBlueWitherSkeleton extends EntityWitherSkeleton {
 

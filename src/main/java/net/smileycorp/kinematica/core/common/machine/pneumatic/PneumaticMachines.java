@@ -1,20 +1,18 @@
 package net.smileycorp.kinematica.core.common.machine.pneumatic;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-
 import net.smileycorp.atlas.api.block.IBlockProperties;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class PneumaticMachines {
   	public static Set<Block> BLOCKS = new HashSet<Block>();

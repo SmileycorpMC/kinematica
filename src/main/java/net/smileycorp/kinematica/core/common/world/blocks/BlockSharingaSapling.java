@@ -1,7 +1,5 @@
 package net.smileycorp.kinematica.core.common.world.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
@@ -14,11 +12,12 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
 import net.smileycorp.atlas.api.block.IBlockProperties;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.world.gen.WorldGenSharinga;
+
+import java.util.Random;
 
 public class BlockSharingaSapling extends BlockSapling implements IBlockProperties {
 	

@@ -5,7 +5,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.translation.I18n;
-
 import net.smileycorp.kinematica.core.common.KineTabs;
 
 @SuppressWarnings("deprecation")

@@ -1,9 +1,8 @@
 package net.smileycorp.kinematica.core.integration.tcon.client;
 
-import slimeknights.tconstruct.tools.TinkerTools;
-
 import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.ItemColors;
+import slimeknights.tconstruct.tools.TinkerTools;
 
 public class TConClientRegistry {
 

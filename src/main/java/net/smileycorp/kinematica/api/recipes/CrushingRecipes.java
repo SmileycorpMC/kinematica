@@ -1,12 +1,12 @@
 package net.smileycorp.kinematica.api.recipes;
 
+import net.minecraft.item.ItemStack;
+import net.smileycorp.atlas.api.util.RecipeUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import net.minecraft.item.ItemStack;
-import net.smileycorp.atlas.api.util.RecipeUtils;
 
 public class CrushingRecipes {
 	

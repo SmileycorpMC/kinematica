@@ -1,5 +1,6 @@
 itemGroup.kinematica.Materials=Kinematica Materials
 itemGroup.kinematica.Blocks=Kinematica Blocks
+itemGroup.kinematica.Ores=Kinematica Ores
 itemGroup.kinematica.Machines=Kinematica Machines
 itemGroup.kinematica.Tools=Kinematica Tools
 
@@ -41,6 +42,20 @@ localisation.Tungsten=Tungsten
 localisation.Aluminium=Aluminum
 localisation.Titanium=Titanium
 
+localisation.Caesium=Caesium
+localisation.Boron=Boron
+localisation.Sodium=Sodium
+localisation.Rhodium=Rhodium
+localisation.Cadmium=Cadmium
+localisation.Barium=Barium
+localisation.Strontium=Strontium
+
+localisation.Americium=Americium
+localisation.Uranium=Uranium
+localisation.Thorium=Thorium
+localisation.Plutonium=Plutonium
+localisation.Neptunium=Neptunium
+
 localisation.Bronze=Bronze
 localisation.Brass=Brass
 localisation.Durallium=Durallium
@@ -55,9 +70,12 @@ localisation.Iridosmine=Iridosmine
 localisation.RoseGold=Rose Gold
 localisation.Fathonium=Fathonium
 
+localisation.PigIron=Pig Iron
 localisation.WroughtIron=Wrought Iron
 localisation.CastIron=Cast Iron
 localisation.Steel=Steel
+localisation.WootsSteel=Woots Steel
+localisation.DamascusSteel=Damascus Steel
 
 localisation.GalvanisedSteel=Galvanized Steel
 localisation.Stellite=Stellite
@@ -69,6 +87,12 @@ localisation.Mithril=Mithril
 localisation.Hepatizion=Hepatizion
 localisation.Orichalcum=Orichalcum
 localisation.DamascusSteel=Damascus Steel
+
+localisation.Blaze=Blaze
+localisation.Carbon=Carbon
+localisation.Silicon=Silicon
+localisation.Mercury=Mercury
+localisation.Amalgam=Amalgam
 
 localisation.null=Null
 
@@ -88,6 +112,7 @@ localisation.Shard=Shard
 localisation.Slurry=Slurry
 localisation.Coin=Coin
 localisation.Mould=Mold
+localisation.Chunk=Chunk
 
 item.kinematica.SulphurDust.name=Sulfur
 item.kinematica.PhosphorusDust.name=Red Phosphorus
@@ -131,6 +156,64 @@ tile.kinematica.BauxiteSoil.name=Bauxite Soil
 tile.kinematica.BauxiteGrass.name=Bauxite Grass
 tile.kinematica.Limestone.name=Limestone
 tile.kinematica.Dolomite.name=Dolomite
+tile.kinematica.Pegmatite.name=Pegmatite
+
+tile.kinematica.Acanthite.name=Acanthite
+tile.kinematica.Azurite.name=Azurite
+tile.kinematica.Bauxite.name=Bauxite
+tile.kinematica.Bismuthinite.name=Bismuthinite
+tile.kinematica.Bornite.name=Bornite
+tile.kinematica.Braggite.name=Braggite
+tile.kinematica.Carrollite.name=Carrollite
+tile.kinematica.Cassiterite.name=Cassiterite
+tile.kinematica.Chalcocite.name=Chalcocite
+tile.kinematica.Chalcopyrite.name=Chalcopyrite
+tile.kinematica.Chromite.name=Chromite
+tile.kinematica.Cinnabar.name=Cinnabar
+tile.kinematica.Cooperite.name=Cooperite
+tile.kinematica.Covellite.name=Covellite
+tile.kinematica.Cuprite.name=Cuprite
+tile.kinematica.Dioptase.name=Dioptase
+tile.kinematica.Erythrite.name=Erythrite
+tile.kinematica.Galena.name=Galena
+tile.kinematica.Ilmenite.name=Ilmenite
+tile.kinematica.Irarsite.name=Irarsite
+tile.kinematica.Kesterite.name=Kësterite
+tile.kinematica.Limonite.name=Limonite
+tile.kinematica.Malachite.name=Malachite
+tile.kinematica.Maldonite.name=Maldonite
+tile.kinematica.Nickeline.name=Nickeline
+tile.kinematica.Osmian.name=Osmian
+tile.kinematica.Polarite.name=Polarite
+tile.kinematica.Sphalerite.name=Sphalerite
+tile.kinematica.Taenite.name=Taenite
+tile.kinematica.Teallite.name=Teallite
+tile.kinematica.Vysotskite.name=Vysotskite
+tile.kinematica.Rhodonite.name=Rhodonite
+tile.kinematica.Pyrolusite.name=Pyrolusite
+tile.kinematica.Hematite.name=Hematite
+tile.kinematica.Groutite.name=Groutite
+tile.kinematica.Goethite.name=Goethite
+tile.kinematica.Magnetite.name=Magnetite
+
+tile.kinematica.Thorite.name=Thorite
+tile.kinematica.Uraninite.name=Uraninite
+tile.kinematica.Monazite.name=Monazite
+tile.kinematica.Kernite.name=Kernite
+tile.kinematica.Howlite.name=Howlite
+tile.kinematica.Cobaltite.name=Cobaltite
+tile.kinematica.Irarsite.name=Irarsite
+tile.kinematica.Hollingworthite.name=Hollingworthite
+
+tile.kinematica.Ignisite.name=Ignisite
+tile.kinematica.Auragmus.name=Auragmus
+tile.kinematica.Myagminite.name=Myagminite
+tile.kinematica.Nepluzite.name=Nepluzite
+
+tile.kinematica.Corundum.name=Corundum
+tile.kinematica.Lithiophilite.name=Lithiophilite
+tile.kinematica.Rutile.name=Rutile
+tile.kinematica.Wolframite.name=Wolframite
 
 tile.kinematica.SharingaLog.name=Sharinga Wood
 tile.kinematica.SharingaSapling.name=Sharinga Sapling

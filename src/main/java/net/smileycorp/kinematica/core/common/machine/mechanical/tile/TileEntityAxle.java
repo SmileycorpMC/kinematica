@@ -1,7 +1,6 @@
 package net.smileycorp.kinematica.core.common.machine.mechanical.tile;
 
 import net.minecraft.tileentity.TileEntity;
-
 import net.smileycorp.kinematica.api.IMechanicalPower;
 
 public class TileEntityAxle extends TileEntity implements IMechanicalPower {

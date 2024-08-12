@@ -1,9 +1,5 @@
 package net.smileycorp.kinematica.core.integration.tcon.client;
 
-import java.awt.Color;
-
-import slimeknights.tconstruct.shared.tileentity.TileTable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -11,11 +7,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
-
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
+import slimeknights.tconstruct.shared.tileentity.TileTable;
+
+import java.awt.*;
 
 public class BlockForgeColour implements IBlockColor {
 

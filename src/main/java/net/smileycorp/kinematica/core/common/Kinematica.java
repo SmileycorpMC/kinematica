@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.smileycorp.kinematica.api.ores.Content;
 import net.smileycorp.kinematica.core.common.inventory.ContainerHandler;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntities;
 import net.smileycorp.kinematica.core.common.world.OresHandler;
@@ -33,6 +34,8 @@ public class Kinematica {
 	public void preInit(FMLPreInitializationEvent event){
 		KineConfig.config = new Configuration(event.getSuggestedConfigurationFile());
 		KineConfig.syncConfig();
+		Content.setCreativeTab(KineTabs.ORES);
+		Content.setModid(ModDefinitions.modid);
 		ModIntegration.preInit(event);
 		MinecraftForge.EVENT_BUS.register(new EventListener());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldRegister());

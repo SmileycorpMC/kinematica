@@ -1,15 +1,14 @@
 package net.smileycorp.kinematica.core.client.metal;
 
-import java.awt.Color;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
 import net.smileycorp.kinematica.core.common.materials.ItemMetal;
+
+import java.awt.*;
 
 public class ItemMetalColour implements IItemColor {
 

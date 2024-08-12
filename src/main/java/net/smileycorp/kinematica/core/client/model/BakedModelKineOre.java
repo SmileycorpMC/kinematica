@@ -1,11 +1,5 @@
 package net.smileycorp.kinematica.core.client.model;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -24,6 +18,11 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.smileycorp.atlas.api.client.RenderingUtils;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.world.blocks.BlockOreBase;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BakedModelKineOre extends BakedModelWrapper<IBakedModel>  {
 	

@@ -1,17 +1,15 @@
 package net.smileycorp.kinematica.core.common.fluids;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
-
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.registries.IForgeRegistry;
-
 import net.smileycorp.atlas.api.client.FluidStateMapper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class KineFluids {
 	

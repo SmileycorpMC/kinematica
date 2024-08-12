@@ -13,10 +13,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 import net.smileycorp.kinematica.core.common.inventory.ContainerKilnChamber;
 import net.smileycorp.kinematica.core.common.machine.blocks.BlockKilnFire;

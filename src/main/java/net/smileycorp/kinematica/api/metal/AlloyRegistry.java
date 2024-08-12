@@ -1,11 +1,10 @@
 package net.smileycorp.kinematica.api.metal;
 
+import net.minecraft.item.crafting.Ingredient;
+import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.minecraft.item.crafting.Ingredient;
-
-import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
 
 public class AlloyRegistry {
 	private static List<AlloyRecipeEntry> alloys = new ArrayList<AlloyRecipeEntry>();

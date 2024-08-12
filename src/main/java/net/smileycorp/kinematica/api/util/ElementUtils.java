@@ -1,10 +1,6 @@
 package net.smileycorp.kinematica.api.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ElementUtils {
 	protected static Map<String, List<String>> knownOres = new HashMap<String, List<String>>();

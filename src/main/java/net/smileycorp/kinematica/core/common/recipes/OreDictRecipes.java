@@ -1,14 +1,12 @@
 package net.smileycorp.kinematica.core.common.recipes;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.OreIngredient;
-
 import net.smileycorp.kinematica.api.recipes.KilnRecipes;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
+
+import java.util.ArrayList;
 
 public class OreDictRecipes {
 	

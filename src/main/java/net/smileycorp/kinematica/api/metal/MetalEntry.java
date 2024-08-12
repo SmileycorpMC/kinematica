@@ -1,15 +1,12 @@
 package net.smileycorp.kinematica.api.metal;
 
-import java.awt.Color;
-import java.util.Map;
-
 import com.google.common.collect.Maps;
-
 import net.minecraft.item.ItemStack;
-
 import net.minecraftforge.fluids.Fluid;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
+
+import java.awt.*;
+import java.util.Map;
 
 public class MetalEntry {
 

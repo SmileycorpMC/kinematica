@@ -1,1 +1,0 @@
-{"forge_marker": 1,"defaults": {"model": "atlaslib:layered_cube", "textures": { "particle": "#base", "base": "minecraft:blocks/stone","overlay": "kinematica:blocks/ores/palladium_ore" } },"variants": {"normal": [{}], "inventory": [{}]}}

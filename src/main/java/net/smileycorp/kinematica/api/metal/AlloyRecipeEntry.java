@@ -1,7 +1,6 @@
 package net.smileycorp.kinematica.api.metal;
 
 import net.minecraft.item.crafting.Ingredient;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
 
 public class AlloyRecipeEntry {

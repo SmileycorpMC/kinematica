@@ -7,10 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
-
 import net.smileycorp.atlas.api.util.RecipeUtils;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 

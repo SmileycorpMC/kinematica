@@ -1,8 +1,5 @@
 package net.smileycorp.kinematica.core.common.world.blocks;
 
-import java.util.Random;
-import java.util.function.Predicate;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.properties.IProperty;
@@ -27,6 +24,9 @@ import net.smileycorp.atlas.api.block.PropertyOpenString;
 import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKineOre;
+
+import java.util.Random;
+import java.util.function.Predicate;
 
 public class BlockOreBase extends BlockBase implements ITileEntityProvider {
 

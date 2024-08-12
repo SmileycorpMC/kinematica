@@ -1,10 +1,5 @@
 package net.smileycorp.kinematica.core.integration.tcon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.smileycorp.kinematica.api.metal.AlloyRecipeEntry;
@@ -14,6 +9,11 @@ import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalStack;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TConRecipeLoader {
 	

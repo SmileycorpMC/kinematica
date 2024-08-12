@@ -1,20 +1,17 @@
 package net.smileycorp.kinematica.core.integration.tcon.client;
 
-import java.awt.Color;
-
-import slimeknights.tconstruct.shared.tileentity.TileTable;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
+import slimeknights.tconstruct.shared.tileentity.TileTable;
+
+import java.awt.*;
 
 public class ItemForgeColour implements IItemColor {
 

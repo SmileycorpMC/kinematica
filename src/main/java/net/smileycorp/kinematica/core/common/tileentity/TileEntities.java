@@ -1,9 +1,7 @@
 package net.smileycorp.kinematica.core.common.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
-
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 
 public class TileEntities {

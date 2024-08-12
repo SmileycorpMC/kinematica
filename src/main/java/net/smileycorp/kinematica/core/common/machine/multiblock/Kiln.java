@@ -7,7 +7,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
 import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.machine.BasicMachines;

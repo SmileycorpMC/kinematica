@@ -1,7 +1,6 @@
 package net.smileycorp.kinematica.core.common.machine.mechanical.tile;
 
 import net.minecraft.util.EnumFacing;
-
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.energy.CapabilityEnergy;

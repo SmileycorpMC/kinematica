@@ -1,15 +1,14 @@
 package net.smileycorp.kinematica.core.integration.jei.kiln;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class KilnRecipeWrapper implements IRecipeWrapper {
 	

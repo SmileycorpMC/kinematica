@@ -1,7 +1,5 @@
 package net.smileycorp.kinematica.core.common.machine.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -17,16 +15,16 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 import net.smileycorp.atlas.api.block.BlockBase;
 import net.smileycorp.atlas.api.util.DirectionUtils;
 import net.smileycorp.kinematica.core.common.Kinematica;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.tileentity.TileEntityKiln;
+
+import java.util.Random;
 
 public class BlockKilnChamber extends BlockBase {
 	

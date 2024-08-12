@@ -1,7 +1,5 @@
 package net.smileycorp.kinematica.core.common.world.gen;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -11,12 +9,12 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.fml.common.IWorldGenerator;
-
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 import net.smileycorp.kinematica.core.integration.ModIntegration;
+
+import java.util.Random;
 
 public class StoneGenerator implements IWorldGenerator {
 
@@ -30,6 +28,7 @@ public class StoneGenerator implements IWorldGenerator {
 		} else {
 			limeGen(world, rand, chunkX, chunkZ);
 			generateStone(KineWorld.DOLOMITE, 24, 12, 45, 105, world, rand, chunkZ, chunkZ);
+			pegmatiteGen(world, rand, chunkX, chunkZ);
 		}
 	}
 	
@@ -99,6 +98,16 @@ public class StoneGenerator implements IWorldGenerator {
 			int z = chunkZ * 16 + rand.nextInt(16);
 			BlockPos pos = new BlockPos(x, y, z);
 			generator.generate(world, rand, pos);
+		}
+	}
+	
+	private void pegmatiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenPegmatite generator = new WorldGenPegmatite();
+		for (int i=0; i < 3; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 0 + rand.nextInt(30);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			generator.generate(world, rand, new BlockPos(x, y, z));
 		}
 	}
 

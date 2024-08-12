@@ -1,29 +1,26 @@
 package net.smileycorp.kinematica.core.client.metal;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.function.Function;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.client.model.ICustomModelLoader;
 import net.minecraftforge.client.model.IModel;
 import net.minecraftforge.client.model.ItemLayerModel;
 import net.minecraftforge.client.model.ModelLoader;
-
 import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.materials.ItemMetal;
 import net.smileycorp.kinematica.core.common.materials.KineMaterials;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.function.Function;
 
 @SuppressWarnings("deprecation")
 public class MetalModelLoader implements ICustomModelLoader, IResourceManagerReloadListener {

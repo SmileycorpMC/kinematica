@@ -14,11 +14,7 @@ import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.fluids.KineFluids;
 import net.smileycorp.kinematica.core.common.machine.BasicMachines;
 import net.smileycorp.kinematica.core.common.materials.KineMaterials;
-import net.smileycorp.kinematica.core.common.recipes.CraftingMethods;
-import net.smileycorp.kinematica.core.common.recipes.MachineRecipes;
-import net.smileycorp.kinematica.core.common.recipes.OreDictRecipes;
-import net.smileycorp.kinematica.core.common.recipes.OreDictRegistry;
-import net.smileycorp.kinematica.core.common.recipes.SmeltingRecipes;
+import net.smileycorp.kinematica.core.common.recipes.*;
 import net.smileycorp.kinematica.core.common.tools.Tools;
 import net.smileycorp.kinematica.core.common.world.KineWorld;
 

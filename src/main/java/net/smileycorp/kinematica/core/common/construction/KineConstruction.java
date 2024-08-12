@@ -1,8 +1,5 @@
 package net.smileycorp.kinematica.core.common.construction;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -10,12 +7,10 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
-
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
-
 import net.smileycorp.atlas.api.block.IBlockProperties;
 import net.smileycorp.atlas.api.block.ShapedBlock;
 import net.smileycorp.atlas.api.client.RenderingUtils;
@@ -24,6 +19,9 @@ import net.smileycorp.kinematica.core.common.KineTabs;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.construction.items.ItemConstructionDusts;
 import net.smileycorp.kinematica.core.common.construction.items.ItemConstructionMaterials;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class KineConstruction {
 	public  static Set<Block> BLOCKS = new HashSet<Block>();

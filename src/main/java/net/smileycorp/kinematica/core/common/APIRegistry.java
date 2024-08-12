@@ -1,7 +1,5 @@
 package net.smileycorp.kinematica.core.common;
 
-import java.awt.Color;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraftforge.oredict.OreIngredient;
@@ -10,6 +8,8 @@ import net.smileycorp.kinematica.api.metal.MetalRegistry;
 import net.smileycorp.kinematica.api.metal.MetalRegistry.MetalType;
 import net.smileycorp.kinematica.api.util.ElementUtils;
 import net.smileycorp.kinematica.core.integration.ModIntegration;
+
+import java.awt.*;
 
 public class APIRegistry {
 	
@@ -37,6 +37,7 @@ public class APIRegistry {
 		MetalRegistry.registerMetal("Lead", ModDefinitions.modid, new Color(114, 146, 175), true, 1000, 10678);
 		MetalRegistry.registerMetal("Silver", ModDefinitions.modid, new Color(218, 242, 242), true, 1234, 8244);
 		MetalRegistry.registerMetal("Zinc", ModDefinitions.modid, new Color(183, 214, 175), false, 693, 7140);
+		MetalRegistry.registerMetal("Manganese", ModDefinitions.modid, new Color(214, 201, 204), false, 0, 0);
 		MetalRegistry.registerMetal("Chromium", ModDefinitions.modid, new Color(188, 242, 239), true, 2180, 6300);
 		MetalRegistry.registerMetal("Cobalt", ModDefinitions.modid, new Color(79, 105, 255), false, 1768, 8900);
 		MetalRegistry.registerMetal("Nickel", ModDefinitions.modid, new Color(224, 204, 139), true, 1728, 7810);
@@ -71,7 +72,12 @@ public class APIRegistry {
 		
 		//Special Alloys
 		MetalRegistry.registerMetal("Arsenical_Bronze", ModDefinitions.modid, new Color(235, 255, 242), true, 1357, 7750);
+		MetalRegistry.registerMetal("Manganese", ModDefinitions.modid, new Color(214, 201, 204), false, 0, 0);
+		MetalRegistry.registerMetal("Pig_Iron", ModDefinitions.modid, new Color(234, 220, 204), true, 0, 0);
+		MetalRegistry.registerMetal("Cast_Iron", ModDefinitions.modid, new Color(113, 113, 113), true, 0, 0);
 		MetalRegistry.registerMetal("Steel", ModDefinitions.modid, new Color(178, 178, 178), true, 1698, 7750);
+		MetalRegistry.registerMetal("Woots_Steel", ModDefinitions.modid, new Color(208, 239, 224), true, 0, 0);
+		MetalRegistry.registerMetal("Damascus_Steel", ModDefinitions.modid, new Color(208, 239, 224), true, 0, 0);
 		MetalRegistry.registerMetal("Galvanised_Steel", ModDefinitions.modid, new Color(220, 228, 218), true, 1698, 7750);
 		MetalRegistry.setFluidEnabled("Galvanised_Steel", false);
 		
@@ -104,5 +110,6 @@ public class APIRegistry {
 		ElementUtils.registerAltOre("GalvanisedSteel", "GalvanizedSteel");
 		ElementUtils.registerAltOre("Fathonium", "IridiumTitanium", "IridiumTitaniumAlloy", "Irti", "IrTi", "Ir-Ti");
 		ElementUtils.registerAltOre("WhiteGold", "Whitegold");
+		ElementUtils.registerAltOre("PigIron", "Pigiron");
 	}
 }

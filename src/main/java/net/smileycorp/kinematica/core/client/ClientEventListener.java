@@ -19,14 +19,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.smileycorp.atlas.api.client.RenderingUtils;
 import net.smileycorp.atlas.api.client.colour.BlockFoliageColour;
 import net.smileycorp.atlas.api.client.colour.BlockGrassColour;
 import net.smileycorp.atlas.api.client.colour.ItemFoliageColour;
 import net.smileycorp.kinematica.core.client.metal.BlockMetalColour;
 import net.smileycorp.kinematica.core.client.metal.ItemMetalColour;
 import net.smileycorp.kinematica.core.client.metal.MetalModelLoader;
-import net.smileycorp.kinematica.core.client.model.BakedModelKineOre;
 import net.smileycorp.kinematica.core.common.KineConfig;
 import net.smileycorp.kinematica.core.common.ModDefinitions;
 import net.smileycorp.kinematica.core.common.materials.KineMaterials;
@@ -47,10 +45,10 @@ public class ClientEventListener {
 	public static void onModelBake(ModelBakeEvent event) {
 		IRegistry<ModelResourceLocation, IBakedModel> registry = event.getModelRegistry();
 		if (KineConfig.specialOreRenderer) {
-			for (Block block : KineWorld.ores) {
+			/*for (Block block : KineWorld.ores) {
 					RenderingUtils.replaceRegisteredModel(new ModelResourceLocation(block.getRegistryName(), "normal"), registry, BakedModelKineOre.class);
 					System.out.println(block.getRegistryName().toString() + " in block" + block);
-			}
+			}*/
 		}
 	}
 	

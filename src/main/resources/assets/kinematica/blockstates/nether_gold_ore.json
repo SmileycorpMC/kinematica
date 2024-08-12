@@ -1,1 +1,0 @@
-{"forge_marker": 1,"defaults": {"model": "atlaslib:layered_cube", "textures": { "particle": "#base", "base": "minecraft:blocks/netherrack","overlay": "kinematica:blocks/ores/nether_gold_ore" } },"variants": {"normal": [{}], "inventory": [{}]}}

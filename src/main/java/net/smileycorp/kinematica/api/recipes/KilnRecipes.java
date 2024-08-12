@@ -1,16 +1,15 @@
 package net.smileycorp.kinematica.api.recipes;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
+import com.google.common.collect.Maps;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.oredict.OreIngredient;
 import net.smileycorp.atlas.api.recipe.OreIngredientReadable;
 import net.smileycorp.atlas.api.util.RecipeUtils;
 
-import com.google.common.collect.Maps;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class KilnRecipes {
 	

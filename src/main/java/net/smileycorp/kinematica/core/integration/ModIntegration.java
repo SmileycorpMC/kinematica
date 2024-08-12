@@ -1,6 +1,7 @@
 package net.smileycorp.kinematica.core.integration;
 
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.smileycorp.kinematica.core.integration.tcon.TConRecipeLoader;
 import net.smileycorp.kinematica.core.integration.thermal.ThermalAPI;
@@ -15,6 +16,9 @@ public class ModIntegration {
 			//UBIntegration.setupOres(event);
 			ubInstalled = true;
 		}
+		if (Loader.isModLoaded("waila")) FMLInterModComms.sendMessage("waila", "register",
+				"net.smileycorp.kinematica.core.integration.waila.WailaIntegration.class");
+		
 	}
 	
 	public static void apiInit() {

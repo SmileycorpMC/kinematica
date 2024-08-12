@@ -1,13 +1,12 @@
 package net.smileycorp.kinematica.core.common.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
-
 import net.smileycorp.atlas.api.util.DirectionUtils;
+
+import java.util.Random;
 
 public class TileEntityLatexLog extends TileEntity {
 	
