@@ -27,7 +27,6 @@ public class OreGenerator implements IWorldGenerator {
 				genOre(AURAGMUS, 5, 7, 0, 120, Blocks.NETHERRACK, world, rand, chunkX, chunkZ);
 				genOre(MYAGMINITE, 4, 5, 0, 120, Blocks.NETHERRACK, world, rand, chunkX, chunkZ);
 				break;
-			
 			default:
 				genOre(ACANTHITE, 6, 5, 30, 60, Blocks.STONE, world, rand, chunkX, chunkZ);
 				bauxiteGen(world, rand, chunkX, chunkZ);
@@ -48,6 +47,14 @@ public class OreGenerator implements IWorldGenerator {
 				copperOxideGen(world, rand, chunkX, chunkZ);
 				copperSulphateGen(world, rand, chunkX, chunkZ);
 				platinumGen(world, rand, chunkX, chunkZ);
+				groutiteGen(world, rand, chunkX, chunkZ);
+				hematiteGen(world, rand, chunkX, chunkZ);
+				rhodoniteGen(world, rand, chunkX, chunkZ);
+				
+				//surface ores
+				goethiteGen(world, rand, chunkX, chunkZ);
+				magnetiteGen(world, rand, chunkX, chunkZ);
+				pyrolusiteGen(world, rand, chunkX, chunkZ);
 				
 				//pegmatite ores
 				genOre(CORUNDUM, 8, 24, 0, 58, PEGMATITE, world, rand, chunkX, chunkZ);
@@ -197,6 +204,90 @@ public class OreGenerator implements IWorldGenerator {
 			int z = chunkZ * 16 + rand.nextInt(16);
 			
 			generator.generate(world, rand, new BlockPos(x, y, z));
+		}
+	}
+	
+	private void groutiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(8, GROUTITE.getDefaultState(), Blocks.STONE.getDefaultState());
+		int chance = 5;
+		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));
+		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.PLAINS)) chance=11;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 45 + rand.nextInt(25);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			
+			generator.generate(world, rand, new BlockPos(x, y, z));
+		}
+	}
+	
+	private void hematiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(10, HEMATITE.getDefaultState(), Blocks.STONE.getDefaultState());
+		int chance = 5;
+		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));
+		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN)) chance=12;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 5 + rand.nextInt(45);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			
+			generator.generate(world, rand, new BlockPos(x, y, z));
+		}
+	}
+	
+	private void rhodoniteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(8, RHODONITE.getDefaultState(), Blocks.STONE.getDefaultState());
+		int chance = 3;
+		Biome biome = world.getBiome(new BlockPos(chunkX*16, 0, chunkZ*16));
+		if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.FOREST)) chance=7;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 20 + rand.nextInt(35);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			
+			generator.generate(world, rand, new BlockPos(x, y, z));
+		}
+	}
+	
+	private void goethiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(3, GOETHITE.getDefaultState(), MUD.getDefaultState());
+		int chance = 20;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 54 + rand.nextInt(9);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			Biome biome= world.getBiome(new BlockPos(x,y,z));
+			if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP) || BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN)){
+				generator.generate(world, rand, new BlockPos(x, y, z));
+			}
+		}
+	}
+	
+	private void magnetiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(5, MAGNETITE.getDefaultState(), Blocks.SAND.getDefaultState());
+		int chance = 6;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 62 + rand.nextInt(11);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			Biome biome= world.getBiome(new BlockPos(x,y,z));
+			if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.BEACH) || BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN)){
+				generator.generate(world, rand, new BlockPos(x, y, z));
+			}
+		}
+	}
+	
+	private void pyrolusiteGen(World world, Random rand, int chunkX, int chunkZ){
+		WorldGenSimpleOre generator = new WorldGenSimpleOre(3, PYROLUSITE.getDefaultState(), MUD.getDefaultState());
+		int chance = 14;
+		for (int i=0; i<chance; i++){
+			int x = chunkX * 16 +rand.nextInt(16);
+			int y = 54 + rand.nextInt(9);
+			int z = chunkZ * 16 + rand.nextInt(16);
+			Biome biome= world.getBiome(new BlockPos(x,y,z));
+			if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.SWAMP) || BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN)){
+				generator.generate(world, rand, new BlockPos(x, y, z));
+			}
 		}
 	}
 	

@@ -19,7 +19,6 @@ public abstract class WorldGenOre extends WorldGenerator {
     }
 
     public boolean generate(World world, Random rand, BlockPos pos) {
-        if (world.getBlockState(pos) != base) return false;
         float radius = rand.nextFloat() * (float)Math.PI;
         double d0 = (float)(pos.getX() + 8) + MathHelper.sin(radius) * (float) num / 8.0F;
         double d1 = (float)(pos.getX() + 8) - MathHelper.sin(radius) * (float) num / 8.0F;
@@ -49,6 +48,7 @@ public abstract class WorldGenOre extends WorldGenerator {
                         double d14 = ((double) j2 + 0.5D - d8) / (d10 / 2.0D);
                         if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
                             BlockPos pos1 = new BlockPos(l1, i2, j2);
+                            if (world.getBlockState(pos1) != base) continue;
                             setBlockAndNotifyAdequately(world, pos1, getState(world, rand, pos1));
                         }
                     }
