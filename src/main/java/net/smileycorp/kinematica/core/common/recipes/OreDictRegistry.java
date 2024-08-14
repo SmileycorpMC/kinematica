@@ -1,7 +1,11 @@
 package net.smileycorp.kinematica.core.common.recipes;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import net.smileycorp.atlas.api.util.TextUtils;
+import net.smileycorp.kinematica.api.ores.OresAPI;
 import net.smileycorp.kinematica.api.util.ElementUtils;
 import net.smileycorp.kinematica.core.common.construction.KineConstruction;
 import net.smileycorp.kinematica.core.common.materials.BlockMetal;
@@ -51,12 +55,14 @@ public class OreDictRegistry {
 				OreDictionary.registerOre("block" + altName, block);
 			}
 		}
-		/*for (BlockOreBase block : KineWorld.ores) {
-			String name = block.getName().replace("Nether", "").replace("_", "");
-			OreDictionary.registerOre("ore" + name , block);
-			for (String altName : ElementUtils.getOtherNames(name)) {
-				OreDictionary.registerOre("ore" + altName, block);
-			}
-		}*/
+		for (Block block : OresAPI.getOres()) registerOre(block);
     }
+	
+	private static void registerOre(Block block) {
+		String name = "ore" + TextUtils.toProperCase(block.getRegistryName().getResourcePath());
+		OreDictionary.registerOre(name, block);
+		Item ore = OresAPI.getOreItem(block);
+		if (ore != null) OreDictionary.registerOre(name, ore);
+	}
+	
 }
